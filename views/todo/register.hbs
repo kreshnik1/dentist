@@ -1,0 +1,93 @@
+ 
+<nav class="navbar  navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/"> <p class="company"><img src="../../images/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    Company</p> </a>
+</nav>
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+           
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+						{{>flash}}
+
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Sign up</h1>
+            
+          </div>
+			<div class="card register_body">
+				
+				 <div class="card-body">
+				<form action="/register" method="post" class="needs-validation" class="register">
+					<input type="hidden" name="_csrf" value="{{ csrftoken }}" />
+				  <div class="form-row">
+					<div class="col-md-4 mb-3">
+					  <label for="validationServer01">First name</label>
+					  <input type="text" class="form-control " id="validationServer01" placeholder="First name" name="name" required>
+
+					</div>
+					<div class="col-md-4 mb-3">
+					  <label for="validationServer02">Last name</label>
+					  <input type="text" class="form-control " id="validationServer02" placeholder="Last name" name="surname" required>
+
+					</div>
+					<div class="col-md-4 mb-3">
+					  <label for="validationServerUsername">Username</label>
+					  <div class="input-group">
+							<input type="text" class="form-control " id="validationServerUsername" placeholder="Username" name="username" aria-describedby="inputGroupPrepend3" required>
+					  </div>
+					</div>
+				  </div>
+				  <div class="form-row">
+					<div class="col-md-4 mb-3">
+						<label for="validationServer03">Email</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="inputGroupPrepend3"><i data-feather="mail"></i></span>
+								</div>
+								<input type="email" class="form-control " id="validationServer03" placeholder="Email" name="email" required>
+							</div>
+					</div>
+					<div class="col-md-4 mb-3">
+					  <label for="validationServer04">Password</label>
+					  <input type="password" class="form-control " id="validationServer04" placeholder="Password" name="password" required>
+                          <div class="invalid-feedback">
+                            Password must be more than 6 characters , please try again 
+                          </div>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>    
+					</div>
+					<div class="col-md-4 mb-3">
+					  <label for="validationServer05">Re-Password</label>    
+					  <input type="password" class="form-control" id="validationServer05" placeholder="Repassword" name="repassword" required>
+                         <div class="invalid-feedback doesnt_match">
+                            Re-Password must be more than 6 characters , please try again 
+                          </div>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+					</div>
+				  </div>
+				  <div class="form-group">
+						<div class="custom-control custom-checkbox mb-3">
+							<input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
+							<label class="custom-control-label" for="customControlValidation1"> Agree to terms and conditions</label>
+
+						</div>
+
+				  </div>
+					<a href="/login"><button class="btn btn-primary registerButton" type="submit" id="button1">   Submit  </button></a>
+				</form>
+				</div>
+			</div>
+
+        </main>
+      </div>
+    </div>
+
+
+<script type="text/javascript" src="js/validation.js"></script>  

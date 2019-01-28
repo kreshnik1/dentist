@@ -1,0 +1,235 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/home"> <p class="company"><img src="../../images/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    Company</p> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span data-feather="menu"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav  ">
+          <li class="nav-item menus">
+                        <a class="nav-link active" href="/home">
+                            <span data-feather="home"></span>
+                            Home <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item menus">
+                        <a class="nav-link" href="/mysnippet">
+                            <span data-feather="file"></span>
+                            My Questions
+                        </a>
+                    </li>
+                    <li class="nav-item menus">
+                        <a class="nav-link" href="/create">
+                            <span data-feather="edit"></span>
+                            Ask a Question
+                        </a>
+                    </li>
+                    <li class="nav-item menus">
+                         <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter">
+                            <span data-feather="users"></span>
+                            Contact us
+                  </a>
+                    </li>
+                    <li class="nav-item">
+                        <form class="form-inline mt-2 mt-md-0" action="/home/search"  method="get">
+                            <input type="hidden"  name="_csrf" value="{{ csrftoken }}" />   
+                            <input type="text" size="30" name="search" class="form-control mr-sm-2" type="search" placeholder="Search by title or category" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </li>
+                    <li class="nav-item menus">
+                         <button type="button"  id="li" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i data-feather="user"></i>
+                                </button>        
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="/home/profile/{{user_id}}" class="dropdownlinks"><button class="dropdown-item" type="button">My profile</button></a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="/logout" class="dropdownlinks"><button class="dropdown-item" type="button">Sign out</button></a>
+                                </div>
+                    </li>
+          </ul>
+          
+    </div>
+    <div class="buttonnone">
+        
+        <div class="btn-group profile_button">
+            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i data-feather="user"></i>
+            </button>        
+            <div class="dropdown-menu dropdown-menu-right">
+                <a href="/home/profile/{{user_id}}" class="dropdownlinks"><button class="dropdown-item" type="button">My profile</button></a>
+                <div class="dropdown-divider"></div>
+                <a href="/logout" class="dropdownlinks"><button class="dropdown-item" type="button">Sign out</button></a>
+            </div>
+        </div> 
+    </div>                       
+</nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="/home">
+                  <i data-feather="home"></i>
+                  Home <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/mysnippet">
+                  <span data-feather="file"></span>
+                  My Questions
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/create">
+                  <span data-feather="edit"></span>
+                  Ask a Question
+                </a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter">
+                            <span data-feather="users"></span>
+                            Contact us
+                  </a>
+              </li>
+              
+            </ul>
+              <div id="hidden_loading">
+                  <div class="sk-fading-circle">
+                      <div class="sk-circle1 sk-circle"></div>
+                      <div class="sk-circle2 sk-circle"></div>
+                      <div class="sk-circle3 sk-circle"></div>
+                      <div class="sk-circle4 sk-circle"></div>
+                      <div class="sk-circle5 sk-circle"></div>
+                      <div class="sk-circle6 sk-circle"></div>
+                      <div class="sk-circle7 sk-circle"></div>
+                      <div class="sk-circle8 sk-circle"></div>
+                      <div class="sk-circle9 sk-circle"></div>
+                      <div class="sk-circle10 sk-circle"></div>
+                      <div class="sk-circle11 sk-circle"></div>
+                      <div class="sk-circle12 sk-circle"></div>
+                  </div>   
+              </div>  
+           
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+						{{>flash}}
+
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+            <h3>Oldest Questions</h3>
+			  <a href="/create">
+			  <button class="btn  btn-primary">
+                <i data-feather="edit-2"></i>
+               	Ask a Question
+              </button>
+			  </a>	  
+          </div>
+			 <ul class="nav nav-tabs" id="myTab" role="tablist">
+  				<li class="nav-item">
+    				<a class="nav-link submit" id="home-tab"  href="/home" >Newest</a>
+  				</li>
+  				<li class="nav-item">
+					<a class="nav-link active " id="profile-tab"  href="#">Oldest</a>
+  				</li>  		
+			</ul>
+			<div class="tab-content" id="myTabContent">
+                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Contact us</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      
+                         <form action="/contact"  id="contact" method="post">
+                            <div class="modal-body">
+                                <input type="hidden" name="_csrf" value="{{ csrftoken }}" />
+                                <div class="form-group ">
+                                    <label for="recipient-name" class="col-form-label">Username:</label>
+                                    <input type="text" readonly class="form-control-plaintext"  name="username" value="{{user_username}}" >
+                                    <label for="message-text" class="col-form-label">Message:</label>
+                                    <textarea class="form-control" id="message-text" required></textarea>
+                                </div>  		     
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" value="submit" form="contact" class="btn btn-primary ">Send</button>
+                            </div>
+                        </form>  
+                    </div>
+                  </div>
+            </div>
+			  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+				  {{#each todos}}
+
+				  <div class="card questions">
+					  <div class="card-body">
+						  <h5 class="card-title title"><a href="/home/questions/{{id}}" class="link_title">{{title}}</a></h5>
+						  
+						  <ul class="list-inline">
+								{{#each tags}}
+                                    {{#if this}}
+                                        <li>
+                                            <button type="button" class="btn btn-outline-dark btn-sm">{{this}}</button>
+                                        </li>
+                                    {{/if}}
+								{{/each}}
+						  	</ul>
+					  </div>
+				  <div class="card-footer text-muted">		 
+					  Asked by <strong>{{username}}</strong> , {{data}} 
+					  {{#if check}}
+					  	<div class="delete_update">
+						   	<a href="/home/update/{{id}}"><button type="button" class="btn btn-light"  data-toggle="tooltip" data-placement="top" title="Update the question">
+						  		<i data-feather="edit-3"></i>
+								</button></a>
+						  	<button type="button" class="btn btn btn-light" data-toggle="modal" data-target="#exampleModalCenter{{id}}">
+								<i data-feather="trash-2"></i>
+						  	</button>
+				 		</div>
+				  	  {{/if}}
+				  </div>
+				</div>
+
+					<div class="dropdown-divider"></div>
+				{{#if check}}
+					<div class="modal fade" id="exampleModalCenter{{id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					  <div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+						  <div class="modal-header">
+							<h5 class="modal-title" id="exampleModalCenterTitle">Delete the question</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							  <span aria-hidden="true">&times;</span>
+							</button>
+						  </div>
+							<form action="/home/delete/{{id}}"  id="delete_{{id}}" method="post">
+							  <div class="modal-body">
+								   <p>Are you sure to delete this question ?</p>
+								  <input type="hidden" class="csrf" name="_csrf" />
+							  </div>
+							  <div class="modal-footer">
+								  <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+								  <button type="submit" value="submit" form="delete_{{id}}" class="btn btn-danger delete_button">Delete </button>
+							  </div>
+							</form> 
+						</div>
+					  </div>
+					</div>
+				
+
+				{{/if}}
+
+				  {{/each}}
+
+				</div>
+			</div>
+        </main>
+      </div>
+    </div>
+<script type="text/javascript" src="../../js/validation.js"></script>		  

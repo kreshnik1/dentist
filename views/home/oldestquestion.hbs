@@ -1,0 +1,86 @@
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/"> <p class="company"><img src="../../images/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    Company</p> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span data-feather="menu"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <form class="form-inline mt-2 mt-md-0" action="/search"  method="get">
+                    <input type="hidden"  name="_csrf" value="{{ csrftoken }}" />   
+                    <input type="text" size="30" name="search" class="form-control mr-sm-2" type="search" placeholder="Search by title or category" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </li>
+                <li class="nav-item text-nowrap menus">
+                    <a id="li" href="/login"><button type="button" class="btn btn-outline-success ">Log in</button></a>
+                    <a id="li" href="/register"><button type="button" class=" btn btn-outline-primary ">Get started</button></a>      
+                </li>
+        </ul>
+        </div>
+        <div class="buttonnone">
+
+            <ul class="navbar-nav px-3 buttonnone">
+                <li class="nav-item text-nowrap">
+                    <a id ="l" href="/login"><button type="button" class="btn btn-outline-success ">Log in</button></a>
+                    <a id="l" href="/register"><button type="button" class=" btn btn-outline-primary ">Get started</button></a>      
+                </li>
+            </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+	<div class="row">
+		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+			<div class="sidebar-sticky">
+           
+          	</div>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+			{{>flash}}
+			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Oldest Questions</h1>
+				<ul class="nav nav-tabs" id="myTab" role="tablist">
+  				<li class="nav-item">
+    				<a class="nav-link" id="home-tab"  href="/" >Newest</a>
+  				</li>
+  <li class="nav-item">
+    <a class="nav-link active " id="profile-tab" data-toggle="tab" href="#" role="tab" aria-controls="profile" aria-selected="false">Oldest</a>
+  </li>
+</ul>
+          </div>
+
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                  {{#each todos}}
+
+                  <div class="card questions">
+                      <div class="card-body">
+                          <h5 class="card-title title"><a href="/questions/{{id}}" class="link_title">{{title}}</a></h5>
+                          <ul class="list-inline">
+                                {{#each tags}}
+                                    <li>
+                                        <button type="button" class="btn btn-outline-dark btn-sm">{{this}}</button>
+                                    </li>
+                                {{/each}}
+                          </ul>
+                      </div>
+                  <div class="card-footer text-muted">		 
+                      Asked by <strong>{{username}}</strong> , {{data}}
+                  </div>
+                </div>
+                    <div class="dropdown-divider"></div>
+                  {{/each}}
+                  
+               
+                </div>
+              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<script type="text/javascript" src="../../js/validation.js"></script>  
