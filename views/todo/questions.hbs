@@ -1,0 +1,459 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/home"> <p class="company"><img src="../../images/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    Company</p> </a>
+        <p hidden id="hidden">{{csrftoken}}</p>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span data-feather="menu"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav  ">
+          <li class="nav-item menus">
+                        <a class="nav-link " href="/home">
+                            <span data-feather="home"></span>
+                            Home <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item menus">
+                        <a class="nav-link" href="/mysnippet">
+                            <span data-feather="file"></span>
+                            My Questions
+                        </a>
+                    </li>
+                    <li class="nav-item menus">
+                        <a class="nav-link" href="/create">
+                            <span data-feather="edit"></span>
+                            Ask a Question
+                        </a>
+                    </li>
+                    <li class="nav-item menus">
+                        <a class="nav-link " data-toggle="modal" data-target="#exampleModalCenter">
+                            <span data-feather="users"></span>
+                            Contact us
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <form class="form-inline mt-2 mt-md-0" action="/home/search"  method="get">
+                            <input type="hidden"  name="_csrf" value="{{ csrftoken }}" />   
+                            <input type="text" size="30" name="search" class="form-control mr-sm-2" type="search" placeholder="Search by title or category" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </li>
+                    <li class="nav-item menus">
+                         <button type="button"  id="li" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i data-feather="user"></i>
+                                </button>        
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="/home/profile/{{user_id}}" class="dropdownlinks"><button class="dropdown-item" type="button">My profile</button></a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="/logout" class="dropdownlinks"><button class="dropdown-item" type="button">Sign out</button></a>
+                                </div>
+                    </li>
+          </ul>
+          
+    </div>
+    <div class="buttonnone">
+        
+        <div class="btn-group profile_button">
+            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i data-feather="user"></i>
+            </button>        
+            <div class="dropdown-menu dropdown-menu-right">
+                <a href="/home/profile/{{user_id}}" class="dropdownlinks"><button class="dropdown-item" type="button">My profile</button></a>
+                <div class="dropdown-divider"></div>
+                <a href="/logout" class="dropdownlinks"><button class="dropdown-item" type="button">Sign out</button></a>
+            </div>
+        </div> 
+    </div>                       
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar" >
+            <div class="sidebar-sticky" >
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/home">
+                            <span data-feather="home"></span>
+                            Home <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/mysnippet">
+                            <span data-feather="file"></span>
+                            My Questions
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/create">
+                            <span data-feather="edit"></span>
+                            Ask a Question
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter">
+                            <span data-feather="users"></span>
+                            Contact us
+                        </a>
+                    </li>
+                </ul>
+               
+                    <div id="hidden_loading">
+                        <div class="sk-fading-circle">
+                            <div class="sk-circle1 sk-circle"></div>
+                            <div class="sk-circle2 sk-circle"></div>
+                            <div class="sk-circle3 sk-circle"></div>
+                            <div class="sk-circle4 sk-circle"></div>
+                            <div class="sk-circle5 sk-circle"></div>
+                            <div class="sk-circle6 sk-circle"></div>
+                            <div class="sk-circle7 sk-circle"></div>
+                            <div class="sk-circle8 sk-circle"></div>
+                            <div class="sk-circle9 sk-circle"></div>
+                            <div class="sk-circle10 sk-circle"></div>
+                            <div class="sk-circle11 sk-circle"></div>
+                            <div class="sk-circle12 sk-circle"></div>
+                        </div>   
+                    </div>
+            </div>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            {{>flash}}
+             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Contact us</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      
+                         <form action="/contact"  id="contact" method="post">
+                            <div class="modal-body">
+                                <input type="hidden" name="_csrf" value="{{ csrftoken }}" />
+                                <div class="form-group ">
+                                    <label for="recipient-name" class="col-form-label">Username:</label>
+                                    <input type="text" readonly class="form-control-plaintext"  name="username" value="{{user_name}}" >
+                                    <label for="message-text" class="col-form-label">Message:</label>
+                                    <textarea class="form-control" id="message-text" required></textarea>
+                                </div>  		     
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" value="submit" form="contact" class="btn btn-primary ">Send</button>
+                            </div>
+                        </form>  
+                    </div>
+                  </div>
+            </div>
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h4>{{title}}</h4>
+                <a href="/create">
+                    <button class="btn  btn-primary submit">
+                        <i data-feather="edit-2"></i>               	
+                        Ask a Question
+                    </button>
+                </a>	  
+            </div>
+                <div class="row ">
+                    <div class="col col-1">
+                        <h6 class="answer"></h6>
+                    </div>
+                    <div class="col col-lg-9 questionCode">
+                        <div class="alert alert-light " role="alert">
+                            {{{content}}}
+                        </div>
+                        <div class="alert alert-light catey" role="alert">
+                            <ul class="list-inline">
+                                {{#each tags}}
+                                    {{#if this}}
+                                        <li>
+                                            <button type="button" class="btn btn-outline-dark btn-sm">{{this}}</button>
+                                        </li>
+                                    {{/if}}
+                                {{/each}}
+                                <li class="time_right">
+                                    {{data}}
+                                </li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                    <div class="col col-2">
+                        <button type="button" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Asked by : {{username}} ">
+                            <span data-feather="user"></span>
+                        </button>
+                        <button type="button" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Asked on : {{createdAt}} ">
+                            <span data-feather="calendar"></span>
+                        </button>
+
+                    </div>
+                </div>
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom">
+            </div> 
+            <h5 class="answer"></h5>
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom"></div> 
+            {{#each todos}}
+            <div class="row ">
+                <div class="col col-1">
+                    {{#is ../user_name ../username}}
+                        {{#if comment_correct}}
+                            <div class="correctAnswer">
+                                <a data-toggle="modal" data-target="#ModalUncheckCorrectAnswer{{comment_id}}">
+                                    <i class="material-icons correct_answer" data-toggle="tooltip" data-placement="top" title="Uncheck this as correct answer">
+                                        done
+                                    </i>
+                                </a>     
+                            </div>
+                            {{else}}
+                                <div class="correct">
+                                    <a data-toggle="modal" data-target="#ModalCorrectAnswer{{comment_id}}">
+                                        <i class="material-icons correct" data-toggle="tooltip" data-placement="top" title="Check this as  correct answer">
+                                            done
+                                        </i>
+                                    </a>
+                                </div> 
+                        {{/if}}                                    
+                        <div class="modal fade" id="ModalCorrectAnswer{{comment_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle">Correct  answer</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form action="/home/correct/answer/{{comment_id}}"  id="correct_answer{{comment_id}}" method="post">
+                                        <div class="modal-body">
+                                            <p>Are you sure to check this answer as correct ?</p>
+                                            <input type="hidden" class="csrf" name="_csrf" />
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" value="submit" form="correct_answer{{comment_id}}" class="btn btn-primary submit">Correct </button>
+                                        </div>
+                                    </form> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="ModalUncheckCorrectAnswer{{comment_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle">Unchek correct  answer</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span></button>
+                                    </div>
+                                    <form action="/home/uncheck/correct/answer/{{comment_id}}"  id="uncheck_correct_answer{{comment_id}}" method="post">
+                                        <div class="modal-body">
+                                            <p>Are you sure to uncheck this answer as correct ?</p>
+                                            <input type="hidden" class="csrf" name="_csrf" />
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" value="submit" form="uncheck_correct_answer{{comment_id}}" class="btn btn-primary submit">Uncheck </button>
+                                        </div>
+                                    </form> 
+                                </div>
+                            </div>
+                        </div>
+                        {{else}}
+                            {{#if comment_correct}}
+                                <div class="correctAnswer">
+                                    <i class="material-icons correct_answer" data-toggle="tooltip" data-placement="top" title="The question owner accepted this as the best answer">
+                                        done
+                                    </i>
+                                </div>
+                            {{/if}}
+                    {{/is}}
+                    
+                </div>
+                <div class="col col-lg-9">
+                    <div class="alert comments"  role="alert">
+                        {{{comment_content}}}
+                            <ul class="list-inline commentDate">
+                                <li> {{comment_date}}</li>
+                            </ul>
+                            {{#if check}}
+                                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-2 pb-2 mb-2 "></div>
+                                <a href="/home/comment/update/{{comment_id}}">
+                                    <button type="button" class="btn btn-outline-dark submit" data-toggle="tooltip" data-placement="top" title="Edit">
+                                        <span data-feather="edit-3"></span>
+                                    </button>
+                                </a>
+                                <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModalCenter{{comment_id}}">
+                                    <i data-feather="trash-2"></i>
+                                </button>
+                             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 border-bottom"></div>
+                                
+                            {{else}}
+                                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 border-bottom"></div>
+                            {{/if}}
+                            
+                                
+                            <div class="subcomments">
+                                </hr>
+                                <ul class="list-group list-group-flush">
+                                    {{#each subComment}}
+                                        {{#is subcomment_commentId ../comment_id }} 
+                                            <li class="list-group-item subcomment_view"> 
+                                                {{{subcomment_content}}}-
+                                                <span class="badge badge-primary">{{subcomment_username}}</span>
+                                                <span class="subcommentDate">{{subcomment_date}}</span>
+                                                {{#is subcomment_username ../../user_name }}
+                                                    <div class="modify">
+                                                        <button type="button" class="btn btn-sm btn-link "data-toggle="modal" data-target="#exampleModalCenterCommentUpdate{{subcomment_id}}">
+                                                            <span data-toggle="tooltip" data-placement="top" title="Edit" data-feather="edit-2"></span>
+                                                        </button>
+                                                        
+                                                        <button type="button" class="btn btn-sm btn-link " data-toggle="modal" data-target="#exampleModalCenterComment{{subcomment_id}}">
+                                                            <span data-toggle="tooltip" data-placement="top" title="Delete" data-feather="trash"></span>
+                                                        </button>
+                                                    </div>
+                                                {{/is}}
+                                            </li>
+                                        {{/is}}
+                                    {{/each}}                               
+                                </ul>
+                                {{#each subComment}}
+                                    {{#is subcomment_commentId ../comment_id }} 
+                                        <div class="modal fade" id="exampleModalCenterComment{{subcomment_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalCenterTitle">Delete the comment</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <form action="/home/subcomment/delete/{{subcomment_id}}"  id="delete_comment_{{subcomment_id}}" method="post">
+                                                        <div class="modal-body">
+                                                            <p>Are you sure to delete this comment ?</p>
+                                                            <input type="hidden" class="csrf" name="_csrf" />
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                                                            <button type="submit" value="submit" form="delete_comment_{{subcomment_id}}" class="btn btn-danger delete_button">Delete </button>
+                                                        </div>
+                                                    </form> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <div class="modal fade" id="exampleModalCenterCommentUpdate{{subcomment_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalCenterTitle">Update the comment</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <form action="/home/subcomment/update/{{subcomment_id}}"  id="update_comment_{{subcomment_id}}" method="post">
+                                                    <div class="modal-body">
+                                                        <input type="hidden" class="csrf" name="_csrf" />
+                                                        <textarea  id="{{subcomment_id}}" class="my_textarea" name="subtextarea" >{{subcomment_content}}</textarea>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="submit" value="submit" form="update_comment_{{subcomment_id}}" class="btn btn-primary  delete_button">Update </button>
+                                                    </div>
+                                                </form> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                {{/is}}
+                            {{/each}}        
+                        <button type="button" class="btn btn-sm btn-light addcomment " data-toggle="modal" data-target="#exampleModalCenterSub{{comment_id}}">Add comment</button>
+                    </div>
+                </div>
+                <div class="modal fade" id="exampleModalCenterSub{{comment_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Create a comment</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form action="/home/create/subcomment"  id="create_subcomment_{{comment_id}}" method="post">
+                                <input type="hidden" class="csrf" name="_csrf" />
+                                <input type="hidden" class="commentUsername" name="comment_Username"/>
+                                <input type="hidden"  name="comment_questionId" value="{{comment_questionId}}"/>    
+                                <input type="hidden" name="commentId" value="{{comment_id}}"/>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <textarea  id="{{comment_id}}" class="my_textarea" name="subtextarea" ></textarea>
+                                    </div>
+                                </div>    
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" value="submit" form="create_subcomment_{{comment_id}}" class="btn btn-primary delete_button"> 
+                                        Create
+                                    </button>
+                                </div>
+                            </form> 
+                        </div>
+                    </div>
+                </div>
+                {{#if check}}
+                    <div class="modal fade" id="exampleModalCenter{{comment_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">Delete the comment</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form action="/home/comment/delete/{{comment_id}}"  id="delete_comment_{{comment_id}}" method="post">
+                                    <div class="modal-body">
+                                        <p>Are you sure to delete this comment ?</p>
+                                        <input type="hidden" class="csrf" name="_csrf" />
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" value="submit" form="delete_comment_{{comment_id}}" class="btn btn-danger delete_button ">
+                                            Delete
+                                        </button>
+                                    </div>
+                                </form> 
+                            </div>
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+                <div class="col col-2">
+                    <button type="button" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Answerd by : {{comment_username}} ">
+                        <span data-feather="user"></span>
+                    </button>
+                    <button type="button" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Answerd on : {{comment_createdAt}} ">
+                        <span data-feather="calendar"></span>
+                    </button>                
+                    
+                </div>    
+            </div>    
+                        
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom"></div> 
+        {{/each}}	
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom "></div>
+            <h5>Your Answer</h5>
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-3 "></div>
+                    <form action="/create/comment" method="post" id="createComment">
+                        <input type="hidden" class="comment_User"name="username" value="{{ user_name }}" />
+                        <input type="hidden" name="questionId" value="{{ id }}" />
+                        <input type="hidden" name="_csrf" value="{{ csrftoken }}" />
+                        <div class="form-group">
+                           <textarea id="mytextarea" name="textarea" ></textarea>
+                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                <p>Body must be at least 30 characters</p>
+                            </small>
+                        </div>
+                    </form>
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-3 "></div>
+                    <button type="submit" value="submit" form="createComment" class="btn btn-primary answerButton">Post your Answer</button>
+			         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+			  	  
+                    </div>
+          
+    </div>
+<script type="text/javascript" src="../../js/validation.js"></script>		 

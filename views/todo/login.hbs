@@ -1,0 +1,32 @@
+<div class="login_main">
+
+	<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+		 <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/"> <p class="company"><img src="../../images/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    Company</p> </a>
+    </nav>
+<div class="container-fluid">
+		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-5   ">
+            
+         </div>
+	{{>flash}}
+	<div class="login">
+		
+<form class="form-signin" action="/login"  method="post" >
+	  <input type="hidden"  name="_csrf" value="{{ csrftoken }}" />
+      <img class="mb-4 image" src="../images/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <label for="inputEmail" class="sr-only">Username</label>
+      <input type="text" id="inputEmail" name="logusername" class="form-control" placeholder="Username" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="logpassword" required>
+      <div class="checkbox mb-3">
+		  <label for="inputEmail" class="sr-only"> Not a member? Sign up now </label>
+      </div>
+	
+      <button class="btn btn-lg btn-primary btn-block login_button" type="submit" >Sign in</button>
+      <p class="member"><label>Not a member?</label> <a href="/register">Sign up now</a></p>
+    </form>
+	</div>	
+</div>
+</div>
+<script type="text/javascript" src="js/validation.js"></script>  
