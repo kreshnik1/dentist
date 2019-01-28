@@ -86,9 +86,9 @@ body {
   float:left;
   height: 3rem;
   padding-top: 0.75rem;
-  padding-bottom: 0.75rem;    
+  padding-bottom: 0.75rem;
   font-size: 1rem;
-  
+
   box-shadow: inset 0px 0 0 rgba(0, 0, 0, .25);
 }
 .mr-0, .mx-0 {
@@ -100,7 +100,7 @@ body {
 .navbar-dark{
 	height: 3rem;
 }*/
-	
+
 .navbar .form-control {
   padding: .75rem 1rem;
   border-width: 0;
@@ -123,14 +123,14 @@ html{
 }
 body{
 	width: 100%;
-	
+
 	font-weight: 400;
 
 }
 .main {
   width: 100%;
- // height: 100vh;	
-  background-color: #fff;	
+ // height: 100vh;
+  background-color: #fff;
 }
 
 
@@ -158,7 +158,7 @@ body{
 .sn{
 	margin-top: 70px;
 }
-.login-snippet{	
+.login-snippet{
   width: 460px;
   padding: 8% 0 0;
   margin: auto;
@@ -224,7 +224,7 @@ body{
     position: relative;
     z-index: -1;
     content: '';
-	/*left:44px;*/  
+	/*left:44px;*/
     display: block; }
 
 .error-page {
@@ -347,7 +347,7 @@ body{
 }
 .error-back:hover {
  	color: #EB957D;
-    text-shadow: 0 0 3px black; 
+    text-shadow: 0 0 3px black;
 }
 
 .articles{
@@ -375,13 +375,13 @@ body{
   font-size: 75%;
 }
 .articles {
-  line-height: 1.5;	
+  line-height: 1.5;
 }
 .section{
   font-size: 110%;
   line-height: 1;
-  width: 100%;	
-  color:#424242;	
+  width: 100%;
+  color:#424242;
 }
 
 #footerp{
@@ -406,7 +406,7 @@ body{
 	width: 70%;
 	height: 100%;
 	margin:0 auto;
-	
+
 }
 
 #alert{
@@ -415,7 +415,7 @@ body{
 
 .login_main{
   width: 100%;
-  height: 100vh;	
+  height: 100vh;
   background-color: #f5f5f5;
 }
 
@@ -426,8 +426,8 @@ body{
   max-width: 330px;
   padding: 15px;
   margin: auto;
-  margin-top:80px;
-  margin-bottom:80px;
+  margin-top:60px;
+  margin-bottom:60px;
 }
 
 
@@ -479,7 +479,7 @@ body{
 
 /*
 .nav-link {
-  border-bottom: 1px solid rgba(0,0,0,0); /*fixes jumpy text on hover*/	
+  border-bottom: 1px solid rgba(0,0,0,0); /*fixes jumpy text on hover*/
 }
 /*
 .nav-link:hover {
@@ -511,7 +511,7 @@ body{
 	line-height: 100%
 }
 .username{
-   text-align: center;  
+   text-align: center;
 	line-height: 100%;/* 2 */
    transform: translate(0, 50%);
 }
@@ -520,10 +520,10 @@ body{
     padding-bottom: .23rem;
     margin-left: 0.2rem;
     font-size: 1.25rem;
-    
+
 }
 .btn-group{
-	margin-right:1rem; 
+	margin-right:1rem;
 }
 .profile-tab{
 	color:aliceblue;
@@ -697,40 +697,40 @@ body{
 .sk-fading-circle .sk-circle11 {
   -webkit-transform: rotate(300deg);
       -ms-transform: rotate(300deg);
-          transform: rotate(300deg); 
+          transform: rotate(300deg);
 }
 .sk-fading-circle .sk-circle12 {
   -webkit-transform: rotate(330deg);
       -ms-transform: rotate(330deg);
-          transform: rotate(330deg); 
+          transform: rotate(330deg);
 }
 .sk-fading-circle .sk-circle2:before {
   -webkit-animation-delay: -1.1s;
-          animation-delay: -1.1s; 
+          animation-delay: -1.1s;
 }
 .sk-fading-circle .sk-circle3:before {
   -webkit-animation-delay: -1s;
-          animation-delay: -1s; 
+          animation-delay: -1s;
 }
 .sk-fading-circle .sk-circle4:before {
   -webkit-animation-delay: -0.9s;
-          animation-delay: -0.9s; 
+          animation-delay: -0.9s;
 }
 .sk-fading-circle .sk-circle5:before {
   -webkit-animation-delay: -0.8s;
-          animation-delay: -0.8s; 
+          animation-delay: -0.8s;
 }
 .sk-fading-circle .sk-circle6:before {
   -webkit-animation-delay: -0.7s;
-          animation-delay: -0.7s; 
+          animation-delay: -0.7s;
 }
 .sk-fading-circle .sk-circle7:before {
   -webkit-animation-delay: -0.6s;
-          animation-delay: -0.6s; 
+          animation-delay: -0.6s;
 }
 .sk-fading-circle .sk-circle8:before {
   -webkit-animation-delay: -0.5s;
-          animation-delay: -0.5s; 
+          animation-delay: -0.5s;
 }
 .sk-fading-circle .sk-circle9:before {
   -webkit-animation-delay: -0.4s;
@@ -756,7 +756,7 @@ body{
 
 @keyframes sk-circleFadeDelay {
   0%, 39%, 100% { opacity: 0; }
-  40% { opacity: 1; } 
+  40% { opacity: 1; }
 }
 
 #loading {
@@ -811,7 +811,7 @@ body{
 	padding-left:1rem
 }
 .menus{
- display: none;   
+ display: none;
 }
 .navbar-collapse{
     width: 100%;

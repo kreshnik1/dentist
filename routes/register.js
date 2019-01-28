@@ -36,7 +36,7 @@ router.route("/register")
 		if(password !== repassword){
 			let err = new Error('Passwords do not match.');
     		err.status = 400;
-			
+
     		//response.send("passwords dont match");
     		request.session.flash = {
 					  type: "error",
@@ -44,10 +44,10 @@ router.route("/register")
           	};
 			return response.redirect("/register");
 		}
-	
-		
+
+
 		if (name && surname && username && password && repassword) {
-			
+
 			let userData = new Users({
 				name:name,
 				surname:surname,
@@ -55,12 +55,12 @@ router.route("/register")
 				email:email,
 				password:password
 			});
-			
+
 			//creats the user by saving the data in database
 			Users.create(userData, function (error, user) {
 				if (error) {
 					let string = error.message;
-					
+
 					if(string.includes("email")){
 						request.session.flash = {
 							type: "error",
@@ -73,17 +73,17 @@ router.route("/register")
             		  		message: "This username already exists , please try another username"
           		 		};
 					}
-				 	
-					
-			  	return response.redirect('/register');	  
+
+
+			  	return response.redirect('/register');
 			  } else {
 				  request.session.flash = {
 					type: "success",
 					message: "You are registered , please log in"
 			 	  };
-				return response.redirect('/login');
+				return response.redirect('/');
 			  }
 			});
 	}});
-	
+
 module.exports = router;

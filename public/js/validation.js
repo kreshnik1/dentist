@@ -1,11 +1,11 @@
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip() 
+  $('[data-toggle="tooltip"]').tooltip()
 })
 
 
 if(document.querySelector(".registerButton")){
     let registerButton = document.querySelector(".registerButton");
-    
+
     document.querySelector("input[name='password']").addEventListener('keyup', function (event) {
         if(document.querySelector("input[name='password']").value.length<6){
             document.querySelector("input[name='password']").setAttribute("class","form-control  is-invalid")
@@ -36,7 +36,7 @@ if(document.querySelector(".registerButton")){
              document.querySelector("input[name='repassword']").setAttribute("class","form-control  is-invalid")
              document.querySelector(".doesnt_match").innerHTML = "Password and repassword don't match , please try again";
          }
-       
+
      })
 }
 
@@ -48,12 +48,12 @@ if(document.querySelector(".navbar-toggler")){
             menus.forEach(function(i){
                  i.style.display="flex";
             })
-           
+
             var buttons = document.querySelectorAll(".buttonnone")
             buttons.forEach(function(i){
                 i.style.display="none";
             })
-            document.querySelector(".navbar-brand").style.background="#343a40";  
+            document.querySelector(".navbar-brand").style.background="#343a40";
         }
     else{
         var menus = document.querySelectorAll(".menus");
@@ -64,13 +64,13 @@ if(document.querySelector(".navbar-toggler")){
         buttons.forEach(function(i){
             i.style.display="flex";
         })
-        document.querySelector(".navbar-brand").style.background="rgba(0, 0, 0, .25)";    
-    }  
+        document.querySelector(".navbar-brand").style.background="rgba(0, 0, 0, .25)";
+    }
 }
 var interval = setInterval(myTimer,2000);
 
 function myTimer() {
-   
+
 	if(document.querySelector(".mesazh")!=null){
 		let element = document.getElementById("alert");
 		element.parentNode.removeChild(element);
@@ -86,8 +86,8 @@ function myTimer1() {
         all.forEach(function(i){
             i.click();
         })
-        setTimeout(function(){ 
-            clearInterval(interval1); 
+        setTimeout(function(){
+            clearInterval(interval1);
         }, 3000);
     }
 }
@@ -122,32 +122,9 @@ if(document.querySelector("textarea")){
             { title: 'Table row 1', selector: 'tr', classes: 'tablerow1' }
         ]
 
-    }); 
+    });
 }
-if(document.querySelector(".my_textarea")){
-    document.querySelectorAll(".my_textarea").forEach(function(i){
-        tinymce.init({
-            selector: "#"+i.id,
-            height: 200,
-            forced_root_block: "",
-            setup: function (editor) {
-                editor.on('change', function () {
-                    tinymce.triggerSave();
-                });
-            },
-            plugins: "textcolor colorpicker ",
-            fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
-            toolbar: 'forecolor backcolor fontsizeselect link unlink | image | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | undo redo | code | formatselect',
-            style_formats: [
-                { title: 'Bold text', inline: 'strong' },
-                { title: 'Red text', inline: 'span', styles: { color: '#ff0000' } },
-                { title: 'Red header', block: 'h1', styles: { color: '#ff0000' } },
-                { title: 'Badge', inline: 'span', styles: { display: 'inline-block', border: '1px solid #2276d2', 'border-radius': '5px', padding: '2px 5px', margin: '0 2px', color: '#2276d2' } },
-                { title: 'Table row 1', selector: 'tr', classes: 'tablerow1' }
-            ]
-        });
-    })
-}
+
 if(document.querySelector(".tags_update")){
     $(".tm-input").each(function(){
         var tags_array = []
@@ -170,13 +147,13 @@ if(document.querySelector(".answer")){
     let answer = document.querySelectorAll(".answer");
     console.log(answer.length);
     answer.forEach(function(i){
-      i.innerHTML = document.querySelectorAll(".comments").length + " Answers"                 
+      i.innerHTML = document.querySelectorAll(".comments").length + " Answers"
     })
     //answer.innerHTML = document.querySelectorAll(".comments").length + " Answers"
 }
 if(document.querySelector(".hidden_tags")){
     let tags = document.querySelectorAll(".hidden_tags");
-    
+
 }
 if(document.querySelector(".comment_User")){
     let username = document.querySelector(".comment_User").value;
@@ -189,7 +166,7 @@ let post_answer = document.querySelectorAll(".submit");
 post_answer.forEach(function(i){
     i.addEventListener("click",function(){
         document.querySelector("#hidden_loading").id="loading";
-    })       
+    })
 })
 /*$('.delete_button').on('click', function() {
         $(this).val("Disabled").attr('class', 'btn btn-danger disabled');
@@ -197,7 +174,7 @@ post_answer.forEach(function(i){
 */
 if(document.querySelector(".createButton")){
     let createButton = document.querySelector(".createButton");
-    
+
     document.querySelector("#validateTitle").addEventListener('keyup', function (event) {
         if(document.querySelector("#validateTitle").value.length<15){
             document.querySelector("#validateTitle").setAttribute("class","form-control  is-invalid")
@@ -214,11 +191,11 @@ if(document.querySelector(".createButton")){
         if(document.querySelector(" input[name='hidden-tags']").value.length<1){
             document.querySelector(".tm-input-info").setAttribute("class","tm-input form-control tm-input-info is-invalid");
             createButton.disabled = true;
-        } 
+        }
         else{
             document.querySelector(".tm-input-info").setAttribute("class","tm-input form-control tm-input-info  is-valid");
             if(document.querySelector("input[name='hidden-tags']").value.length>0 && document.querySelector("#validateTitle").value.length>14){
-                createButton.disabled = false;            
+                createButton.disabled = false;
              }
         }
     })
@@ -241,7 +218,7 @@ if(document.querySelector(".createButton")){
              }
          }
      })
-   
+
 }
 
 if(document.querySelector(".passwordButton")){
@@ -252,39 +229,39 @@ if(document.querySelector(".passwordButton")){
     oldpassword.addEventListener('keyup', function (event) {
         if(oldpassword.value.length<6){
             oldpassword.setAttribute("class","form-control is-invalid")
-            passwordButton.disabled = true; 
+            passwordButton.disabled = true;
         }
         else{
             oldpassword.setAttribute("class","form-control is-valid")
             if(oldpassword.value.length>5 && newpassword.value.length>5 && repassword.value.length>5){
                 console.log(oldpassword.value.length+" "+newpassword.value.length+" "+repassword.value.length)
-                passwordButton.disabled = false; 
+                passwordButton.disabled = false;
             }
         }
     })
     newpassword.addEventListener('keyup', function (event) {
         if(newpassword.value.length<6){
             newpassword.setAttribute("class","form-control is-invalid")
-            passwordButton.disabled = true; 
+            passwordButton.disabled = true;
         }
         else{
             newpassword.setAttribute("class","form-control is-valid")
             if(oldpassword.value.length>5 && newpassword.value.length>5 && repassword.value.length>5){
                 console.log(oldpassword.value.length+" "+newpassword.value.length+" "+repassword.value.length)
-                passwordButton.disabled = false; 
+                passwordButton.disabled = false;
             }
         }
     })
     repassword.addEventListener('keyup', function (event) {
         if(repassword.value.length<6){
             repassword.setAttribute("class","form-control is-invalid")
-            passwordButton.disabled = true; 
+            passwordButton.disabled = true;
         }
         else {
             repassword.setAttribute("class","form-control is-valid")
             if(oldpassword.value.length>5 && newpassword.value.length>5 && repassword.value.length>5){
-                console.log(oldpassword.value.length+" "+ newpassword.value.length+" "+repassword.value.length)             
-                passwordButton.disabled = false; 
+                console.log(oldpassword.value.length+" "+ newpassword.value.length+" "+repassword.value.length)
+                passwordButton.disabled = false;
             }
         }
     })
@@ -332,12 +309,12 @@ if(document.querySelector(".navbar-toggler")){
             menus.forEach(function(i){
                  i.style.display="flex";
             })
-           
+
             var buttons = document.querySelectorAll(".buttonnone")
             buttons.forEach(function(i){
                 i.style.display="none";
             })
-            document.querySelector(".navbar-brand").style.background="#343a40";    
+            document.querySelector(".navbar-brand").style.background="#343a40";
         }
     else{
         var menus = document.querySelectorAll(".menus");
@@ -348,8 +325,7 @@ if(document.querySelector(".navbar-toggler")){
         buttons.forEach(function(i){
             i.style.display="flex";
         })
-        document.querySelector(".navbar-brand").style.background="rgba(0, 0, 0, .25)";    
+        document.querySelector(".navbar-brand").style.background="rgba(0, 0, 0, .25)";
     }
-    },0.1)  
+    },0.1)
 }
- 

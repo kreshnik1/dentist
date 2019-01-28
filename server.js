@@ -57,14 +57,14 @@ app.use(csp({
     defaultSrc: ["'self'"],
     styleSrc: ["'self'","'unsafe-inline'", 'https://fonts.googleapis.com/icon','https://fonts.googleapis.com/css','https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css','https://cloud.tinymce.com/stable/skins/lightgray/skin.min.css','https://cloud.tinymce.com/stable/skins/lightgray/content.min.css','https://cdnjs.cloudflare.com/ajax/libs/tagmanager/3.0.2/tagmanager.min.css','https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css'],
 	fontSrc:["'self'",'https://fonts.gstatic.com','https://fonts.gstatic.com/s/materialicons','https://fonts.gstatic.com/s/roboto/v18/Hgo13k-tfSpn0qi1SFdUfVtXRa8TVwTICgirnJhmVJw.woff2','https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css','https://cloud.tinymce.com/stable/skins/lightgray/fonts/tinymce.ttf','https://cloud.tinymce.com/stable/skins/lightgray/fonts/tinymce.woff','https://cloud.tinymce.com/stable/skins/lightgray/fonts/tinymce-small.woff','https://cloud.tinymce.com/stable/skins/lightgray/fonts/tinymce-small.ttf']  ,
-	scriptSrc : ["'self'",'https://code.jquery.com/jquery-3.3.1.slim.min.js','https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js','https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js','https://code.jquery.com/jquery-3.3.1.slim.min.js https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js','https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js','https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js','https://unpkg.com/feather-icons/dist/feather.min.js','https://unpkg.com/feather-icons/dist/feather.min.js','https://unpkg.com/feather-icons','https://cloud.tinymce.com/stable/tinymce.min.js','https://cloud.tinymce.com/stable/themes/modern/theme.min.js','https://cloud.tinymce.com/stable/plugins/textcolor/plugin.min.js','https://cloud.tinymce.com/stable/plugins/advlist/plugin.min.js','https://cloud.tinymce.com/stable/plugins/autolink/plugin.min.js','https://cloud.tinymce.com/stable/plugins/link/plugin.min.js','https://cloud.tinymce.com/stable/plugins/image/plugin.min.js','https://cdnjs.cloudflare.com/ajax/libs/tagmanager/3.0.2/tagmanager.min.js','https://cloud.tinymce.com/stable/plugins/colorpicker/plugin.min.js'],// throw an error instead of loading script from any other source 
-	baseUri : ["'self'"], //restricts the URLs that can appear in a page’s <base> element 
+	scriptSrc : ["'self'",'https://code.jquery.com/jquery-3.3.1.slim.min.js','https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js','https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js','https://code.jquery.com/jquery-3.3.1.slim.min.js https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js','https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js','https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js','https://unpkg.com/feather-icons/dist/feather.min.js','https://unpkg.com/feather-icons/dist/feather.min.js','https://unpkg.com/feather-icons','https://cloud.tinymce.com/stable/tinymce.min.js','https://cloud.tinymce.com/stable/themes/modern/theme.min.js','https://cloud.tinymce.com/stable/plugins/textcolor/plugin.min.js','https://cloud.tinymce.com/stable/plugins/advlist/plugin.min.js','https://cloud.tinymce.com/stable/plugins/autolink/plugin.min.js','https://cloud.tinymce.com/stable/plugins/link/plugin.min.js','https://cloud.tinymce.com/stable/plugins/image/plugin.min.js','https://cdnjs.cloudflare.com/ajax/libs/tagmanager/3.0.2/tagmanager.min.js','https://cloud.tinymce.com/stable/plugins/colorpicker/plugin.min.js'],// throw an error instead of loading script from any other source
+	baseUri : ["'self'"], //restricts the URLs that can appear in a page’s <base> element
 	imgSrc	: ["'self'",'https://unpkg.com/feather-icons'],
-	formAction :  ["'self'"] 
+	formAction :  ["'self'"]
   }
 }))
 
-app.use(csrf()); 
+app.use(csrf());
 app.use( function( req, res, next ) {
   res.locals.csrftoken = req.csrfToken() ;
   next() ;
@@ -97,24 +97,18 @@ app.use(function(request, response, next) {
 app.use(express.static(path.join(__dirname, "public")));
 
 // Load routes as "mini-apps"
-app.use("/",require("./routes/index.js"));
-app.use("/",require("./routes/register.js"));
 app.use("/",require("./routes/login.js"));
-app.use("/",require("./routes/home.js"));
-app.use("/",require("./routes/mysnippets.js"));
+app.use("/",require("./routes/register.js"));
 app.use("/",require("./routes/profile.js"));
-app.use("/",require("./routes/comments.js"));
-app.use("/",require("./routes/oldestquestions.js"));
-app.use("/",require("./routes/search.js"));
 
 // Error handling
 app.use(function(request, response, next) {
-	
+
 	let error = {
 		status:"404",
 		message:"oops! page not found"
 	 }
-  	
+
 	response.status(404).render("todo/errors/404",error);
 });
 
@@ -125,8 +119,8 @@ app.use(function(err, req, res, next) {
   res.status(500).send("Something broke!");
 });
 /*
-//Start 
-// Launch application 
+//Start
+// Launch application
 app.listen(port, function () {
   console.log("Express app listening on port %s!", port);
 });*/
