@@ -6,11 +6,11 @@ let Users = require("../models/Users");
 /*
  this will trigger on the login url (/login)
  gets the data that user wrote
- checking if the username and password are correct 
+ checking if the username and password are correct
  adds a session cookie
  redirects to /home
 */
-router.route("/login")
+router.route("/")
 	.get(function(request,response){
 		 response.render("todo/login");
 	})
@@ -47,9 +47,9 @@ router.route("/login")
 				return response.redirect('/home');
 		  		}
 			});
-  		} 
+  		}
 })
-		 
+
 
 
 
