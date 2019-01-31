@@ -1,13 +1,12 @@
 <div class="login_main">
 
 <div class="container-fluid">
-		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-5   ">
-
-         </div>
+		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-2   ">
+		</div>
 	{{>flash}}
 	<div class="login">
 
-<form class="form-signin" action="/login"  method="post" >
+<form class="form-signin" action="/"  method="post" >
 	  <input type="hidden"  name="_csrf" value="{{ csrftoken }}" />
       <img class="mb-4 image" src="../images/icon.png" alt="" width="92" height="92">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>

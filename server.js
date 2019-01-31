@@ -99,6 +99,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // Load routes as "mini-apps"
 app.use("/",require("./routes/login.js"));
 app.use("/",require("./routes/register.js"));
+app.use("/",require("./routes/home.js"));
 app.use("/",require("./routes/profile.js"));
 
 // Error handling

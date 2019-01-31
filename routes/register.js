@@ -21,6 +21,9 @@ router.route("/register")
 		let surname = request.body.surname;
 		let username = request.body.username.toLowerCase();
 		let email = request.body.email;
+		let companyName = request.body.companyName;
+		let phoneNumber = request.body.phoneNumber;
+		let city = request.body.city;
 		let password = request.body.password;
 		let repassword = request.body.repassword;
 		console.log(username);
@@ -53,6 +56,9 @@ router.route("/register")
 				surname:surname,
 				username:username,
 				email:email,
+				companyName:companyName,
+				phoneNumber:phoneNumber,
+				city:city,
 				password:password
 			});
 
