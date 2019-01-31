@@ -1,4 +1,4 @@
- 
+
 <nav class="navbar  navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/"> <p class="company"><img src="../../images/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
     Company</p> </a>
@@ -7,7 +7,7 @@
       <div class="row">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
-           
+
           </div>
         </nav>
 
@@ -16,10 +16,10 @@
 
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Sign up</h1>
-            
+
           </div>
 			<div class="card register_body">
-				
+
 				 <div class="card-body">
 				<form action="/register" method="post" class="needs-validation" class="register">
 					<input type="hidden" name="_csrf" value="{{ csrftoken }}" />
@@ -42,6 +42,7 @@
 					</div>
 				  </div>
 				  <div class="form-row">
+
 					<div class="col-md-4 mb-3">
 						<label for="validationServer03">Email</label>
 							<div class="input-group">
@@ -51,21 +52,39 @@
 								<input type="email" class="form-control " id="validationServer03" placeholder="Email" name="email" required>
 							</div>
 					</div>
+          <div class="col-md-4 mb-3">
+					  <label for="validationServerCompanyName">Company Name</label>
+					  <div class="input-group">
+							<input type="text" class="form-control " id="validationServerCompanyName" placeholder="Company Name" name="companyName" aria-describedby="inputGroupPrepend3" required>
+					  </div>
+					</div>
+          <div class="col-md-4 mb-3">
+					  <label for="validationServerPhoneNumber">Phone number</label>
+					  <div class="input-group">
+							<input type="text" class="form-control " id="validationServerPhoneNumber" placeholder="Phone number" name="phoneNumber" aria-describedby="inputGroupPrepend3" required>
+					  </div>
+					</div>
+          <div class="col-md-4 mb-3">
+					  <label for="validationServerCity">City</label>
+					  <div class="input-group">
+							<input type="text" class="form-control " id="validationServerCity" placeholder="City" name="city" aria-describedby="inputGroupPrepend3" required>
+					  </div>
+					</div>
 					<div class="col-md-4 mb-3">
 					  <label for="validationServer04">Password</label>
 					  <input type="password" class="form-control " id="validationServer04" placeholder="Password" name="password" required>
                           <div class="invalid-feedback">
-                            Password must be more than 6 characters , please try again 
+                            Password must be more than 6 characters , please try again
                           </div>
                         <div class="valid-feedback">
                             Looks good!
-                        </div>    
+                        </div>
 					</div>
 					<div class="col-md-4 mb-3">
-					  <label for="validationServer05">Re-Password</label>    
+					  <label for="validationServer05">Re-Password</label>
 					  <input type="password" class="form-control" id="validationServer05" placeholder="Repassword" name="repassword" required>
                          <div class="invalid-feedback doesnt_match">
-                            Re-Password must be more than 6 characters , please try again 
+                            Re-Password must be more than 6 characters , please try again
                           </div>
                         <div class="valid-feedback">
                             Looks good!
@@ -90,4 +109,4 @@
     </div>
 
 
-<script type="text/javascript" src="js/validation.js"></script>  
+<script type="text/javascript" src="js/validation.js"></script>

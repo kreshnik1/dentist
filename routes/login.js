@@ -18,7 +18,6 @@ router.route("/")
 		var username = request.body.logusername.toLowerCase();
 		var password = request.body.logpassword;
 		var session = request.session;
-        console.log(username);
 		if(username && password){
 		Users.authenticate(username, password, function (error, user) {
 			if (error || !user) {
@@ -37,7 +36,7 @@ router.route("/")
 				/*var err = new Error('Wrong email or password.');
 				err.status = 401;
 				*/
-				return response.redirect("/login")
+				return response.redirect("/")
 			  } else {
 				   request.session.flash = {
 					type: "success",

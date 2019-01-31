@@ -31,11 +31,11 @@ router.route('/home/profile/:id')
 						}
 						//sending the data of that snippet in the todo/update
 						let firstname = user.name;
-						let surname = user.surname; 
+						let surname = user.surname;
 						let username = user.username;
 						let email = user.email;
-						 
-						let textarea = user.content; 
+
+						let textarea = user.content;
 						return response.render('todo/profile', {id:request.params.id,firstname:firstname,surname:surname,username:username,email:email})
 					 })
 				}
@@ -49,18 +49,18 @@ router.route('/home/profile/:id')
 		let surname = request.body.surname;
 		let username = request.body.username;
 		let email = request.body.email;
-		
+
 		//finding the user with that id and update it
 		Users.findOneAndUpdate({_id: request.params.id}, {name: name, surname: surname,username:username,email:email}, {returnNewDocument: true}, function (error,user) {
 			if (error) {
 			  return next(error);
 			}
-            
+
 			request.session.flash = {
 			  type: 'success',
 			  message: 'Your profile was updated successfully'
 			}
-			
+
 			response.redirect('/home/profile/'+request.params.id)
 		  });
 	});
@@ -72,9 +72,8 @@ router.route('/home/profile/password/:id')
 		let oldpassword = request.body.oldpassword;
 		let newpassword = request.body.newpassword;
 		let repassword = request.body.repassword;
-        let newpasswordHashed = request.body.repassword;
-		console.log(request.body);
-      
+    let newpasswordHashed = request.body.repassword;
+		
         bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
             if (err) return next(err);
 
@@ -97,7 +96,7 @@ router.route('/home/profile/password/:id')
 			  type: 'success',
 			  message: 'Your password was changed successfully'
 			}
-			
+
              bcrypt.compare(oldpassword, user.password, function (err, result) {
                  if (result === true) {
                      if(request.body.newpassword === repassword){
@@ -110,7 +109,7 @@ router.route('/home/profile/password/:id')
                                 message: 'your password was changed successfully'
                             }
                             response.redirect('/home/profile/'+request.params.id)
-                        });                        
+                        });
                     } else {
                         request.session.flash = {
                             type: 'error',
@@ -118,7 +117,7 @@ router.route('/home/profile/password/:id')
                         }
                         response.redirect('/home/profile/'+request.params.id)
                     }
-                     
+
                  } else {
                      request.session.flash = {
                       type: 'error',
