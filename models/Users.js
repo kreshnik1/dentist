@@ -12,7 +12,7 @@ let UserSchema = mongoose.Schema({
 	username:{type:String,required:true,unique:true},
 	email:{type:String,required:true,minlength:9,unique:true},
 	companyName:{type:String , required:true},
-	phoneNumber:{type:String , required:true,minlength:9},
+	phoneNumber:{type:String , required:true},
 	city:{type:String , required:true},
 	password:{type:String,required:true , minlength: 6},
 	createdAt: { type: Date, required: true, default: Date.now },
