@@ -34,9 +34,21 @@ router.route('/home/profile/:id')
 						let surname = user.surname;
 						let username = user.username;
 						let email = user.email;
-
+						let companyName = user.companyName;
+						let phoneNumber = user.phoneNumber;
+						let city = user.city;
 						let textarea = user.content;
-						return response.render('todo/profile', {id:request.params.id,firstname:firstname,surname:surname,username:username,email:email})
+						console.log(phoneNumber);
+						return response.render('todo/profile', {
+							id:request.params.id,
+							firstname:firstname,
+							surname:surname,
+							username:username,
+							email:email,
+							companyName:companyName,
+							phoneNumber:phoneNumber,
+							city:city
+						})
 					 })
 				}
 			  }
@@ -73,7 +85,7 @@ router.route('/home/profile/password/:id')
 		let newpassword = request.body.newpassword;
 		let repassword = request.body.repassword;
     let newpasswordHashed = request.body.repassword;
-		
+
         bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
             if (err) return next(err);
 

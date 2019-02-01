@@ -26,7 +26,7 @@ router.route("/register")
 		let city = request.body.city;
 		let password = request.body.password;
 		let repassword = request.body.repassword;
-		console.log(username);
+		console.log(phoneNumber);
 		//checks if the password length is less than 6
 		if(password.length < 6){
 			request.session.flash = {
