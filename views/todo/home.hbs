@@ -147,11 +147,11 @@
             </div>
 
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
-                <h3>Newest Questions</h3>
-                <a href="/create">
+                <h3>Home</h3>
+                <a href="/create/reservation">
                     <button class="btn  btn-primary submit">
                         <i data-feather="edit-2"></i>
-                        Ask a Question
+                        Make a reservation
                     </button>
                 </a>
             </div>
@@ -166,65 +166,13 @@
 
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    {{#each todos}}
-                        <div class="card questions">
-                            <div class="card-body">
-                                <h5 class="card-title title"><a href="/home/questions/{{id}}" class="link_title">{{title}}</a></h5>
-                                <ul class="list-inline">
-                                    {{#each tags}}
-                                        {{#if this}}
-                                            <li>
-                                                <button type="button" class="btn btn-outline-dark btn-sm">{{this}}</button>
-                                            </li>
-                                        {{/if}}
-                                    {{/each}}
-
-                                </ul>
-                            </div>
-                            <div class="card-footer text-muted">
-                                Asked by <strong>{{username}}</strong> , {{data}}
-                                {{#is ../user_username username}}
-                                <div class="delete_update">
-                                    <a href="home/update/{{id}}">
-                                        <button type="button" class="btn btn-light submit"  data-toggle="tooltip" data-placement="top" title="Update the question">
-                                            <i data-feather="edit-3"></i>
-                                        </button></a>
-                                    <button type="button" class="btn btn btn-light" data-toggle="modal" data-target="#exampleModalCenter{{id}}">
-                                        <i data-feather="trash-2"></i>
-                                    </button>
-                                </div>
-                                {{/is}}
-                            </div>
-                        </div>
+                  <div id="calendar"></div>
                         <div class="dropdown-divider"></div>
-                            {{#is ../user_username username}}
-                                <div class="modal fade" id="exampleModalCenter{{id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalCenterTitle">Delete the question</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <form action="/home/delete/{{id}}"  id="delete_{{id}}" method="post">
-                                                <div class="modal-body">
-                                                    <p>Are you sure to delete this question ?</p>
-                                                    <input type="hidden" class="csrf" name="_csrf" />
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                                                    <button type="submit" value="submit" form="delete_{{id}}" class="btn btn-danger delete_button">Delete </button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            {{/is}}
-                        {{/each}}
+
                     </div>
                 </div>
             </main>
         </div>
     </div>
 <script type="text/javascript" src="js/validation.js"></script>
+<script type="text/javascript" src="../../js/calendar.js"></script>

@@ -38,9 +38,9 @@ router.route('/home/profile/:id')
 						let phoneNumber = user.phoneNumber;
 						let city = user.city;
 						let textarea = user.content;
-						console.log(phoneNumber);
 						return response.render('todo/profile', {
 							id:request.params.id,
+							companyName:companyName,
 							firstname:firstname,
 							surname:surname,
 							username:username,
@@ -61,20 +61,32 @@ router.route('/home/profile/:id')
 		let surname = request.body.surname;
 		let username = request.body.username;
 		let email = request.body.email;
+		let company = request.body.companyName;
+		let phone = request.body.phoneNumber;
+		let city = request.body.city;
 
 		//finding the user with that id and update it
-		Users.findOneAndUpdate({_id: request.params.id}, {name: name, surname: surname,username:username,email:email}, {returnNewDocument: true}, function (error,user) {
-			if (error) {
-			  return next(error);
-			}
+		Users.findOneAndUpdate({_id: request.params.id}, {
+			name: name,
+			surname: surname,
+			username:username,
+			email:email,
+			companyName:company,
+			phoneNumber:phone,
+			city:city},
+			{returnNewDocument: true},
+			function (error,user) {
+				if (error) {
+				  return next(error);
+				}
 
-			request.session.flash = {
-			  type: 'success',
-			  message: 'Your profile was updated successfully'
-			}
+				request.session.flash = {
+				  type: 'success',
+				  message: 'Your profile was updated successfully'
+				}
 
-			response.redirect('/home/profile/'+request.params.id)
-		  });
+				response.redirect('/home/profile/'+request.params.id)
+			  });
 	});
 
 
