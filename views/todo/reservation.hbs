@@ -1,0 +1,188 @@
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/home"> <p class="company"><img src="../../images/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    {{companyName}}</p> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span data-feather="menu"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav menus ">
+          <li class="nav-item">
+                        <a class="nav-link" href="/home">
+                            <span data-feather="home"></span>
+                            Home <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/mysnippet">
+                            <span data-feather="file"></span>
+                            My Questions
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/create">
+                            <span data-feather="edit"></span>
+                            Ask a Question
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " data-toggle="modal" data-target="#exampleModalCenter">
+                            <span data-feather="users"></span>
+                            Contact us
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                         <button type="button" id="li" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i data-feather="user"></i>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="/home/profile/{{userid}}" class="dropdownlinks"><button class="dropdown-item" type="button">My profile</button></a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="/logout" class="dropdownlinks"><button class="dropdown-item" type="button">Sign out</button></a>
+                                </div>
+                    </li>
+          </ul>
+
+    </div>
+    <div class="buttonnone">
+        <div class="btn-group profile_button">
+            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i data-feather="user"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a  href="/home/profile/{{userid}}"  class="dropdownlinks"><button class="dropdown-item" type="button">My profile</button></a>
+                <div class="dropdown-divider"></div>
+                <a href="/logout" class="dropdownlinks"><button class="dropdown-item" type="button">Sign out</button></a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar ">
+          <div class="sidebar-sticky ">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link " href="/home">
+                  <i data-feather="home"></i>
+                  Home <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/mysnippet">
+                  <span data-feather="file"></span>
+                  My Questions
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/create">
+                  <span data-feather="edit"></span>
+                  Ask a Question
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter">
+                  <span data-feather="users"></span>
+                  Contact us
+                </a>
+              </li>
+            </ul>
+              <div id="hidden_loading">
+                  <div class="sk-fading-circle">
+                      <div class="sk-circle1 sk-circle"></div>
+                      <div class="sk-circle2 sk-circle"></div>
+                      <div class="sk-circle3 sk-circle"></div>
+                      <div class="sk-circle4 sk-circle"></div>
+                      <div class="sk-circle5 sk-circle"></div>
+                      <div class="sk-circle6 sk-circle"></div>
+                      <div class="sk-circle7 sk-circle"></div>
+                      <div class="sk-circle8 sk-circle"></div>
+                      <div class="sk-circle9 sk-circle"></div>
+                      <div class="sk-circle10 sk-circle"></div>
+                      <div class="sk-circle11 sk-circle"></div>
+                      <div class="sk-circle12 sk-circle"></div>
+                  </div>
+              </div>
+
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            {{>flash}}
+
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h3>Reservation</h3>
+
+          </div>
+
+			<form action="/create/reservation" method="post" id="create" class="needs-validation" >
+				<input type="hidden" name="_csrf" value="{{ csrftoken }}" />
+				<div class="form-group">
+
+				</div>
+        <div class="form-group">
+
+          <div class="form-row">
+           <div class="col">
+            <label for="exampleFormControlInput1"><h5>Name </h5></label>
+   					<input type="text" class="form-control " id="validateName"  name="name"  required>
+                  <div class="invalid-feedback">
+                   Name and Surname must be at least 3 characters.
+                 </div>
+                 <div class="valid-feedback">
+                       Looks good!
+                </div>
+           </div>
+           <div class="col">
+             <label for="exampleFormControlInput1"><h5>Surname </h5></label>
+    					<input type="text" class="form-control " id="validateSurname"  name="surname"  required>
+                   <div class="invalid-feedback">
+                    Name and Surname must be at least 3 characters.
+                  </div>
+                  <div class="valid-feedback">
+                        Looks good!
+                 </div>
+           </div>
+          </div>
+        </div>
+        <div class="form-group">
+
+          <div class="form-row">
+           <div class="col">
+             <label for="exampleFormControlInput1"><h5>Date</h5></label>
+             <input id="validateDate" name="date" class="form-control" type="date" date-format="DD MMMM YYYY" >
+
+           </div>
+           <div class="col">
+             <label for="exampleFormControlInput1"><h5>Time</h5></label>
+             <input type="time" class="form-control" name="time"  id="validateTime"  required />
+           </div>
+          </div>
+        </div>
+        <div class="form-group">
+
+          <div class="form-row">
+           <div class="col">
+             <label for="exampleFormControlInput1"><h5>Phone Number</h5></label>
+             <input id="validateNumber" class="form-control" name="phoneNumber" type="text">
+
+           </div>
+           <div class="col">
+             <label for="exampleFormControlInput1"><h5>Address</h5></label>
+             <input type="text" class="form-control" name="address"  id="validateAddress" />
+           </div>
+          </div>
+        </div>
+		  	</form>
+			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+          </div>
+			<button type="submit" value="submit" form="create" class="btn btn-primary createButton" >Post your Question</button>
+			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+          </div>
+        </main>
+      </div>
+    </div>
+<script type="text/javascript" src="../../js/validation.js"></script>

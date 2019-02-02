@@ -172,54 +172,6 @@ post_answer.forEach(function(i){
         $(this).val("Disabled").attr('class', 'btn btn-danger disabled');
 });
 */
-if(document.querySelector(".createButton")){
-    let createButton = document.querySelector(".createButton");
-
-    document.querySelector("#validateTitle").addEventListener('keyup', function (event) {
-        if(document.querySelector("#validateTitle").value.length<15){
-            document.querySelector("#validateTitle").setAttribute("class","form-control  is-invalid")
-            createButton.disabled = true;
-        }
-        else{
-            document.querySelector("#validateTitle").setAttribute("class","form-control is-valid ")
-            if(document.querySelector("input[name='hidden-tags']").value.length>0 && document.querySelector("#validateTitle").value.length>14){
-                createButton.disabled = false;
-            }
-        }
-    });
-    document.querySelector(".tm-input").addEventListener('keyup', function (event) {
-        if(document.querySelector(" input[name='hidden-tags']").value.length<1){
-            document.querySelector(".tm-input-info").setAttribute("class","tm-input form-control tm-input-info is-invalid");
-            createButton.disabled = true;
-        }
-        else{
-            document.querySelector(".tm-input-info").setAttribute("class","tm-input form-control tm-input-info  is-valid");
-            if(document.querySelector("input[name='hidden-tags']").value.length>0 && document.querySelector("#validateTitle").value.length>14){
-                createButton.disabled = false;
-             }
-        }
-    })
-     createButton.addEventListener("click",function(event){
-         if(document.querySelector(" input[name='hidden-tags']").value.length<1){
-             event.preventDefault();
-             document.querySelector(".tm-input-info").setAttribute("class","tm-input form-control tm-input-info is-invalid");
-         }
-         if(tinymce.activeEditor.getContent({format: 'text'}).length<30){
-             event.preventDefault();
-             document.querySelector("#passwordHelpBlock").setAttribute("class","form-text text-muted red_color");
-         }
-         if(document.querySelector("#validateTitle").value.length<15){
-             event.preventDefault();
-             document.querySelector(".tm-input-info").setAttribute("class","tm-input form-control tm-input-info is-invalid");
-         }
-         if(document.querySelector(" input[name='hidden-tags']").value.length>0 && document.querySelector("#validateTitle").value.length>14){
-             if(tinymce.activeEditor.getContent({format: 'text'}).length>29){
-                 document.querySelector("#hidden_loading").id="loading";
-             }
-         }
-     })
-
-}
 
 if(document.querySelector(".passwordButton")){
     let passwordButton = document.querySelector(".passwordButton");
