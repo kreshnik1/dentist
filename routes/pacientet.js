@@ -78,5 +78,39 @@ router.route("/pacientet/:id")
                     }
                   }
             })
-        })
+      })
+      .post(function (request, response,next) {
+	       let name = request.body.name;
+         let surname = request.body.surname;
+         let date = request.body.date;
+         let time = request.body.time;
+         let phoneNumber = request.body.phoneNumber;
+         let address = request.body.address;
+
+         console.log("time"+time)
+            //finding the snippet with that id and update it
+            Pacientet.findOneAndUpdate({_id: request.params.id},
+               { name: name,
+                 surname:surname,
+                 date:date,
+                 time:time,
+                 phoneNumber:phoneNumber,
+                 address:address }, {returnNewDocument: true}, function (error,user) {
+                if (error) {
+                  request.session.flash = {
+                    type: 'error',
+                    message: error.message
+                  }
+                 response.redirect('/home/update/'+request.params.id)
+                }
+                else{
+                    request.session.flash = {
+                      type: 'success',
+                      message: 'The reservation was updated!'
+                    }
+                    response.redirect('/pacientet/'+request.params.id)
+                }
+              });
+
+	});
         module.exports = router;
