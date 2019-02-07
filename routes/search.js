@@ -49,7 +49,7 @@ router.route('/home/search')
                             user_id:user._id,
                             companyName:user.companyName,
                             todos:Alldata.map(function(todo){
-                                date = moment(todo.date).from(moment(Date.now()));
+                                date = moment(todo.createdAt).from(moment(Date.now()));
                                 formatedDate = moment(todo.date).format("DD/MM/YYYY");
                                 return {
                                     id: todo.id,
