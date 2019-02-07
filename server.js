@@ -102,6 +102,7 @@ app.use("/",require("./routes/register.js"));
 app.use("/",require("./routes/home.js"));
 app.use("/",require("./routes/profile.js"));
 app.use("/",require("./routes/reservation.js"));
+app.use("/",require("./routes/search.js"));
 
 
 // Error handling
