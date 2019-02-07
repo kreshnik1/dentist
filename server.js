@@ -103,6 +103,7 @@ app.use("/",require("./routes/home.js"));
 app.use("/",require("./routes/profile.js"));
 app.use("/",require("./routes/reservation.js"));
 app.use("/",require("./routes/search.js"));
+app.use("/",require("./routes/pacientet.js"));
 
 
 // Error handling
