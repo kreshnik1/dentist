@@ -33,7 +33,8 @@ router.route('/home/search')
                                     time: todo.time,
                                     id: todo._id,
                                     phoneNumber:todo.phoneNumber,//checking for update and delete
-                                    address:todo.address
+                                    address:todo.address,
+                                    createdAt:todo.createdAt
                                 };
                             })
                         };
@@ -49,6 +50,7 @@ router.route('/home/search')
                             user_id:user._id,
                             companyName:user.companyName,
                             todos:Alldata.map(function(todo){
+                                console.log(todo.createdAt)
                                 date = moment(todo.createdAt).from(moment(Date.now()));
                                 formatedDate = moment(todo.date).format("DD/MM/YYYY");
                                 return {
@@ -72,59 +74,6 @@ router.route('/home/search')
     })
 
 
-router.route('/search')
-    .get(function (request, response,next) {
-    //checking if the user is authorize
-
-    let search_query = request.query['search'];
-    Snippets.find({},null,{sort: '-createdAt'}, function(error, data) {
-        let Alldata = [];
-        // mapping up the object for the view
-        let context = {
-            todos: data.map(function(todo) {
-                return {
-                    id:todo._id,
-                    username: todo.username,
-                    title:todo.title,
-                    content:todo.content,
-                    createdAt: todo.createdAt,
-                    id: todo._id,
-                    check:false,//checking for update and delete
-                    updatedAt:todo.updatedAt,
-                    tags:todo.tags
-                };
-            })
-        };
-        context.todos.forEach(function(element){
-            if(element.title.toLowerCase().includes(search_query.toLowerCase())){
-                Alldata.push(element);
-            }
-            else{
-                element.tags.forEach(function(tag){
-                    if(tag.toLowerCase().includes(search_query.toLowerCase())){
-                        Alldata.push(element);
-                    }
-                })
-            }
-        })
-        let searchedData = {
-            search_query:search_query,
-            todos:Alldata.map(function(todo){
-                return {
-                    id: todo.id,
-                    username: todo.username,
-                    title:todo.title,
-                    content:todo.content,
-                    createdAt: todo.createdAt,
-                    updatedAt:todo.updatedAt,
-                    tags:todo.tags
-                }
-            })
-        }
-
-        return response.render("todo/indexsearch",searchedData);
-    });
-})
 
 
 module.exports = router;
