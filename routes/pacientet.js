@@ -50,7 +50,6 @@ router.route("/pacientet/:id")
                                   let address = data.address;
                     							let companyName = user.companyName;
                                   let date =  moment(data.date).format("YYYY/DD/MM");
-                                  console.log("------" + data.date)
                                   let dateFormat = date.split('/');
                                   let year = dateFormat[0];
                                   let month = dateFormat[1];
@@ -87,7 +86,6 @@ router.route("/pacientet/:id")
          let phoneNumber = request.body.phoneNumber;
          let address = request.body.address;
 
-         console.log("time"+time)
             //finding the snippet with that id and update it
             Pacientet.findOneAndUpdate({_id: request.params.id},
                { name: name,

@@ -20,7 +20,6 @@ router.route("/create/reservation")
 					return response.render("todo/errors/404",errors);
 				} else {
           let date = moment(new Date()).format('YYYY-MM-DD')
-          console.log(date);
 					return response.render("todo/reservation",{userid : user._id,companyName:user.companyName,Date:date});//gets the todo/create handlebar
 				}
 			}
@@ -36,7 +35,6 @@ router.route("/create/reservation")
     let time = request.body.time;
     let phoneNumber = request.body.phoneNumber;
     let address = request.body.address;
-    console.log("Date : "+date + "  ,  time  : "+time)
     let PacientetData = new Pacientet({
       name:name,
       surname:surname,
