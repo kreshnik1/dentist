@@ -152,6 +152,50 @@ router.route("/pacientet/:id")
        }
      });
    })
+   //deletes a tooth information
+router.route("/pacientet/tooth/delete/:id")
+.get(function(request, response,next) {
+  Users.findById(request.session.userId)//checking if the user is athorized
+    .exec(function (error, user) {
+        if (error) {
+        return next(error);
+        } else {
+          if (user === null ) {
+          let errors = {
+            status:"403",
+            message:"Forbidden! Go back! "
+          }
+          return response.render("todo/errors/404",errors);
+        }else {
+          Tooth.findOne({_id: request.params.id},function(error,data){
+            if(error){//checking if there is something wrong
+              let errors = {
+                  status:"404",
+                  message:"Not found! Go back! "
+                }
+              return response.render("todo/errors/404",errors);
+            }
+            });
+        }
+        }
+    })
+  })
+    .post(function(request, response,next) {
+        Tooth.findOneAndRemove({_id: request.params.id}, function(error,data) {
+          if(error) {
+          	let errors = {
+				      status:"404",
+				      message:"Wrong url! Go back! "
+		      	}
+			     return response.render("todo/errors/404",errors);
+          }
+		    	request.session.flash = {
+			    	type: "success",
+				    message: "The tooth information was deleted!"
+		    	};
 
+          return response.redirect("/pacientet/"+data.id);//riderect to home
+        });
+    });
 
         module.exports = router;
