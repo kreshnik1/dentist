@@ -929,7 +929,7 @@
                        <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#007aff" /></svg>
                       <strong class="mr-auto">{{tooth}}</strong>
                       <small class="text-muted">{{formatDate}}</small>
-                      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" data-toggle="modal" data-target="#exampleModaldelete{{_id}}" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
@@ -949,6 +949,32 @@
 			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 
           </div>
+
+          {{#each todos}}
+            <div class="modal fade" id="exampleModaldelete{{_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalCenterTitle">Delete the information for {{tooth}}</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <form action="/pacientet/tooth/delete/{{_id}}"  id="delete_tooth_{{_id}}" method="post">
+                      <input type="hidden" name="_csrf" value="{{../csrftoken }}" />
+                      <div class="modal-body">
+                          <label for="staticEmail" class="col-form-label">Information : {{information}} </label>                        
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" value="submit" form="delete_tooth_{{_id}}" class="btn btn-danger delete_button"> Delete </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+          {{/each}}
+
           <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
