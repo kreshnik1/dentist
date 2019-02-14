@@ -555,3 +555,19 @@ $('#exampleModal').on('show.bs.modal', function (event) {
   modal.find('.modal-title').text("Save information")
   modal.find('.modal-body input').val(recipient)
 })
+
+if(document.querySelector(".toast")){
+  document.querySelectorAll(".mr-auto").forEach(function(i){
+    console.log(i.getAttribute('id').toString());
+    $('.'+i.getAttribute('id').toString()+'-parent').css("fill",'#007aff');
+
+    $('.'+i.getAttribute('id').toString()).mouseover(function(){
+      $('.'+i.getAttribute('id').toString()+'-parent').css('fill', '#007aff');
+    });
+
+    $('.'+i.getAttribute('id').toString()).mouseleave(function(){
+      $('.'+i.getAttribute('id').toString()+'-parent').css('fill', '#007aff');
+    });
+
+  })
+}
