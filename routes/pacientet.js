@@ -33,9 +33,10 @@ router.route("/pacientet/:id")
                                 return response.render("todo/errors/404",errors);
                             }
                             else{
-                                  Tooth.find({id:request.params.id},function(error , toothData){
 
+                                  Tooth.find({id:request.params.id},null,{sort: '-createdAt'},function(error , toothData){
 
+                                    let formatDate;
                       							//sending the data of that snippet in the todo/update
                       							let name = data.name;
                                     let surname = data.surname;
@@ -63,11 +64,13 @@ router.route("/pacientet/:id")
                                        month:month,
                                        day:day,
                                        todos:toothData.map(function(todo){
+                                         formatDate = moment(todo.createdAt).format("DD/MM/YYYY");
                                          return {
                                            _id:todo._id,
                                            tooth:todo.tooth,
                                            information:todo.information,
-                                           createdAt:todo.createdAt
+                                           createdAt:todo.createdAt,
+                                           formatDate:formatDate
                                          }
                                        })
                                     }
