@@ -146,7 +146,7 @@ router.route("/pacientet/:id")
         else {
          request.session.flash = {
          type: "success",
-         message: "You are data was saved successfully"
+         message: "Your data was saved successfully"
          };
          return response.redirect('/pacientet/'+id);
        }
@@ -197,5 +197,26 @@ router.route("/pacientet/tooth/delete/:id")
           return response.redirect("/pacientet/"+data.id);//riderect to home
         });
     });
+
+    router.route("/pacientet/tooth/update/:id")
+    .post(function(request, response,next) {
+      let information = request.body.information;
+
+      Tooth.findOneAndUpdate({_id: request.params.id},{information:information},{returnNewDocument:true}, function(error,data) {
+              if(error) {
+              	let errors = {
+    				      status:"404",
+    				      message:"Wrong url! Go back! "
+    		      	}
+    			     return response.render("todo/errors/404",errors);
+              }
+    		    	request.session.flash = {
+    			    	type: "success",
+    				    message: "The tooth information was updated successfully!"
+    		    	};
+
+              return response.redirect("/pacientet/"+data.id);//riderect to home
+            });
+        });
 
         module.exports = router;
