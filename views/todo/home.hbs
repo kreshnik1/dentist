@@ -14,24 +14,14 @@
                             Home <span class="sr-only">(current)</span>
                         </a>
                     </li>
+
                     <li class="nav-item menus">
-                        <a class="nav-link" href="/mysnippet">
-                            <span data-feather="file"></span>
-                            My Questions
-                        </a>
-                    </li>
-                    <li class="nav-item menus">
-                        <a class="nav-link" href="/create">
+                        <a class="nav-link" href="/create/reservation">
                             <span data-feather="edit"></span>
-                            Ask a Question
+                            Make a reservation
                         </a>
                     </li>
-                    <li class="nav-item menus">
-                         <a data-toggle="modal" data-target="#exampleModalCenter">
-                            <span data-feather="users"></span>
-                            Contact us
-                        </a>
-                    </li>
+
                     <li class="nav-item">
                         <form class="form-inline mt-2 mt-md-0" action="/home/search"  method="get">
                             <input type="hidden"  name="_csrf" value="{{ csrftoken }}" />
@@ -78,21 +68,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/mysnippet">
-                            <span data-feather="file"></span>
-                            My Questions
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/create">
+                        <a class="nav-link" href="/create/reservation">
                             <span data-feather="edit"></span>
-                            Ask a Question
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter">
-                            <span data-feather="users"></span>
-                            Contact us
+                            Reservation
                         </a>
                     </li>
                 </ul>
@@ -154,7 +132,7 @@
                         Make a reservation
                     </button>
                 </a>
-                
+
             </div>
 
             <div class="tab-content" id="myTabContent">
