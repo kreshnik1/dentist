@@ -124,11 +124,18 @@ router.route("/pacientet/:id")
      let id = request.params.id;
      let tooth = request.body.tooth;
      let information = request.body.information;
-     console.log(tooth);
+     let type = request.body.type;
+     let region ;
+     if(type==="Mbushje"){
+       region = request.body.region;
+     }
+
      //creats the user by saving the data in database
      let toothData = new Tooth({
        id:id,
        tooth : tooth,
+       type:type,
+       region:region,
        information:information
      });
 
