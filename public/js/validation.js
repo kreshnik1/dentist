@@ -571,3 +571,22 @@ if(document.querySelector(".toast")){
 
   })
 }
+
+if(document.querySelector('#select1')){
+  var source = document.querySelector("#select1");
+  var target = document.querySelector(".toothRegion");
+
+  function displayWhenSelected() {
+      var selectedIndex = source.selectedIndex;
+      if (source[selectedIndex].value === "Mbushje") {
+          target.classList.remove("toothRegion");
+
+      } else {
+          target.classList.add("toothRegion");
+      }
+  }
+  source.addEventListener("change", function () {
+      displayWhenSelected();
+  }, false);
+
+}

@@ -39,6 +39,9 @@ body {
     overflow-y: auto;
 }
 
+.toothRegion{
+  display: none;
+}
 
 @supports ((position: -webkit-sticky) or (position: sticky)) {
   .sidebar-sticky {
