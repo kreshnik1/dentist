@@ -1014,7 +1014,7 @@
                           </div>
                           <div class="form-group">
                             <label for="exampleFormControlSelect1">Type</label>
-                              <select class="form-control" name="type" id="select3">
+                              <select class="form-control type" name="type" id="select3{{_id}}" disabled>
                                 {{#eq type compare="Nxjerrje" }}
                                   <option selected>Nxjerrje</option>
                                   {{else}}
@@ -1039,11 +1039,11 @@
                           </div>
                           {{#eq  type compare="Mbushje"}}
 
-                            <div class="form-group ">
+                            <div class="form-group toothRegion2 " id="toothRegion{{_id}}">
 
                             <label for="exampleFormControlSelect1">Region</label>
                             {{else}}
-                            <div class="form-group toothRegion1">
+                            <div class="form-group toothRegion1" id="toothRegion{{_id}}">
 
                             <label for="exampleFormControlSelect1">Region</label>
                           {{/eq}}
