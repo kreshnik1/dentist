@@ -42,7 +42,9 @@ body {
 .toothRegion{
   display: none;
 }
-
+.toothRegion1{
+  display: none;
+}
 @supports ((position: -webkit-sticky) or (position: sticky)) {
   .sidebar-sticky {
     position: -webkit-sticky;

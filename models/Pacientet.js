@@ -8,6 +8,7 @@ let PacientetSchema = mongoose.Schema({
   surname:{type:String,required:true},
 	date:{type: Date, required: true},
   time:{type:String , required:true},
+	age:{type:Boolean,required:true},
   phoneNumber:{type:String},
   address:{type:String},
 	createdAt: { type: Date, required: true, default: Date.now },
