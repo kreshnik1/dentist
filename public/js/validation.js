@@ -67,7 +67,7 @@ if(document.querySelector(".navbar-toggler")){
         document.querySelector(".navbar-brand").style.background="rgba(0, 0, 0, .25)";
     }
 }
-var interval = setInterval(myTimer,100);
+var interval = setInterval(myTimer,2000);
 
 function myTimer() {
 
@@ -213,9 +213,9 @@ if(document.querySelector(".navbar-toggler")){
     },0.1)
 }
 
-
+let color1 = '#ffa4a2';
 $('.tooth-11').mouseover(function(){
-  $('.tooth-11-parent').css('fill', '#c8e6c9');
+  $('.tooth-11-parent').css('fill', color1);
 });
 
 $('.tooth-11').mouseleave(function(){
@@ -223,7 +223,7 @@ $('.tooth-11').mouseleave(function(){
 });
 
 $('.tooth-12').mouseover(function(){
-  $('.tooth-12-parent').css('fill', '#c8e6c9');
+  $('.tooth-12-parent').css('fill', color1);
 });
 
 $('.tooth-12').mouseleave(function(){
@@ -231,7 +231,7 @@ $('.tooth-12').mouseleave(function(){
 });
 
 $('.tooth-13').mouseover(function(){
-  $('.tooth-13-parent').css('fill', '#c8e6c9');
+  $('.tooth-13-parent').css('fill', color1);
 });
 
 $('.tooth-13').mouseleave(function(){
@@ -239,7 +239,7 @@ $('.tooth-13').mouseleave(function(){
 });
 
 $('.tooth-14').mouseover(function(){
-  $('.tooth-14-parent').css('fill', '#c8e6c9');
+  $('.tooth-14-parent').css('fill', color1);
 });
 
 $('.tooth-14').mouseleave(function(){
@@ -247,7 +247,7 @@ $('.tooth-14').mouseleave(function(){
 });
 
 $('.tooth-15').mouseover(function(){
-  $('.tooth-15-parent').css('fill', '#c8e6c9');
+  $('.tooth-15-parent').css('fill', color1);
 });
 
 $('.tooth-15').mouseleave(function(){
@@ -255,7 +255,7 @@ $('.tooth-15').mouseleave(function(){
 });
 
 $('.tooth-16').mouseover(function(){
-  $('.tooth-16-parent').css('fill', '#c8e6c9');
+  $('.tooth-16-parent').css('fill', color1);
 });
 
 $('.tooth-16').mouseleave(function(){
@@ -263,7 +263,7 @@ $('.tooth-16').mouseleave(function(){
 });
 
 $('.tooth-17').mouseover(function(){
-  $('.tooth-17-parent').css('fill', '#c8e6c9');
+  $('.tooth-17-parent').css('fill', color1);
 });
 
 $('.tooth-17').mouseleave(function(){
@@ -271,7 +271,7 @@ $('.tooth-17').mouseleave(function(){
 });
 
 $('.tooth-18').mouseover(function(){
-  $('.tooth-18-parent').css('fill', '#c8e6c9');
+  $('.tooth-18-parent').css('fill', color1);
 });
 
 $('.tooth-18').mouseleave(function(){
@@ -281,7 +281,7 @@ $('.tooth-18').mouseleave(function(){
 /*Segundo Quadrante*/
 
 $('.tooth-21').mouseover(function(){
-  $('.tooth-21-parent').css('fill', '#c8e6c9');
+  $('.tooth-21-parent').css('fill', color1);
 });
 
 $('.tooth-21').mouseleave(function(){
@@ -289,7 +289,7 @@ $('.tooth-21').mouseleave(function(){
 });
 
 $('.tooth-22').mouseover(function(){
-  $('.tooth-22-parent').css('fill', '#c8e6c9');
+  $('.tooth-22-parent').css('fill', color1);
 });
 
 $('.tooth-22').mouseleave(function(){
@@ -297,7 +297,7 @@ $('.tooth-22').mouseleave(function(){
 });
 
 $('.tooth-23').mouseover(function(){
-  $('.tooth-23-parent').css('fill', '#c8e6c9');
+  $('.tooth-23-parent').css('fill', color1);
 });
 
 $('.tooth-23').mouseleave(function(){
@@ -305,7 +305,7 @@ $('.tooth-23').mouseleave(function(){
 });
 
 $('.tooth-24').mouseover(function(){
-  $('.tooth-24-parent').css('fill', '#c8e6c9');
+  $('.tooth-24-parent').css('fill', color1);
 });
 
 $('.tooth-24').mouseleave(function(){
@@ -313,7 +313,7 @@ $('.tooth-24').mouseleave(function(){
 });
 
 $('.tooth-25').mouseover(function(){
-  $('.tooth-25-parent').css('fill', '#c8e6c9');
+  $('.tooth-25-parent').css('fill', color1);
 });
 
 $('.tooth-25').mouseleave(function(){
@@ -321,7 +321,7 @@ $('.tooth-25').mouseleave(function(){
 });
 
 $('.tooth-26').mouseover(function(){
-  $('.tooth-26-parent').css('fill', '#c8e6c9');
+  $('.tooth-26-parent').css('fill', color1);
 });
 
 $('.tooth-26').mouseleave(function(){
@@ -329,7 +329,7 @@ $('.tooth-26').mouseleave(function(){
 });
 
 $('.tooth-27').mouseover(function(){
-  $('.tooth-27-parent').css('fill', '#c8e6c9');
+  $('.tooth-27-parent').css('fill', color1);
 });
 
 $('.tooth-27').mouseleave(function(){
@@ -337,7 +337,7 @@ $('.tooth-27').mouseleave(function(){
 });
 
 $('.tooth-28').mouseover(function(){
-  $('.tooth-28-parent').css('fill', '#c8e6c9');
+  $('.tooth-28-parent').css('fill', color1);
 });
 
 $('.tooth-28').mouseleave(function(){
@@ -347,7 +347,7 @@ $('.tooth-28').mouseleave(function(){
 /*Terceiro Quadrante*/
 
 $('.tooth-31').mouseover(function(){
-  $('.tooth-31-parent').css('fill', '#c8e6c9');
+  $('.tooth-31-parent').css('fill', color1);
 });
 
 $('.tooth-31').mouseleave(function(){
@@ -355,7 +355,7 @@ $('.tooth-31').mouseleave(function(){
 });
 
 $('.tooth-32').mouseover(function(){
-  $('.tooth-32-parent').css('fill', '#c8e6c9');
+  $('.tooth-32-parent').css('fill', color1);
 });
 
 $('.tooth-32').mouseleave(function(){
@@ -363,7 +363,7 @@ $('.tooth-32').mouseleave(function(){
 });
 
 $('.tooth-33').mouseover(function(){
-  $('.tooth-33-parent').css('fill', '#c8e6c9');
+  $('.tooth-33-parent').css('fill', color1);
 });
 
 $('.tooth-33').mouseleave(function(){
@@ -371,7 +371,7 @@ $('.tooth-33').mouseleave(function(){
 });
 
 $('.tooth-34').mouseover(function(){
-  $('.tooth-34-parent').css('fill', '#c8e6c9');
+  $('.tooth-34-parent').css('fill', color1);
 });
 
 $('.tooth-34').mouseleave(function(){
@@ -379,7 +379,7 @@ $('.tooth-34').mouseleave(function(){
 });
 
 $('.tooth-35').mouseover(function(){
-  $('.tooth-35-parent').css('fill', '#c8e6c9');
+  $('.tooth-35-parent').css('fill', color1);
 });
 
 $('.tooth-35').mouseleave(function(){
@@ -387,7 +387,7 @@ $('.tooth-35').mouseleave(function(){
 });
 
 $('.tooth-36').mouseover(function(){
-  $('.tooth-36-parent').css('fill', '#c8e6c9');
+  $('.tooth-36-parent').css('fill', color1);
 });
 
 $('.tooth-36').mouseleave(function(){
@@ -395,7 +395,7 @@ $('.tooth-36').mouseleave(function(){
 });
 
 $('.tooth-37').mouseover(function(){
-  $('.tooth-37-parent').css('fill', '#c8e6c9');
+  $('.tooth-37-parent').css('fill', color1);
 });
 
 $('.tooth-37').mouseleave(function(){
@@ -403,7 +403,7 @@ $('.tooth-37').mouseleave(function(){
 });
 
 $('.tooth-38').mouseover(function(){
-  $('.tooth-38-parent').css('fill', '#c8e6c9');
+  $('.tooth-38-parent').css('fill', color1);
 });
 
 $('.tooth-38').mouseleave(function(){
@@ -413,7 +413,7 @@ $('.tooth-38').mouseleave(function(){
 /*Quarto Quadrante*/
 
 $('.tooth-41').mouseover(function(){
-  $('.tooth-41-parent').css('fill', '#c8e6c9');
+  $('.tooth-41-parent').css('fill',color1);
 });
 
 $('.tooth-41').mouseleave(function(){
@@ -421,7 +421,7 @@ $('.tooth-41').mouseleave(function(){
 });
 
 $('.tooth-42').mouseover(function(){
-  $('.tooth-42-parent').css('fill', '#c8e6c9');
+  $('.tooth-42-parent').css('fill', color1);
 });
 
 $('.tooth-42').mouseleave(function(){
@@ -429,7 +429,7 @@ $('.tooth-42').mouseleave(function(){
 });
 
 $('.tooth-43').mouseover(function(){
-  $('.tooth-43-parent').css('fill', '#c8e6c9');
+  $('.tooth-43-parent').css('fill', color1);
 });
 
 $('.tooth-43').mouseleave(function(){
@@ -437,7 +437,7 @@ $('.tooth-43').mouseleave(function(){
 });
 
 $('.tooth-44').mouseover(function(){
-  $('.tooth-44-parent').css('fill', '#c8e6c9');
+  $('.tooth-44-parent').css('fill', color1);
 });
 
 $('.tooth-44').mouseleave(function(){
@@ -445,7 +445,7 @@ $('.tooth-44').mouseleave(function(){
 });
 
 $('.tooth-45').mouseover(function(){
-  $('.tooth-45-parent').css('fill', '#c8e6c9');
+  $('.tooth-45-parent').css('fill', color1);
 });
 
 $('.tooth-45').mouseleave(function(){
@@ -453,7 +453,7 @@ $('.tooth-45').mouseleave(function(){
 });
 
 $('.tooth-46').mouseover(function(){
-  $('.tooth-46-parent').css('fill', '#c8e6c9');
+  $('.tooth-46-parent').css('fill', color1);
 });
 
 $('.tooth-46').mouseleave(function(){
@@ -461,7 +461,7 @@ $('.tooth-46').mouseleave(function(){
 });
 
 $('.tooth-47').mouseover(function(){
-  $('.tooth-47-parent').css('fill', '#c8e6c9');
+  $('.tooth-47-parent').css('fill', color1);
 });
 
 $('.tooth-47').mouseleave(function(){
@@ -469,7 +469,7 @@ $('.tooth-47').mouseleave(function(){
 });
 
 $('.tooth-48').mouseover(function(){
-  $('.tooth-48-parent').css('fill', '#c8e6c9');
+  $('.tooth-48-parent').css('fill', color1);
 });
 
 $('.tooth-48').mouseleave(function(){
@@ -517,7 +517,6 @@ if(document.querySelector(".toast")){
 if(document.querySelector('#select1')){
   var source = document.querySelector("#select1");
   var target = document.querySelector(".toothRegion");
-
   function display() {
       var selectedIndex = source.selectedIndex;
       console.log(source[selectedIndex].value);
@@ -533,3 +532,37 @@ if(document.querySelector('#select1')){
   }, false);
 
 }
+/*
+if(document.querySelector('.type')){
+  var list = new Array();
+  var list1 = new Array();
+  document.querySelectorAll(".type").forEach(function(i){
+    list.push((i.getAttribute('id')));
+  })
+  document.querySelectorAll(".toothRegion1").forEach(function(i){
+    list1.push(i.getAttribute('id'));
+  })
+  document.querySelectorAll(".toothRegion2").forEach(function(i){
+    list1.push(i.getAttribute('id'));
+  })
+
+  list.forEach(function(i,index){
+    var source1 = document.getElementById(""+i.toString());
+    var target1 = document.getElementById(""+list1[index].toString());
+    console.log(target1);
+    function display() {
+        var selectedIndex = source1.selectedIndex;
+        console.log(source1[selectedIndex].value);
+        if (source1[selectedIndex].value === "Mbushje") {
+            target1.classList.remove("toothRegion1");
+
+        } else {
+            target1.classList.add("toothRegion1");
+        }
+    }
+    source1.addEventListener("change", function () {
+        display();
+    }, false);
+  })
+}
+*/
