@@ -99,7 +99,7 @@
 						{{>flash}}
 
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h3>{{name}} {{surname}}</h3>
+            <h3>{{name}} {{age}} {{surname}}</h3>
 
           </div>
           <div class="form-row">
@@ -158,6 +158,7 @@
                 <path d="M0 0 5-5-12.5 0 5 5 0 0z" transform="matrix(0.8,0,0,0.8,10,0)" style="fill-rule:evenodd;marker-start:none;stroke-width:1pt;stroke:#000"/>
                 </marker>
                 </defs>
+
                 <path
                 class="tooth-11 tooth-11-parent "
                 data-toggle="modal" data-target="#exampleModal" data-whatever="tooth-11"
@@ -921,14 +922,25 @@
                     d="m 46.842051,219.06796 c 1.174729,-0.0304 2.284947,0.0529 3.643979,-0.304 1.942297,-1.82075 2.638975,-1.82329 3.874331,-2.61197 0.232343,-0.0586 2.680288,-2.19834 0.909097,-5.42624 -0.978091,-1.65176 -1.215436,-2.22236 -0.807156,-3.43336 -0.960239,-2.82396 -0.439585,-3.45978 -0.652953,-5.18009"
                     style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"/>
 
+
+
+
                 </svg>
               </div>
               <div class="col">
                 {{#each todos}}
                   <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="toast-header">
-                      <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#007aff" /></svg>
-                      <strong class="mr-auto" id="{{tooth}}">{{tooth}}</strong>
+                      {{#eq type compare="Mbushje" }}
+                        <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect class="color" width="100%" height="100%" fill="#2196f3" /></svg>
+                      {{/eq}}
+                      {{#eq type compare="Nxjerrje" }}
+                        <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect class="color"  width="100%" height="100%" fill="#d50000" /></svg>
+                      {{/eq}}
+                      {{#eq type compare="Sherim" }}
+                        <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect class="color" width="100%" height="100%" fill="#aee571" /></svg>
+                      {{/eq}}
+                      <strong class="mr-auto" id="{{tooth}}" color="{{type}}">{{tooth}}</strong>
                       <small class="text-muted">{{formatDate}}</small>
                       <button type="button" class="ml-2 mb-2 close"  data-dismiss="toast"  data-toggle="modal" data-target="#exampleModalUpdate{{_id}}" arial-label="Close">
                         <span  data-feather="edit-2" data-placement="top" title="Update"  data-toggle="tooltip" ></span>
@@ -939,6 +951,12 @@
 
                     </div>
                     <div class="toast-body">
+                      <div class="form-inline">
+                        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Type : {{type}}</label>
+                        {{#if region}}
+                        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Region : {{region}}</label>
+                        {{/if}}
+                      </div>
                       {{information}}
                     </div>
                   </div>
@@ -993,6 +1011,70 @@
                           <div class="form-group">
                              <label for="recipient-name" class="col-form-label">Tooth :</label>
                              <input readonly type="text" name="tooth" class="form-control" value="{{tooth}}">
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleFormControlSelect1">Type</label>
+                              <select class="form-control" name="type" id="select3">
+                                {{#eq type compare="Nxjerrje" }}
+                                  <option selected>Nxjerrje</option>
+                                  {{else}}
+                                  <option>Nxjerrje</option>
+                                {{/eq}}
+                                {{#eq type compare="Mbushje" }}
+                                  <option selected>Mbushje</option>
+                                  {{else}}
+                                  <option>Mbushje</option>
+                                {{/eq}}
+                                {{#eq type compare="Sherim" }}
+                                  <option selected>Sherim</option>
+                                  {{else}}
+                                  <option>Sherim</option>
+                                {{/eq}}
+                                {{#eq type compare="Tjeter" }}
+                                  <option selected>Tjeter</option>
+                                  {{else}}
+                                  <option>Tjeter</option>
+                                {{/eq}}
+                              </select>
+                          </div>
+                          {{#eq  type compare="Mbushje"}}
+
+                            <div class="form-group ">
+
+                            <label for="exampleFormControlSelect1">Region</label>
+                            {{else}}
+                            <div class="form-group toothRegion1">
+
+                            <label for="exampleFormControlSelect1">Region</label>
+                          {{/eq}}
+                              <select class="form-control" name="region1">
+                                {{#eq region compare="1"}}
+                                  <option selected>1</option>
+                                  {{else}}
+                                    <option>1</option>
+                                  {{/eq}}
+                                {{#eq region compare="2"}}
+                                  <option selected> 2</option>
+                                  {{else}}
+                                  <option>2</option>
+                                {{/eq}}
+                                {{#eq region compare="3"}}
+                                  <option selected>3</option>
+                                  {{else}}
+                                  <option>3</option>
+                                {{/eq}}
+                                {{#eq region compare="4"}}
+                                  <option selected>4</option>
+                                  {{else}}
+                                  <option>4</option>
+                                {{/eq}}
+                                {{#eq region compare="5"}}
+                                  <option selected>5</option>
+                                  {{else}}
+                                  <option>5</option>
+                                {{/eq}}
+
+                              </select>
                           </div>
                           <div class="form-group">
                             <label for="exampleFormControlTextarea1">Information : </label>

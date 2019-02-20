@@ -42,6 +42,7 @@ router.route("/pacientet/:id")
                                     let surname = data.surname;
                                     let formatedDate =  moment(data.date).format("DD/MM/YYYY");
                                     let time = data.time;
+                                    let age = data.age;
                                     let phoneNumber = data.phoneNumber;
                                     let address = data.address;
                       							let companyName = user.companyName;
@@ -57,6 +58,7 @@ router.route("/pacientet/:id")
                                        surname:surname,
                                        formatedDate:formatedDate,
                                        time:time,
+                                       age:age,
                                        phoneNumber:phoneNumber,
                                        address:address,
                                        companyName:companyName,
@@ -68,6 +70,8 @@ router.route("/pacientet/:id")
                                          return {
                                            _id:todo._id,
                                            tooth:todo.tooth,
+                                           type:todo.type,
+                                           region:todo.region,
                                            information:todo.information,
                                            createdAt:todo.createdAt,
                                            formatDate:formatDate
@@ -93,6 +97,7 @@ router.route("/pacientet/:id")
          let time = request.body.time;
          let phoneNumber = request.body.phoneNumber;
          let address = request.body.address;
+
 
             //finding the snippet with that id and update it
             Pacientet.findOneAndUpdate({_id: request.params.id},

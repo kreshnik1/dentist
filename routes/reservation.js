@@ -35,11 +35,17 @@ router.route("/create/reservation")
     let time = request.body.time;
     let phoneNumber = request.body.phoneNumber;
     let address = request.body.address;
+		let ageChecker = request.body.age;
+		let age = true;
+		if(ageChecker === "Child"){
+			age = false;
+		}
     let PacientetData = new Pacientet({
       name:name,
       surname:surname,
       date:date,
       time:time,
+			age:age,
       phoneNumber:phoneNumber,
       address:address
     });
