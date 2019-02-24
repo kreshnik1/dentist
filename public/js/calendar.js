@@ -1,337 +1,161 @@
-
-!function() {
-
-  var today = moment();
-
-  function Calendar(selector, events) {
-    this.el = document.querySelector(selector);
-    this.events = events;
-    this.current = moment().date(1);
-    this.draw();
-    var current = document.querySelector('.today');
-    if(current) {
-      var self = this;
-      window.setTimeout(function() {
-        self.openDay(current);
-      }, 500);
-    }
-  }
-
-  Calendar.prototype.draw = function() {
-    //Create Header
-    this.drawHeader();
-
-    //Draw Month
-    this.drawMonth();
-
-  }
-
-  Calendar.prototype.drawHeader = function() {
-    var self = this;
-    if(!this.header) {
-      //Create the header elements
-      this.header = createElement('div', 'header');
-      this.header.className = 'header';
-
-      this.title = createElement('h1');
-
-      var right = createElement('div', 'right');
-      right.addEventListener('click', function() { self.nextMonth(); });
-
-      var left = createElement('div', 'left');
-      left.addEventListener('click', function() { self.prevMonth(); });
-
-      //Append the Elements
-      this.header.appendChild(this.title);
-      this.header.appendChild(right);
-      this.header.appendChild(left);
-      this.el.appendChild(this.header);
-    }
-
-    this.title.innerHTML = this.current.format('MMMM YYYY');
-  }
-
-  Calendar.prototype.drawMonth = function() {
-    var self = this;
-
-    this.events.forEach(function(ev) {
-     ev.date = self.current.clone().date(Math.random() * (29 - 1) + 1);
+jQuery(document).ready(function(){
+  jQuery('.datetimepicker').datepicker({
+      timepicker: true,
+      language: 'en',
+      range: true,
+      multipleDates: true,
+		  multipleDatesSeparator: " - "
     });
-
-
-    if(this.month) {
-      this.oldMonth = this.month;
-      this.oldMonth.className = 'month out ' + (self.next ? 'next' : 'prev');
-      this.oldMonth.addEventListener('webkitAnimationEnd', function() {
-        self.oldMonth.parentNode.removeChild(self.oldMonth);
-        self.month = createElement('div', 'month');
-        self.backFill();
-        self.currentMonth();
-        self.fowardFill();
-        self.el.appendChild(self.month);
-        window.setTimeout(function() {
-          self.month.className = 'month in ' + (self.next ? 'next' : 'prev');
-        }, 16);
+  jQuery("#add-event").submit(function(){
+      alert("Submitted");
+      var values = {};
+      $.each($('#add-event').serializeArray(), function(i, field) {
+          values[field.name] = field.value;
       });
-    } else {
-        this.month = createElement('div', 'month');
-        this.el.appendChild(this.month);
-        this.backFill();
-        this.currentMonth();
-        this.fowardFill();
-        this.month.className = 'month new';
-    }
-  }
+      console.log(
+        values
+      );
+  });
+});
 
-  Calendar.prototype.backFill = function() {
-    var clone = this.current.clone();
-    var dayOfWeek = clone.day();
+(function () {
+    'use strict';
+    // ------------------------------------------------------- //
+    // Calendar
+    // ------------------------------------------------------ //
+	jQuery(function() {
+		// page is ready
+		jQuery('#calendar').fullCalendar({
+			themeSystem: 'bootstrap4',
+			// emphasizes business hours
+			businessHours: false,
+			defaultView: 'month',
+       navLinks: true, 
+			// event dragging & resizing
+			editable: true,
+			// header
+			header: {
+				left: 'title',
+				center: 'month,agendaWeek,agendaDay',
+				right: 'today prev,next'
+			},
+			events: [
+				{
+					title: 'Barber',
+					description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
+					start: '2018-11-05',
+					end: '2018-11-05',
+					className: 'fc-bg-default',
+					icon : "circle"
+				},
+				{
+					title: 'Flight Paris',
+					description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
+					start: '2018-11-08T14:00:00',
+					end: '2018-11-08T20:00:00',
+					className: 'fc-bg-deepskyblue',
+					icon : "cog",
+					allDay: false
+				},
+				{
+					title: 'Team Meeting',
+					description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
+					start: '2018-11-10T13:00:00',
+					end: '2018-11-10T16:00:00',
+					className: 'fc-bg-pinkred',
+					icon : "group",
+					allDay: false
+				},
+				{
+					title: 'Meeting',
+					description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
+					start: '2018-11-12',
+					className: 'fc-bg-lightgreen',
+					icon : "suitcase"
+				},
+				{
+					title: 'Conference',
+					description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
+					start: '2018-11-13',
+					end: '2018-11-15',
+					className: 'fc-bg-blue',
+					icon : "calendar"
+				},
+				{
+					title: 'Baby Shower',
+					description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
+					start: '2018-11-13',
+					end: '2018-11-14',
+					className: 'fc-bg-default',
+					icon : "child"
+				},
+				{
+					title: 'Birthday',
+					description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
+					start: '2018-11-13',
+					end: '2018-11-14',
+					className: 'fc-bg-default',
+					icon : "birthday-cake"
+				},
+				{
+					title: 'Restaurant',
+					description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
+					start: '2018-11-15T09:30:00',
+					end: '2018-11-15T11:45:00',
+					className: 'fc-bg-default',
+					icon : "glass",
+					allDay: false
+				},
+				{
+					title: 'Dinner',
+					description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
+					start: '2018-11-15T20:00:00',
+					end: '2018-11-15T22:30:00',
+					className: 'fc-bg-default',
+					icon : "cutlery",
+					allDay: false
+				},
+				{
+					title: 'Shooting',
+					description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
+					start: '2018-11-25',
+					end: '2018-11-25',
+					className: 'fc-bg-blue',
+					icon : "camera"
+				},
+				{
+					title: 'Go Space :)',
+					description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
+					start: '2018-11-27',
+					end: '2018-11-27',
+					className: 'fc-bg-default',
+					icon : "rocket"
+				},
 
-    if(!dayOfWeek) { return; }
-
-    clone.subtract('days', dayOfWeek+1);
-
-    for(var i = dayOfWeek; i > 0 ; i--) {
-      this.drawDay(clone.add('days', 1));
-    }
-  }
-
-  Calendar.prototype.fowardFill = function() {
-    var clone = this.current.clone().add('months', 1).subtract('days', 1);
-    var dayOfWeek = clone.day();
-
-    if(dayOfWeek === 6) { return; }
-
-    for(var i = dayOfWeek; i < 6 ; i++) {
-      this.drawDay(clone.add('days', 1));
-    }
-  }
-
-  Calendar.prototype.currentMonth = function() {
-    var clone = this.current.clone();
-
-    while(clone.month() === this.current.month()) {
-      this.drawDay(clone);
-      clone.add('days', 1);
-    }
-  }
-
-  Calendar.prototype.getWeek = function(day) {
-    if(!this.week || day.day() === 0) {
-      this.week = createElement('div', 'week');
-      this.month.appendChild(this.week);
-    }
-  }
-
-  Calendar.prototype.drawDay = function(day) {
-    var self = this;
-    this.getWeek(day);
-
-    //Outer Day
-    var outer = createElement('div', this.getDayClass(day));
-    outer.addEventListener('click', function() {
-      self.openDay(this);
-    });
-
-    //Day Name
-    var name = createElement('div', 'day-name', day.format('ddd'));
-
-    //Day Number
-    var number = createElement('div', 'day-number', day.format('DD'));
-
-
-    //Events
-    var events = createElement('div', 'day-events');
-    this.drawEvents(day, events);
-
-    outer.appendChild(name);
-    outer.appendChild(number);
-    outer.appendChild(events);
-    this.week.appendChild(outer);
-  }
-
-  Calendar.prototype.drawEvents = function(day, element) {
-    if(day.month() === this.current.month()) {
-      var todaysEvents = this.events.reduce(function(memo, ev) {
-        if(ev.date.isSame(day, 'day')) {
-          memo.push(ev);
+        {
+          title: 'Dentist',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
+          start: '2018-11-29T11:30:00',
+          end: '2018-11-29T012:30:00',
+          allDay: false
         }
-        return memo;
-      }, []);
+			],
+			eventRender: function(event, element) {
+				if(event.icon){
+					element.find(".fc-title").prepend("<i class='fa fa-"+event.icon+"'></i>");
+				}
+			  },
+			dayClick: function() {
+				jQuery('#modal-view-event-add').modal();
+			},
+			eventClick: function(event, jsEvent, view) {
+			        jQuery('.event-icon').html("<i class='fa fa-"+event.icon+"'></i>");
+					jQuery('.event-title').html(event.title);
+					jQuery('.event-body').html(event.description);
+					jQuery('.eventUrl').attr('href',event.url);
+					jQuery('#modal-view-event').modal();
+			},
+		})
+	});
 
-      todaysEvents.forEach(function(ev) {
-        var evSpan = createElement('span', ev.color);
-        element.appendChild(evSpan);
-      });
-    }
-  }
-
-  Calendar.prototype.getDayClass = function(day) {
-    classes = ['day'];
-    if(day.month() !== this.current.month()) {
-      classes.push('other');
-    } else if (today.isSame(day, 'day')) {
-      classes.push('today');
-    }
-    return classes.join(' ');
-  }
-
-  Calendar.prototype.openDay = function(el) {
-    var details, arrow;
-    var dayNumber = +el.querySelectorAll('.day-number')[0].innerText || +el.querySelectorAll('.day-number')[0].textContent;
-    var day = this.current.clone().date(dayNumber);
-
-    var currentOpened = document.querySelector('.details');
-
-    //Check to see if there is an open detais box on the current row
-    if(currentOpened && currentOpened.parentNode === el.parentNode) {
-      details = currentOpened;
-      arrow = document.querySelector('.arrow');
-    } else {
-      //Close the open events on differnt week row
-      //currentOpened && currentOpened.parentNode.removeChild(currentOpened);
-      if(currentOpened) {
-        currentOpened.addEventListener('webkitAnimationEnd', function() {
-          currentOpened.parentNode.removeChild(currentOpened);
-        });
-        currentOpened.addEventListener('oanimationend', function() {
-          currentOpened.parentNode.removeChild(currentOpened);
-        });
-        currentOpened.addEventListener('msAnimationEnd', function() {
-          currentOpened.parentNode.removeChild(currentOpened);
-        });
-        currentOpened.addEventListener('animationend', function() {
-          currentOpened.parentNode.removeChild(currentOpened);
-        });
-        currentOpened.className = 'details out';
-      }
-
-      //Create the Details Container
-      details = createElement('div', 'details in');
-
-      //Create the arrow
-      var arrow = createElement('div', 'arrow');
-
-      //Create the event wrapper
-
-      details.appendChild(arrow);
-      el.parentNode.appendChild(details);
-    }
-
-    var todaysEvents = this.events.reduce(function(memo, ev) {
-      if(ev.date.isSame(day, 'day')) {
-        memo.push(ev);
-      }
-      return memo;
-    }, []);
-
-    this.renderEvents(todaysEvents, details);
-
-    arrow.style.left = el.offsetLeft - el.parentNode.offsetLeft + 27 + 'px';
-  }
-
-  Calendar.prototype.renderEvents = function(events, ele) {
-    //Remove any events in the current details element
-    var currentWrapper = ele.querySelector('.events');
-    var wrapper = createElement('div', 'events in' + (currentWrapper ? ' new' : ''));
-
-    events.forEach(function(ev) {
-      var div = createElement('div', 'event');
-      var square = createElement('div', 'event-category ' + ev.color);
-      var span = createElement('span', '', ev.eventName);
-
-      div.appendChild(square);
-      div.appendChild(span);
-      wrapper.appendChild(div);
-    });
-
-    if(!events.length) {
-      var div = createElement('div', 'event empty');
-      var span = createElement('span', '', 'No Events');
-
-      div.appendChild(span);
-      wrapper.appendChild(div);
-    }
-
-    if(currentWrapper) {
-      currentWrapper.className = 'events out';
-      currentWrapper.addEventListener('webkitAnimationEnd', function() {
-        currentWrapper.parentNode.removeChild(currentWrapper);
-        ele.appendChild(wrapper);
-      });
-      currentWrapper.addEventListener('oanimationend', function() {
-        currentWrapper.parentNode.removeChild(currentWrapper);
-        ele.appendChild(wrapper);
-      });
-      currentWrapper.addEventListener('msAnimationEnd', function() {
-        currentWrapper.parentNode.removeChild(currentWrapper);
-        ele.appendChild(wrapper);
-      });
-      currentWrapper.addEventListener('animationend', function() {
-        currentWrapper.parentNode.removeChild(currentWrapper);
-        ele.appendChild(wrapper);
-      });
-    } else {
-      ele.appendChild(wrapper);
-    }
-  }
-
-
-  Calendar.prototype.nextMonth = function() {
-    this.current.add('months', 1);
-    this.next = true;
-    this.draw();
-  }
-
-  Calendar.prototype.prevMonth = function() {
-    this.current.subtract('months', 1);
-    this.next = false;
-    this.draw();
-  }
-
-  window.Calendar = Calendar;
-
-  function createElement(tagName, className, innerText) {
-    var ele = document.createElement(tagName);
-    if(className) {
-      ele.className = className;
-    }
-    if(innerText) {
-      ele.innderText = ele.textContent = innerText;
-    }
-    return ele;
-  }
-}();
-
-!function() {
-  var data = [
-    { eventName: 'Lunch Meeting w/ Mark', calendar: 'Work', color: 'orange' },
-    { eventName: 'Interview - Jr. Web Developer', calendar: 'Work', color: 'orange' },
-    { eventName: 'Demo New App to the Board', calendar: 'Work', color: 'orange' },
-    { eventName: 'Dinner w/ Marketing', calendar: 'Work', color: 'orange' },
-
-    { eventName: 'Game vs Portalnd', calendar: 'Sports', color: 'blue' },
-    { eventName: 'Game vs Houston', calendar: 'Sports', color: 'blue' },
-    { eventName: 'Game vs Denver', calendar: 'Sports', color: 'blue' },
-    { eventName: 'Game vs San Degio', calendar: 'Sports', color: 'blue' },
-
-    { eventName: 'School Play', calendar: 'Kids', color: 'yellow' },
-    { eventName: 'Parent/Teacher Conference', calendar: 'Kids', color: 'yellow' },
-    { eventName: 'Pick up from Soccer Practice', calendar: 'Kids', color: 'yellow' },
-    { eventName: 'Ice Cream Night', calendar: 'Kids', color: 'yellow' },
-
-    { eventName: 'Free Tamale Night', calendar: 'Other', color: 'green' },
-    { eventName: 'Bowling Team', calendar: 'Other', color: 'green' },
-    { eventName: 'Teach Kids to Code', calendar: 'Other', color: 'green' },
-    { eventName: 'Startup Weekend', calendar: 'Other', color: 'green' }
-  ];
-
-
-
-  function addDate(ev) {
-
-  }
-
-  var calendar = new Calendar('#calendar', data);
-
-}();
+})(jQuery);
