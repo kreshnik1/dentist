@@ -76,17 +76,9 @@ body {
   text-transform: uppercase;
 }
 
-/*
- * Content
- */
-
 [role="main"] {
   padding-top: 48px; /* Space for fixed navbar */
 }
-
-/*
- * Navbar
- */
 
 .navbar-dark .navbar-brand {
     color: #fff;
@@ -98,7 +90,6 @@ body {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   font-size: 1rem;
-
   box-shadow: inset 0px 0 0 rgba(0, 0, 0, .25);
 }
 .mr-0, .mx-0 {
@@ -106,10 +97,7 @@ body {
 }
 .navbar-brand >a{
 	font-size: 1rem;
-}/*
-.navbar-dark{
-	height: 3rem;
-}*/
+}
 
 .navbar .form-control {
   padding: .75rem 1rem;
@@ -142,8 +130,6 @@ body{
  // height: 100vh;
   background-color: #fff;
 }
-
-
 .correct{
 	color:#999;
 }
@@ -183,10 +169,6 @@ body{
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-
-
-
-
 
 .container {
   position: relative;
@@ -1125,7 +1107,7 @@ body{
   z-index: -1;
   opacity: 0;
 }
-.searc{
+.searc {
   padding-top: 12px;
 }
 
