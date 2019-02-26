@@ -1,10 +1,8 @@
 jQuery(document).ready(function(){
   jQuery('.datetimepicker').datepicker({
       language: 'en',
-      dateFormat:'dd-mm-yy',
       minDate: new Date(),
-		  multipleDatesSeparator: " - "
-    });
+		});
   jQuery("#add-event").submit(function(){
       alert("Submitted");
       var values = {};
@@ -132,10 +130,9 @@ jQuery(document).ready(function(){
           let dateArray = getDate.split('T');
           let onlyDate = dateArray[0];
           let onlyHour = dateArray[1];
-          var date = new Date();
-          
-          $('.datetimepicker').datepicker("option", "defaultDate", new Date());
-
+          let convertedDate = moment(onlyDate).format("MM/DD/YYYY");
+          console.log(convertedDate);
+          $('.datetimepicker').datepicker().data('datepicker').selectDate(new Date(convertedDate));
         }
         else{
 
