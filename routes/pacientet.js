@@ -96,20 +96,18 @@ router.route("/pacientet/:id")
 	       let name = request.body.name;
          let surname = request.body.surname;
          let date = request.body.date;
-         let time = request.body.time;
+         let startTime = request.body.startTime;
+         let endTime = request.body.endTime;
          let phoneNumber = request.body.phoneNumber;
          let address = request.body.address;
-         let type = request.body.type;
-         let region = request.body.region;
 
             //finding the snippet with that id and update it
             Pacientet.findOneAndUpdate({_id: request.params.id},
                { name: name,
                  surname:surname,
                  date:date,
-                 time:time,
-                 type:type,
-                 region:region,
+                 startTime:startTime,
+                 endTime:endTime,
                  phoneNumber:phoneNumber,
                  address:address }, {returnNewDocument: true}, function (error,user) {
                 if (error) {

@@ -132,8 +132,8 @@ jQuery(document).ready(function(){
           let getDate = date.format();
           let onlyDate =  moment(getDate).format("MM/DD/YYYY")
           let onlyHour = moment(getDate).format('H:mm');
-          let convertedDate = moment(onlyDate).format("MM/DD/YYYY");  
-          $('.datetimepicker').datepicker().data('datepicker').selectDate(new Date(convertedDate));
+          let convertedDate = moment(onlyDate).format("MM/DD/YYYY");
+          document.querySelector('.datetimepicker').datepicker().data('datepicker').selectDate(new Date(convertedDate));
           document.querySelector("#startTime").value=onlyHour;
         }
 

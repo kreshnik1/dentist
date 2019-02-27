@@ -1120,18 +1120,26 @@
                               <div class="form-group row">
                                   <label for="inputPassword" class="col-sm-2 col-form-label">Date</label>
                                   <div class="col-sm-10">
-                                    <input id="validateDate" name="date" class="form-control" type="date" value="{{year}}-{{day}}-{{month}}" date-format="DD MMMM YYYY" >
+                                  <input type='text' class="datetimepicker form-control updatedate" name="date" required value="{{day}}/{{month}}/{{year}}">
 
                                   </div>
                               </div>
                               <div class="form-group row">
-                                  <label for="inputPassword" class="col-sm-2 col-form-label" >Time</label>
-                                  <div class="col-sm-10">
-                                      <input type="time" class="form-control" id="inputEmail" name="time" value="{{time}}" required>
-                                  </div>
-                              </div>
+
+                                    <label for="inputPassword" class="col-sm-2 col-form-label">Time</label>
+                                      <div class="col-sm-10">
+                                        <div class="row">
+                                           <div class="col">
+                                               <input type="time" class="form-control" name="startTime"  id="startTime"  value="{{startTime}}" required />
+                                             </div>
+                                             <div class="col">
+                                               <input type="time" class="form-control" name="endTime"  id="endTime" value="{{endTime}}" required />
+                                             </div>
+                                         </div>
+                                       </div>
+                                     </div>
                               <div class="form-group row">
-                                  <label for="inputPassword" class="col-sm-2 col-form-label">Phone</label>
+                                  <label for="inputPassword" class="col-sm-2 col-form-label">Phone </label>
                                   <div class="col-sm-10">
                                       <input type="text" class="form-control" id="inputCompanyName" name="phoneNumber" value="{{this.phoneNumber}}" required>
                                   </div>
@@ -1208,3 +1216,5 @@
       </div>
     </div>
 <script type="text/javascript" src="../../js/validation.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/datepicker.js"> </script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/i18n/datepicker.en.js"> </script>
