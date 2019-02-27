@@ -178,18 +178,21 @@
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
+
                           <div class="modal-body">
+                            <form action="/create/reservation" method="post" id="create" >
+                              <input type="hidden" name="_csrf" value="{{ csrftoken }}" />
                             <div class="form-group">
                               <label>First Name</label>
-                              <input type="text" class="form-control" name="name">
+                              <input type="text" class="form-control" name="name" required>
                             </div>
                             <div class="form-group">
                               <label>Surname</label>
-                              <input type="text" class="form-control" name="surname">
+                              <input type="text" class="form-control" name="surname" required>
                             </div>
                             <div class="form-group">
                               <label>Date</label>
-                              <input type='text' class="datetimepicker form-control" name="edate">
+                              <input type='text' class="datetimepicker form-control" name="date" required>
                             </div>
                             <div class="form-group">
 
@@ -214,13 +217,14 @@
                               <input type="text" class="form-control" name="address">
                             </div>
                             <div class="form-group">
-                              <label>Event Description</label>
-                              <textarea class="form-control" name="edesc"></textarea>
+                              <label>Reservation Description</label>
+                              <textarea class="form-control" name="description"></textarea>
                             </div>
+                              </form>
                         </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary" >Save</button>
+                            <button type="submit"  form="create" class="btn btn-primary" >Save</button>
                         </div>
                       </div>
                     </div>
