@@ -28,7 +28,7 @@ jQuery(document).ready(function(){
 		// page is ready
 		jQuery('#calendar').fullCalendar({
 			themeSystem: 'bootstrap4',
-      minTime:'06:00:00',
+      minTime:'07:00:00',
       maxTime:'23:00:00',
 			// emphasizes business hours
 			businessHours: false,
@@ -132,10 +132,10 @@ jQuery(document).ready(function(){
           let dateArray = getDate.split('T');
           let onlyDate = dateArray[0];
           let onlyHour = dateArray[1];
-          $('.modal-title').html(onlyHour);
           let convertedDate = moment(onlyDate).format("MM/DD/YYYY");
           console.log(convertedDate);
           $('.datetimepicker').datepicker().data('datepicker').selectDate(new Date(convertedDate));
+          document.querySelector("#startTime").value=onlyHour;
         }
         else{
 
