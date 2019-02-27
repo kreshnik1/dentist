@@ -30,7 +30,8 @@ router.route('/home/search')
                                     name: todo.name,
                                     surname:todo.surname,
                                     date:todo.date,
-                                    time: todo.time,
+                                    startTime: todo.startTime,
+                                    endTime:todo.endTime,
                                     id: todo._id,
                                     phoneNumber:todo.phoneNumber,//checking for update and delete
                                     address:todo.address,
@@ -58,7 +59,8 @@ router.route('/home/search')
                                     name: todo.name,
                                     surname:todo.surname,
                                     createdAt:formatedDate,
-                                    time: todo.time,
+                                    startTime: todo.startTime,
+                                    endTime:todo.endTime,
                                     phoneNumber:todo.phoneNumber,
                                     address:todo.address,
                                     data:date
