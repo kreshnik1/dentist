@@ -2,7 +2,6 @@
 
 let router = require("express").Router();
 let Users = require("../models/Users");
-
 /*
 	handles the get of /register
 	handles the post
