@@ -130,8 +130,11 @@ jQuery(document).ready(function(){
         if(moment(date.format()).isAfter(moment(Date.now()))){
           jQuery('#modal-view-event-add').modal();
           let getDate = date.format();
-          let onlyDate =  moment(getDate).format("MM/DD/YYYY")
-          let onlyHour = moment(getDate).format('H:mm');
+
+          let onlyDate = moment(getDate).format("MM/DD/YYYY")
+          let onlyHour = moment(getDate).format('HH:mm')
+          console.log(onlyHour)
+          console.log(document.querySelector("#startTime")  )
           let convertedDate = moment(onlyDate).format("MM/DD/YYYY");
           $('.datetimepicker').datepicker().data('datepicker').selectDate(new Date(convertedDate));
           document.querySelector("#startTime").value=onlyHour;
