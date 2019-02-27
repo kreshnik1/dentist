@@ -41,7 +41,8 @@ router.route("/pacientet/:id")
                       							let name = data.name;
                                     let surname = data.surname;
                                     let formatedDate =  moment(data.date).format("DD/MM/YYYY");
-                                    let time = data.time;
+                                    let startTime = data.startTime;
+                                    let endTime = data.endTime;
                                     let age = data.age;
                                     let phoneNumber = data.phoneNumber;
                                     let address = data.address;
@@ -57,7 +58,8 @@ router.route("/pacientet/:id")
                                        name:name,
                                        surname:surname,
                                        formatedDate:formatedDate,
-                                       time:time,
+                                       startTime:startTime,
+                                       endTime:endTime,
                                        age:age,
                                        phoneNumber:phoneNumber,
                                        address:address,

@@ -28,8 +28,8 @@ jQuery(document).ready(function(){
 		// page is ready
 		jQuery('#calendar').fullCalendar({
 			themeSystem: 'bootstrap4',
-      minTime:'07:00:00',
-      maxTime:'23:00:00',
+      minTime:'07:00',
+      maxTime:'23:00',
 			// emphasizes business hours
 			businessHours: false,
 			defaultView: 'month',
@@ -37,6 +37,7 @@ jQuery(document).ready(function(){
 			// event dragging & resizing
 			editable: true,
 			// header
+      timeFormat: 'H(:mm)',
 			header: {
 				left: 'title',
 				center: 'month,agendaWeek,agendaDay',
@@ -129,11 +130,9 @@ jQuery(document).ready(function(){
         if(moment(date.format()).isAfter(moment(Date.now()))){
           jQuery('#modal-view-event-add').modal();
           let getDate = date.format();
-          let dateArray = getDate.split('T');
-          let onlyDate = dateArray[0];
-          let onlyHour = dateArray[1];
-          let convertedDate = moment(onlyDate).format("MM/DD/YYYY");
-          console.log(convertedDate);
+          let onlyDate =  moment(getDate).format("MM/DD/YYYY")
+          let onlyHour = moment(getDate).format('H:mm');
+          let convertedDate = moment(onlyDate).format("MM/DD/YYYY");  
           $('.datetimepicker').datepicker().data('datepicker').selectDate(new Date(convertedDate));
           document.querySelector("#startTime").value=onlyHour;
         }
