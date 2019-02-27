@@ -20,7 +20,7 @@ router.route("/create/reservation")
 					return response.render("todo/errors/404",errors);
 				} else {
           let date = moment(new Date()).format('YYYY-MM-DD')
-					return response.render("todo/reservation",{userid : user._id,companyName:user.companyName,Date:date});//gets the todo/create handlebar
+				//	return response.render("todo/reservation",{userid : user._id,companyName:user.companyName,Date:date});//gets the todo/create handlebar
 				}
 			}
 		})
@@ -32,23 +32,23 @@ router.route("/create/reservation")
 		let name = request.body.name;
 		let surname = request.body.surname;
 		let date = request.body.date;
-    let time = request.body.time;
+    let startTime = request.body.startTime;
+		let endTime = request.body.endTime;
     let phoneNumber = request.body.phoneNumber;
     let address = request.body.address;
-		let ageChecker = request.body.age;
-		let age = true;
-		if(ageChecker === "Child"){
-			age = false;
-		}
+	  let description = request.body.description;
+
     let PacientetData = new Pacientet({
       name:name,
       surname:surname,
       date:date,
-      time:time,
-			age:age,
+			startTime:startTime,
+			endTime:endTime,
       phoneNumber:phoneNumber,
-      address:address
+      address:address,
+			description:description
     });
+
     //creating the snippet with datas that we need in database
     Pacientet.create(PacientetData, function (error, user) {
       if (error) {

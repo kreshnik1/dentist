@@ -137,9 +137,6 @@ jQuery(document).ready(function(){
           $('.datetimepicker').datepicker().data('datepicker').selectDate(new Date(convertedDate));
           document.querySelector("#startTime").value=onlyHour;
         }
-        else{
-
-        }
 
 			},
 

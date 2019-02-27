@@ -7,10 +7,11 @@ let PacientetSchema = mongoose.Schema({
 	name:{type:String,required:true},
   surname:{type:String,required:true},
 	date:{type: Date, required: true},
-  time:{type:String , required:true},
-	age:{type:Boolean,required:true},
+  startTime:{type:String , required:true},
+	endTime:{type:String,required:true},
   phoneNumber:{type:String},
   address:{type:String},
+	description:{type:String},
 	createdAt: { type: Date, required: true, default: Date.now },
 	updatedAt:DateOnly
 });
