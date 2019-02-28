@@ -36,12 +36,13 @@ jQuery(document).ready(function(){
        navLinks: true,
 			// event dragging & resizing
 			editable: true,
+       eventLimit: true,
 			// header
       timeFormat: 'H(:mm)',
 			header: {
-				left: 'title',
-				center: 'month,agendaWeek,agendaDay',
-				right: 'today prev,next'
+				left: 'today prev,next',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
 			},
 			events: [
 				{
@@ -78,9 +79,27 @@ jQuery(document).ready(function(){
 				{
 					title: 'Baby Shower',
 					description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-					start: '2018-11-13',
-					end: '2018-11-14'
+					start: '2018-11-13T10:00:00',
+					end: '2018-11-13T11:00:00'
 				},
+        {
+          title: 'Baby Shower',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
+          start: '2018-11-13T11:00:00',
+          end: '2018-11-13T12:00:00'
+        },
+        {
+          title: 'Baby Shower',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
+          start: '2018-11-13',
+          end: '2018-11-14'
+        },
+        {
+          title: 'Baby Shower',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
+          start: '2018-11-13',
+          end: '2018-11-14'
+        },
 				{
 					title: 'Birthday',
 					description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
@@ -130,11 +149,12 @@ jQuery(document).ready(function(){
         if(moment(date.format()).isAfter(moment(Date.now()))){
           jQuery('#modal-view-event-add').modal();
           let getDate = date.format();
-
+          console.log(getDate);
           let onlyDate = moment(getDate).format("MM/DD/YYYY")
-          let onlyHour = moment(getDate).format('HH:mm')
-          console.log(onlyHour)
-          console.log(document.querySelector("#startTime")  )
+          let onlyHour ;
+          if(getDate.includes('T')){
+              onlyHour = moment(getDate).format('HH:mm')
+          }
           let convertedDate = moment(onlyDate).format("MM/DD/YYYY");
           $('.datetimepicker').datepicker().data('datepicker').selectDate(new Date(convertedDate));
           document.querySelector("#startTime").value=onlyHour;

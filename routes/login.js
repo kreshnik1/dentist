@@ -12,7 +12,19 @@ let Users = require("../models/Users");
 */
 router.route("/")
 	.get(function(request,response){
-		 response.render("todo/login");
+		Users.findById(request.session.userId)
+	 .exec(function (error, user) {
+		 if (error) {
+		 return next(error);
+		 } else {
+		 if (user === null) {
+			 response.render("todo/login");
+		 } else {
+
+				return response.redirect("/home")
+		 }
+		 }
+	 });
 	})
 	.post(function(request,response,next){
 		var username = request.body.logusername.toLowerCase();
