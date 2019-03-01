@@ -1,6 +1,7 @@
 "use strict"
 let router = require("express").Router();
 let Users = require("../models/Users");
+let Pacientet = require("../models/Pacientet");
 
 router.route("/home")
 	.get(function (request, response, next) {
@@ -25,6 +26,29 @@ router.route("/home")
 		  }
 		});
 });
+
+router.route("/reservation/data")
+.get(function(request,response,next){
+	Users.findById(request.session.userId)
+	.exec(function (error, user) {
+		if (error) {
+		return next(error);
+		} else {
+		if (user === null) {
+			let errors = {
+				status:"403",
+				message:"Forbidden! Go back! "
+			}
+			return response.render("todo/errors/404",errors);
+		} else {
+			Pacientet.find({},null,function(error,data){
+				
+				response.send(data);
+			})
+		}
+		}
+	});
+})
 
 router.route("/logout")
 	.get(function (req, res, next) {
