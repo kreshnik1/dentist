@@ -532,14 +532,15 @@ if(document.querySelector('#select1')){
   }, false);
 
 }
-jQuery(document).ready(function(){
-  jQuery('.datetimepicker').datepicker({
-      language: 'en',
-      minDate: new Date(),
-		});
-})
 
 if(document.querySelector('.updatedate')){
+  jQuery(document).ready(function(){
+    jQuery('.datetimepicker').datepicker({
+        language: 'en',
+        minDate: new Date(),
+  		});
+  })
+
   $(function() {
   let date = document.querySelector('.datetimepicker').value;
   $('.datetimepicker').datepicker().data('datepicker').selectDate(new Date(date));
