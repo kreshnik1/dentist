@@ -6,13 +6,15 @@ let allReservationDate = []
 $.get( '/reservation/data', function(data) {
     data.forEach(function(i){
       allReservationDate.push({
-        title:i.name,
+        id:i._id,
+        title:i.name + " " + i.surname,
         start:moment(i.date).format("YYYY-MM-DD")+"T"+i.startTime,
         end:moment(i.date).format("YYYY-MM-DD")+"T"+i.endTime,
         description:i.description
       })
     })
   }).then(function(){
+    console.log(allReservationDate);
     jQuery(document).ready(function(){
       jQuery('.datetimepicker').datepicker({
           language: 'en',
@@ -75,11 +77,13 @@ $.get( '/reservation/data', function(data) {
     			},
 
     			eventClick: function(event, jsEvent, view) {
+              console.log(event);
+    					$('.event-title').html(event.title);
+              $('.event-date').html(moment(event.start._i).format("DD/MM/YYYY"));
+              $('.event-time').html(moment(event.start._i).format("HH:mm")+"-"+moment(event.end._i).format("HH:mm"));
+    				  $(".event-description").html(event.description);
 
-    					jQuery('.event-title').html(event.title);
-    					jQuery('.event-body').html(event.description);
-    					jQuery('.eventUrl').attr('href',event.url);
-    					jQuery('#modal-view-event').modal();
+    					$('#modal-view-event').modal();
     			},
     		})
     	});
