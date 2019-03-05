@@ -1,8 +1,6 @@
 let allReservationDate = []
 
 
-
-
 $.get( '/reservation/data', function(data) {
   document.querySelector("#hidden_loading").id="loading";
     data.forEach(function(i){
@@ -23,12 +21,12 @@ $.get( '/reservation/data', function(data) {
     document.querySelector(".calendar_card").removeAttribute("id");
     document.querySelector(".todaysInfo").removeAttribute("id");
 
-    jQuery(document).ready(function(){
-      jQuery('.datetimepicker').datepicker({
+    $(document).ready(function(){
+      $('.datetimepicker').datepicker({
           language: 'en',
           minDate: new Date(),
     		});
-      jQuery("#add-event").submit(function(){
+      $("#add-event").submit(function(){
           alert("Submitted");
           var values = {};
           $.each($('#add-event').serializeArray(), function(i, field) {
@@ -55,7 +53,8 @@ $.get( '/reservation/data', function(data) {
            displayEventEnd:true,
            slotEventOverlap:false,
     			// header
-          timeFormat: 'H(:mm)',
+          timeFormat: 'HH(:mm)',
+          axisFormat: 'HH:mm',
     			header: {
     				left: 'today prev,next',
     				center: 'title',
@@ -67,7 +66,7 @@ $.get( '/reservation/data', function(data) {
     			dayClick: function(date,event,view) {
              console.log(Date.now())
             if(moment(date.format()).isAfter(moment(Date.now()))){
-              jQuery('#modal-view-event-add').modal();
+              $('#modal-view-event-add').modal();
               let getDate = date.format();
               console.log(getDate);
               let onlyDate = moment(getDate).format("MM/DD/YYYY")

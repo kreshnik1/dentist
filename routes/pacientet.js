@@ -93,7 +93,8 @@ router.route("/pacientet/:id")
                     }
                   }
             })
-      })
+      });
+      router.route("/update/pacientet/:id")
       .post(function (request, response,next) {
 	       let name = request.body.name;
          let surname = request.body.surname;
@@ -102,7 +103,7 @@ router.route("/pacientet/:id")
          let endTime = request.body.endTime;
          let phoneNumber = request.body.phoneNumber;
          let address = request.body.address;
-
+         let description = request.body.description
             //finding the snippet with that id and update it
             Pacientet.findOneAndUpdate({_id: request.params.id},
                { name: name,
@@ -111,7 +112,9 @@ router.route("/pacientet/:id")
                  startTime:startTime,
                  endTime:endTime,
                  phoneNumber:phoneNumber,
-                 address:address }, {returnNewDocument: true}, function (error,user) {
+                 address:address,
+                 description:description
+                }, {returnNewDocument: true}, function (error,user) {
                 if (error) {
                   request.session.flash = {
                     type: 'error',
