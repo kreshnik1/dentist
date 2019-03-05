@@ -1199,4 +1199,8 @@ border-bottom: 1px solid rgba(0,0,0,.05);
 .secondaryc{
   color: #383d41;
   background-color: #f8f9fa;
+  font-size: 14px;
+}
+.todaysDate{
+  margin: 0px;
 }
