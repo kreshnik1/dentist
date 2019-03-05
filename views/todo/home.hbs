@@ -135,7 +135,7 @@
                   <div class="dropdown-divider"></div>
                   <div class="row">
                      <div class="col">
-                       <div class="card calendar_card animated fadeInLeft" id="hidden_loading">
+                       <div class="card calendar_card animated fadeInLeft" id="hidden">
                          <div class="card-body">
                            <div id="calendar" ></div>
                          </div>
@@ -165,18 +165,19 @@
                             </table>
 
                             --}}
+                            <div class="todaysInfo animated fadeInRight" id="hidden">
                             <div class="alert alert-primary" role="alert">
                               <h6 class="alert-heading">Today ({{todaysDate}})</h6>
                             </div>
-                          {{#each todos}}
-                          <ul class="list-group list-group-flush">
 
-                             <a href="/pacientet/{{id}}" class="list-group-item list-group-item-action secondaryc list-group-item-primary ">
-                               {{startTime}}-{{endTime}}  {{name}} {{surname}}
-                              </a>
-                            {{/each}}
-                        </ul>
-
+                            <ul class="list-group list-group-flush">
+                              {{#each todos}}
+                                <a href="/pacientet/{{id}}" class="list-group-item list-group-item-action secondaryc list-group-item-primary ">
+                                  {{startTime}}-{{endTime}}  {{name}} {{surname}}
+                                </a>
+                              {{/each}}
+                            </ul>
+                          </div>
                      </div>
                    </div>
 

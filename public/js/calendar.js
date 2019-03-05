@@ -20,7 +20,8 @@ $.get( '/reservation/data', function(data) {
 
     console.log(allReservationDate);
     document.querySelector("#loading").id="hidden_loading";
-    document.querySelector(".calendar_card").id=""
+    document.querySelector(".calendar_card").removeAttribute("id");
+    document.querySelector(".todaysInfo").removeAttribute("id");
 
     jQuery(document).ready(function(){
       jQuery('.datetimepicker').datepicker({
