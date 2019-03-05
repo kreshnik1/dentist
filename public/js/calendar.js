@@ -4,17 +4,24 @@ let allReservationDate = []
 
 
 $.get( '/reservation/data', function(data) {
+  document.querySelector("#hidden_loading").id="loading";
     data.forEach(function(i){
       allReservationDate.push({
         id:i._id,
-        title:i.name + " " + i.surname,
+        title:i.name,
+        surname:i.surname,
         start:moment(i.date).format("YYYY-MM-DD")+"T"+i.startTime,
         end:moment(i.date).format("YYYY-MM-DD")+"T"+i.endTime,
         description:i.description
       })
     })
   }).then(function(){
+
+
     console.log(allReservationDate);
+    document.querySelector("#loading").id="hidden_loading";
+    document.querySelector(".calendar_card").id=""
+
     jQuery(document).ready(function(){
       jQuery('.datetimepicker').datepicker({
           language: 'en',
@@ -41,9 +48,11 @@ $.get( '/reservation/data', function(data) {
     			businessHours: false,
     			defaultView: 'month',
            navLinks: true,
-    			// event dragging & resizing
-    			editable: true,
+           allDayText:"Ora",
            eventLimit: true,
+           displayEventTime:true,
+           displayEventEnd:true,
+           slotEventOverlap:false,
     			// header
           timeFormat: 'H(:mm)',
     			header: {
@@ -53,13 +62,9 @@ $.get( '/reservation/data', function(data) {
     			},
     			events:
           allReservationDate
-    			,
-          eventRender: function(event, element) {
-    				if(event.icon){
-    					element.find(".fc-title").prepend("<i class='fa fa-"+event.icon+"'></i>");
-    				}
-    			  },
+          ,
     			dayClick: function(date,event,view) {
+             console.log(Date.now())
             if(moment(date.format()).isAfter(moment(Date.now()))){
               jQuery('#modal-view-event-add').modal();
               let getDate = date.format();
@@ -75,16 +80,19 @@ $.get( '/reservation/data', function(data) {
             }
 
     			},
-
     			eventClick: function(event, jsEvent, view) {
               console.log(event);
-    					$('.event-title').html(event.title);
+              let a =new Date( moment(event.start._i).format("DD/MM/YYYY"))
+              console.log(moment(event.start._i).from(moment(Date.now())));
+
+    					$('.event-title').html(event.title + " " + event.surname);
               $('.event-date').html(moment(event.start._i).format("DD/MM/YYYY"));
               $('.event-time').html(moment(event.start._i).format("HH:mm")+"-"+moment(event.end._i).format("HH:mm"));
     				  $(".event-description").html(event.description);
-
+              document.querySelector(".more_information").setAttribute("href","/pacientet/"+event.id)
     					$('#modal-view-event').modal();
-    			},
+    			}
+
     		})
     	});
 
