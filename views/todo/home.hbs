@@ -142,18 +142,41 @@
                        </div>
                        </div>
                        <div class="col-sm-3">
+                         {{!--
+                           <table class="table table-striped">
+                             <thead>
+                               <tr>
+                                 <div class="alert alert-primary" role="alert">
+                                   <h6 class="alert-heading">Today </h6>
+                                 </div>
+                                 </tr>
+                             </thead>
+                             <tbody>
+                               {{#each todos}}
+                               <tr>
+                                 <a href="/pacientet/{{id}}">
+                                   <th scope="row">{{startTime}}</th>
+                                   <td>{{name}}</td>
+                                   <td>{{surname}}</td>
+                                 </a>
+                               </tr>
+                                 {{/each}}
+                             </tbody>
+                            </table>
 
-                         <div class="alert alert-primary" role="alert">
-                            <h6 class="alert-heading">Today </h6>
-                          </div>
-
+                            --}}
+                            <div class="alert alert-primary" role="alert">
+                              <h6 class="alert-heading">Today ({{todaysDate}})</h6>
+                            </div>
+                          {{#each todos}}
                           <ul class="list-group list-group-flush">
-                            {{#each todos}}
+
                              <a href="/pacientet/{{id}}" class="list-group-item list-group-item-action secondaryc list-group-item-primary ">
                                {{startTime}}-{{endTime}}  {{name}} {{surname}}
                               </a>
                             {{/each}}
                         </ul>
+
                      </div>
                    </div>
 
