@@ -88,22 +88,11 @@ if(document.querySelector("#hidden")){
 	});
 }
 
-if(document.querySelector(".hidden_tags")){
-    let tags = document.querySelectorAll(".hidden_tags");
-
+if(document.querySelector(".loading_click")){
+  document.querySelector(".loading_click").addEventListener('click',function(){
+    document.querySelector("#hidden_loading").id="loading";
+  })
 }
-
-let post_answer = document.querySelectorAll(".submit");
-post_answer.forEach(function(i){
-    i.addEventListener("click",function(){
-        document.querySelector("#hidden_loading").id="loading";
-    })
-})
-/*$('.delete_button').on('click', function() {
-        $(this).val("Disabled").attr('class', 'btn btn-danger disabled');
-});
-*/
-
 if(document.querySelector(".passwordButton")){
     let passwordButton = document.querySelector(".passwordButton");
     let oldpassword = document.querySelector(" input[name='oldpassword']")
