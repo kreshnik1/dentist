@@ -48,7 +48,7 @@ $.get( '/reservation/data', function(data) {
     			defaultView: 'month',
            navLinks: true,
            allDayText:"Ora",
-           eventLimit: true,
+           eventLimit: 3,
            displayEventTime:true,
            displayEventEnd:true,
            slotEventOverlap:false,
