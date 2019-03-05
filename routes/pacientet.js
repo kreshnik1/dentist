@@ -104,11 +104,12 @@ router.route("/pacientet/:id")
          let phoneNumber = request.body.phoneNumber;
          let address = request.body.address;
          let description = request.body.description
+         	let stringFormat = moment(date).format("YYYY-MM-DD");
             //finding the snippet with that id and update it
             Pacientet.findOneAndUpdate({_id: request.params.id},
                { name: name,
                  surname:surname,
-                 date:date,
+                 date:stringFormat,
                  startTime:startTime,
                  endTime:endTime,
                  phoneNumber:phoneNumber,
