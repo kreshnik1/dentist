@@ -2,7 +2,7 @@
 let router = require("express").Router();
 let Users = require("../models/Users");
 let Pacientet = require("../models/Pacientet");
-
+let moment=require('moment')
 
 router.route("/home")
 	.get(function (request, response, next) {
@@ -23,11 +23,11 @@ router.route("/home")
 					todaysDate.setUTCHours(0,0,0,0)
 					console.log(todaysDate);
 				Pacientet.find({date:todaysDate},function(error,data){
-
+				  let currentDate = moment(todaysDate).format("DD/MM/YYYY");
 					let context = {
 	          user_id : user._id,
 	          companyName : user.companyName,
-						todaysDate:todaysDate,
+						todaysDate:moment(todaysDate).format("DD/MM/YYYY"),
 						todos:data.map(function(todo){
 							return{
 								id:todo._id,
