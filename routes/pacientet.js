@@ -44,6 +44,7 @@ router.route("/pacientet/:id")
                                     let startTime = data.startTime;
                                     let endTime = data.endTime;
                                     let age = data.age;
+                                    let description = data.description;
                                     let phoneNumber = data.phoneNumber;
                                     let address = data.address;
                       							let companyName = user.companyName;
@@ -57,6 +58,7 @@ router.route("/pacientet/:id")
                                        userid:user._id,
                                        name:name,
                                        surname:surname,
+                                       description:description,
                                        formatedDate:formatedDate,
                                        startTime:startTime,
                                        endTime:endTime,

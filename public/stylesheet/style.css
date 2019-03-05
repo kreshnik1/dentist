@@ -1193,7 +1193,9 @@ border-bottom: 1px solid rgba(0,0,0,.05);
 #hidden_loading{
   display: none;
 }
-
+#hidden{
+  display: none;
+}
 .secondaryc{
   color: #383d41;
   background-color: #f8f9fa;

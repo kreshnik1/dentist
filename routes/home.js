@@ -21,7 +21,7 @@ router.route("/home")
 					let todaysDate = new Date();
 										// Set hours
 					todaysDate.setUTCHours(0,0,0,0)
-					console.log(todaysDate);
+
 				Pacientet.find({date:todaysDate},function(error,data){
 				  let currentDate = moment(todaysDate).format("DD/MM/YYYY");
 					let context = {
