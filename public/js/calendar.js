@@ -1,6 +1,5 @@
 let allReservationDate = []
 
-
 $.get( '/reservation/data', function(data) {
   document.querySelector("#hidden_loading").id="loading";
     data.forEach(function(i){
@@ -14,7 +13,7 @@ $.get( '/reservation/data', function(data) {
       })
     })
   }).then(function(){
-
+    // Time Picker Initialization
 
     console.log(allReservationDate);
     document.querySelector("#loading").id="hidden_loading";
@@ -92,7 +91,6 @@ $.get( '/reservation/data', function(data) {
               document.querySelector(".more_information").setAttribute("href","/pacientet/"+event.id)
     					$('#modal-view-event').modal();
     			}
-
     		})
     	});
 

@@ -133,6 +133,55 @@ router.route("/pacientet/:id")
               });
 
 	});
+  router.route("/delete/pacientet/:id")
+  .get(function(request, response,next) {
+    Users.findById(request.session.userId)//checking if the user is athorized
+      .exec(function (error, user) {
+          if (error) {
+          return next(error);
+          } else {
+            if (user === null ) {
+            let errors = {
+              status:"403",
+              message:"Forbidden! Go back! "
+            }
+            return response.render("todo/errors/404",errors);
+          }else {
+            Pacientet.findOne({_id: request.params.id},function(error,data){
+              if(error){//checking if there is something wrong
+                let errors = {
+                    status:"404",
+                    message:"Not found! Go back! "
+                  }
+                return response.render("todo/errors/404",errors);
+              }
+              });
+          }
+          }
+      })
+    })
+      .post(function(request, response,next) {
+          Pacientet.findOneAndRemove({_id: request.params.id}, function(error,data) {
+            if(error) {
+            	let errors = {
+  				      status:"404",
+  				      message:"Wrong url! Go back! "
+  		      	}
+  			     return response.render("todo/errors/404",errors);
+            }
+  		    	request.session.flash = {
+  			    	type: "success",
+  				    message: "The reservation  was deleted!"
+  		    	};
+
+            return response.redirect("/home");//riderect to home
+          });
+      });
+
+
+
+
+
   router.route("/tooth/data/:id")
   .post(function (request, response,next) {
      let id = request.params.id;
