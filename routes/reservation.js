@@ -40,7 +40,7 @@ router.route("/create/reservation")
 
 
 		let stringFormat = moment(date).format("YYYY-MM-DD");
-		console.log(stringFormat)
+
 		//let date1 = new Date(stringFormat);
 
     let PacientetData = new Pacientet({

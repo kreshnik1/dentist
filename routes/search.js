@@ -51,7 +51,7 @@ router.route('/home/search')
                             user_id:user._id,
                             companyName:user.companyName,
                             todos:Alldata.map(function(todo){
-                                console.log(todo.createdAt)
+
                                 date = moment(todo.createdAt).from(moment(Date.now()));
                                 formatedDate = moment(todo.date).format("DD/MM/YYYY");
                                 return {
@@ -74,6 +74,56 @@ router.route('/home/search')
 			  }
 		})
     })
+
+    router.route('/home/search/date')
+        .get(function (request, response,next) {
+        //checking if the user is authorize
+    	Users.findById(request.session.userId)
+    		.exec(function (error, user) {
+    			  if (error) {
+    				return next(error);
+    			  } else {
+    				if (user === null) {
+    					let errors = {
+    						status:"403",
+    						message:"Forbidden! Go back! "
+    					}
+    				  return response.render("todo/errors/404",errors);
+    				} else {
+                        let search_query = request.query['search'];
+                        let dateArray = search_query.split('/');
+
+                        let date = dateArray[2]+"-"+dateArray[1]+"-"+dateArray[0]+"T00:00:00.000Z"
+
+                        Pacientet.find({date: date}, function(error, data) {
+                          let date1,formatedDate;
+                          let searchedData = {
+                              search_query:search_query,
+                              user_id:user._id,
+                              companyName:user.companyName,
+                              todos:data.map(function(todo){
+                                  date1 = moment(todo.createdAt).from(moment(Date.now()));
+                                  formatedDate = moment(todo.date).format("DD/MM/YYYY");
+                                  return {
+                                      id: todo.id,
+                                      name: todo.name,
+                                      surname:todo.surname,
+                                      createdAt:formatedDate,
+                                      startTime: todo.startTime,
+                                      endTime:todo.endTime,
+                                      phoneNumber:todo.phoneNumber,
+                                      address:todo.address,
+                                      data:date1
+                                  }
+                              })
+                          }
+                            //response.render("todo/home", context);
+                           return response.render("todo/search",searchedData);
+                        });
+                    }
+    			  }
+    		})
+        })
 
 
 

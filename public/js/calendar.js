@@ -19,12 +19,14 @@ $.get( '/reservation/data', function(data) {
     document.querySelector("#loading").id="hidden_loading";
     document.querySelector(".calendar_card").removeAttribute("id");
     document.querySelector(".todaysInfo").removeAttribute("id");
-
     $(document).ready(function(){
       $('.datetimepicker').datepicker({
           language: 'en',
           minDate: new Date(),
     		});
+        $('.datetimepicker1').datepicker({
+            language: 'en'
+          });
       $("#add-event").submit(function(){
           alert("Submitted");
           var values = {};
@@ -57,7 +59,7 @@ $.get( '/reservation/data', function(data) {
     			header: {
     				left: 'today prev,next',
     				center: 'title',
-    				right: 'month,agendaWeek,agendaDay'
+    				right: 'month,agendaWeek,agendaDay,listDay'
     			},
     			events:
           allReservationDate
@@ -92,6 +94,8 @@ $.get( '/reservation/data', function(data) {
     					$('#modal-view-event').modal();
     			}
     		})
+        document.querySelector(".fc-listDay-button ").innerHTML="today list"
+
     	});
 
   })
