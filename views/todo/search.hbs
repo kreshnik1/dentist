@@ -14,24 +14,7 @@
                             Home <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item menus">
-                        <a class="nav-link" href="/mysnippet">
-                            <span data-feather="file"></span>
-                            My Questions
-                        </a>
-                    </li>
-                    <li class="nav-item menus">
-                        <a class="nav-link" href="/create">
-                            <span data-feather="edit"></span>
-                            Ask a Question
-                        </a>
-                    </li>
-                    <li class="nav-item menus">
-                        <a class="nav-link " data-toggle="modal" data-target="#exampleModalCenter">
-                            <span data-feather="users"></span>
-                            Contact us
-                        </a>
-                    </li>
+
                     <li class="nav-item">
                         <form class="form-inline mt-2 mt-md-0" action="/home/search"  method="get">
                             <input type="hidden"  name="_csrf" value="{{ csrftoken }}" />
@@ -78,24 +61,7 @@
                             Home <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/mysnippet">
-                            <span data-feather="file"></span>
-                            My Questions
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/create">
-                            <span data-feather="edit"></span>
-                            Ask a Question
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter">
-                            <span data-feather="users"></span>
-                            Contact us
-                        </a>
-                    </li>
+
                 </ul>
                 <div id="hidden_loading">
                   <div class="sk-fading-circle">
@@ -120,12 +86,6 @@
 
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
                 <h3>Search Results</h3>
-                <a href="/create/reservation">
-                    <button class="btn  btn-primary">
-                        <i data-feather="edit-2"></i>
-                        Make a reservation
-                    </button>
-                </a>
             </div>
             <p class="search_query">results found containing <strong>{{this.search_query}}</strong></p>
             <p class="result_length"><strong>{{todos.length}}</strong> results</p>
