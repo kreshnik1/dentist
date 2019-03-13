@@ -15,12 +15,7 @@
                         </a>
                     </li>
 
-                    <li class="nav-item menus">
-                        <a class="nav-link" href="/create/reservation">
-                            <span data-feather="edit"></span>
-                            Make a reservation
-                        </a>
-                    </li>
+
 
                     <li class="nav-item">
                         <form class="form-inline mt-2 mt-md-0" action="/home/search"  method="get">
@@ -130,7 +125,7 @@
                 --}}
                 <form class="form-inline mt-2 mt-md-0" action="/home/search/date"  method="get">
                     <input type="hidden"  name="_csrf" value="{{ csrftoken }}" />
-                    <input  type="search" size="25" name="search" class="form-control mr-sm-2 datetimepicker1" placeholder="Kërko sipas datës" aria-label="Search" autocomplete="off" data-date-format="dd/mm/yyyy">
+                    <input  type="search" size="25" name="search" class="form-control mr-sm-2 datetimepicker1" placeholder="Kërko sipas datës(dit/muaj/vit)" aria-label="Search" autocomplete="off" data-date-format="dd/mm/yyyy">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
@@ -287,9 +282,10 @@
             </main>
         </div>
     </div>
+    <script type="text/javascript" src="js/validation.js"></script>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<script type="text/javascript" src="js/validation.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"> </script>
   <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"> </script>

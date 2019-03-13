@@ -90,40 +90,51 @@ router.route('/home/search')
     					}
     				  return response.render("todo/errors/404",errors);
     				} else {
-                        let search_query = request.query['search'];
-                        let dateArray = search_query.split('/');
-
-                        let date = dateArray[2]+"-"+dateArray[1]+"-"+dateArray[0]+"T00:00:00.000Z"
-
-                        Pacientet.find({date: date}, function(error, data) {
-                          let date1,formatedDate;
-                          let searchedData = {
-                              search_query:search_query,
-                              user_id:user._id,
-                              companyName:user.companyName,
-                              todos:data.map(function(todo){
-                                  date1 = moment(todo.createdAt).from(moment(Date.now()));
-                                  formatedDate = moment(todo.date).format("DD/MM/YYYY");
-                                  return {
-                                      id: todo.id,
-                                      name: todo.name,
-                                      surname:todo.surname,
-                                      createdAt:formatedDate,
-                                      startTime: todo.startTime,
-                                      endTime:todo.endTime,
-                                      phoneNumber:todo.phoneNumber,
-                                      address:todo.address,
-                                      data:date1
-                                  }
-                              })
-                          }
-                            //response.render("todo/home", context);
-                           return response.render("todo/search",searchedData);
-                        });
+                let search_query = request.query['search'];
+                let date;
+                console.log(new Date(search_query));
+                if(search_query.includes('/')){
+                  let dateArray = search_query.split('/');
+                  date = dateArray[2]+"-"+dateArray[1]+"-"+dateArray[0]+"T00:00:00.000Z"
+                }
+                Pacientet.find({date: date}, function(error, data) {
+                  let date1,formatedDate,searchedData;
+                  if(data){
+                    searchedData = {
+                      search_query:search_query,
+                      user_id:user._id,
+                      companyName:user.companyName,
+                      todos:data.map(function(todo){
+                        date1 = moment(todo.createdAt).from(moment(Date.now()));
+                        formatedDate = moment(todo.date).format("DD/MM/YYYY");
+                        return {
+                          id: todo.id,
+                          name: todo.name,
+                          surname:todo.surname,
+                          createdAt:formatedDate,
+                          startTime: todo.startTime,
+                          endTime:todo.endTime,
+                          phoneNumber:todo.phoneNumber,
+                          address:todo.address,
+                          data:date1
+                        }
+                      })
                     }
+                  }
+                  else{
+                    searchedData = {
+                      search_query:search_query,
+                      user_id:user._id,
+                      companyName:user.companyName
+                    }
+                  }
+                            //response.render("todo/home", context);
+                 return response.render("todo/search",searchedData);
+                });
+              }
     			  }
     		})
-        })
+      })
 
 
 
