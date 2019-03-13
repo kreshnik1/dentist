@@ -121,8 +121,11 @@
 			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  ">
 
           </div>
-          <button type="submit"  class="btn btn-outline-primary " data-toggle="modal" data-target="#exampleModalCenter">  <i data-feather="edit-2"></i> Edit reservation</button>
-          <button type="submit"  class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalDelete">  <i data-feather="trash"></i> Delete reservation</button>
+
+              <button type="submit"  class="btn btn-outline-primary " data-toggle="modal" data-target="#exampleModalCenter">  <i data-feather="edit-2"></i> Edit reservation</button>
+              <button type="submit"  class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalDelete">  <i data-feather="trash"></i> Delete reservation</button>
+
+
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom">
           </div>
           <div class="container">
@@ -939,6 +942,9 @@
                       {{#eq type compare="Sherim" }}
                         <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect class="color" width="100%" height="100%" fill="#aee571" /></svg>
                       {{/eq}}
+                      {{#eq type compare="Tjeter" }}
+                        <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect class="color" width="100%" height="100%" fill="#CBDBFF" /></svg>
+                      {{/eq}}
                       <strong class="mr-auto" id="{{tooth}}" color="{{type}}">{{tooth}}</strong>
                       <small class="text-muted">{{formatDate}}</small>
                       <button type="button" class="ml-2 mb-2 close"  data-dismiss="toast"  data-toggle="modal" data-target="#exampleModalUpdate{{_id}}" arial-label="Close">
@@ -1082,7 +1088,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                          <button type="submit" value="submit" form="update_tooth_{{_id}}" class="btn btn-success delete_button"> Update </button>
+                          <button type="submit" value="submit" form="update_tooth_{{_id}}" class="btn submit btn-success delete_button"> Update </button>
                         </div>
                       </form>
                     </div>
@@ -1211,7 +1217,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                  <button type="submit"  form="tooth" class="btn btn-primary">Save changes</button>
+                  <button type="submit"  form="tooth" class="btn btn-primary loading_click">Save changes</button>
                 </div>
                   </form>
               </div>

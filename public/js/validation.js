@@ -489,6 +489,9 @@ if(document.querySelector(".toast")){
     else if(type === "Sherim"){
         color = "#aee571"
     }
+    else if(type === "Tjeter"){
+      color = "#CBDBFF"
+    }
 
     $('.'+i.getAttribute('id').toString()+'-parent').css("fill",color);
 
