@@ -572,3 +572,5 @@ if(document.querySelector('.type')){
   })
 }
 */
+
+      

@@ -59,7 +59,7 @@ $.get( '/reservation/data', function(data) {
     			header: {
     				left: 'today prev,next',
     				center: 'title',
-    				right: 'month,agendaWeek,agendaDay,listDay'
+    				right: 'month,agendaWeek,agendaDay,listWeek'
     			},
     			events:
           allReservationDate
@@ -94,7 +94,7 @@ $.get( '/reservation/data', function(data) {
     					$('#modal-view-event').modal();
     			}
     		})
-        document.querySelector(".fc-listDay-button ").innerHTML="today list"
+        document.querySelector(".fc-listWeek-button").innerHTML="week list"
 
     	});
 
