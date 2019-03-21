@@ -74,6 +74,7 @@ router.route("/pacientet/:id")
                                          return {
                                            _id:todo._id,
                                            tooth:todo.tooth,
+                                           protezaMbarimi:todo.protezaMbarimi,
                                            type:todo.type,
                                            region:todo.region,
                                            information:todo.information,
@@ -222,6 +223,46 @@ router.route("/pacientet/:id")
        }
      });
    })
+
+   router.route("/tooth/data/proteza/:id")
+   .post(function (request, response,next) {
+      let id = request.params.id;
+      let tooth = request.body.protezaSiper+"-"+request.body.protezaSiper1;
+      let protezaMbarimi = request.body.protezaPosht+"-"+request.body.protezaPosht1;
+      let information = request.body.information;
+      let type = "Proteza";
+
+      //creats the user by saving the data in database
+      let toothData = new Tooth({
+        id:id,
+        tooth : tooth,
+        protezaMbarimi:protezaMbarimi,
+        type:type,
+        information:information
+      });
+      console.log(toothData);
+      Tooth.create(toothData, function (error, user) {
+        if (error) {
+          let string = error.message;
+          request.session.flash = {
+            type: "error",
+            message: string
+           };
+
+
+          return response.redirect('/pacientet/'+id);
+        }
+         else {
+          request.session.flash = {
+          type: "success",
+          message: "Your data was saved successfully"
+          };
+          return response.redirect('/pacientet/'+id);
+        }
+      });
+    })
+
+
    //deletes a tooth information
 router.route("/pacientet/tooth/delete/:id")
 .get(function(request, response,next) {

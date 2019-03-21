@@ -43,6 +43,8 @@
 .toothRegion1{
   display: none;
 }
+
+
 @supports ((position: -webkit-sticky) or (position: sticky)) {
   .sidebar-sticky {
     position: -webkit-sticky;
@@ -1206,5 +1208,7 @@ border-bottom: 1px solid rgba(0,0,0,.05);
   font-size: 14px;
 }
 .todaysDate{
-  margin: 0px;
+  margin-top: 15px;
+  padding: 0px;
+  margin-bottom: 0px;
 }

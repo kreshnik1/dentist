@@ -509,6 +509,7 @@ if(document.querySelector(".toast")){
 if(document.querySelector('#select1')){
   var source = document.querySelector("#select1");
   var target = document.querySelector(".toothRegion");
+  var target1 = document.querySelector(".protezaSiper");
   function display() {
       var selectedIndex = source.selectedIndex;
       console.log(source[selectedIndex].value);
@@ -518,12 +519,35 @@ if(document.querySelector('#select1')){
       } else {
           target.classList.add("toothRegion");
       }
+      if (source[selectedIndex].value === "Proteza") {
+          target1.classList.remove("protezaSiper");
+
+
+      } else {
+          target1.classList.add("protezaSiper");
+
+      }
+
   }
   source.addEventListener("change", function () {
       display();
   }, false);
 
 }
+
+/*
+if (source[selectedIndex].value === "Proteza") {
+    target.classList.remove("protezaSiper");
+    target.classList.remove("protezaSiper1");
+    target.classList.remove("protezaPosht");
+    target.classList.remove("protezaPosht1");
+
+} else {
+    target.classList.add("toothRegion");
+    target.classList.add("toothRegion");
+    target.classList.add("toothRegion");
+    target.classList.add("toothRegion");
+}*/
 
 if(document.querySelector('.updatedate')){
   jQuery(document).ready(function(){
@@ -572,5 +596,3 @@ if(document.querySelector('.type')){
   })
 }
 */
-
-      
