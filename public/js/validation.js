@@ -476,6 +476,60 @@ $('#exampleModal').on('show.bs.modal', function (event) {
   modal.find('.modal-body input').val(recipient)
 })
 
+if(document.querySelector("#tooth_pjesa1")){
+  let pjesa_siper = document.querySelector("#tooth_pjesa1").innerHTML;
+  let pjesa_siper_dhembet = pjesa_siper.split('-');
+  for(let i = 11 ; i<= pjesa_siper_dhembet[0];i++){
+    console.log('.tooth-'+i+'-parent')
+    $('.tooth-'+i.toString()+'-parent').css('fill', '#EEECF5');
+
+    $('.tooth-'+i.toString()+'-parent').mouseover(function(){
+      $('.tooth-'+i.toString()+'-parent').css('fill',color1);
+    });
+    $('.tooth-'+i.toString()+'-parent').mouseleave(function(){
+      $('.tooth-'+i.toString()+'-parent').css('fill', "#EEECF5");
+    });
+
+  }
+  for(let i = 21 ; i<= pjesa_siper_dhembet[1];i++){
+    console.log('.tooth-'+i+'-parent')
+      $('.tooth-'+i.toString()+'-parent').css('fill', '#EEECF5');
+      $('.tooth-'+i.toString()+'-parent').mouseover(function(){
+        $('.tooth-'+i.toString()+'-parent').css('fill',color1);
+      });
+      $('.tooth-'+i.toString()+'-parent').mouseleave(function(){
+        $('.tooth-'+i.toString()+'-parent').css('fill', "#EEECF5");
+      });
+  }
+
+  let pjesa_posht = document.querySelector("#tooth_pjesa2").innerHTML;
+  let pjesa_posht_dhembet = pjesa_posht.split('-');
+
+  for(let i = 31 ; i<= pjesa_posht_dhembet[0];i++){
+    console.log('.tooth-'+i+'-parent')
+      $('.tooth-'+i.toString()+'-parent').css('fill', '#EEECF5');
+      $('.tooth-'+i.toString()+'-parent').mouseover(function(){
+        $('.tooth-'+i.toString()+'-parent').css('fill',color1);
+      });
+      $('.tooth-'+i.toString()+'-parent').mouseleave(function(){
+        $('.tooth-'+i.toString()+'-parent').css('fill', "#EEECF5");
+      });
+  }
+  for(let i = 41 ; i<= pjesa_posht_dhembet[1];i++){
+    console.log('.tooth-'+i+'-parent')
+      $('.tooth-'+i.toString()+'-parent').css('fill', '#EEECF5');
+      $('.tooth-'+i.toString()+'-parent').mouseover(function(){
+        $('.tooth-'+i.toString()+'-parent').css('fill',color1);
+      });
+      $('.tooth-'+i.toString()+'-parent').mouseleave(function(){
+        $('.tooth-'+i.toString()+'-parent').css('fill', "#EEECF5");
+      });
+        $('.tooth-'+i.toString()+'-parent').css('fill', '#EEECF5');
+  }
+
+  console.log(document.querySelector("#tooth_pjesa1").innerHTML + " "+ document.querySelector("#tooth_pjesa2").innerHTML)
+}
+
 if(document.querySelector(".toast")){
   document.querySelectorAll(".mr-auto").forEach(function(i){
     let type = i.getAttribute('color');
@@ -495,16 +549,19 @@ if(document.querySelector(".toast")){
 
     $('.'+i.getAttribute('id').toString()+'-parent').css("fill",color);
 
+
     $('.'+i.getAttribute('id').toString()).mouseover(function(){
-      $('.'+i.getAttribute('id').toString()+'-parent').css('fill',color);
+      $('.'+i.getAttribute('id').toString()+'-parent').css('fill',color1);
     });
 
     $('.'+i.getAttribute('id').toString()).mouseleave(function(){
+
       $('.'+i.getAttribute('id').toString()+'-parent').css('fill', color);
     });
 
   })
 }
+
 
 if(document.querySelector('#select1')){
   var source = document.querySelector("#select1");
@@ -519,36 +576,12 @@ if(document.querySelector('#select1')){
       } else {
           target.classList.add("toothRegion");
       }
-      if (source[selectedIndex].value === "Proteza") {
-          target1.classList.remove("protezaSiper");
-
-
-      } else {
-          target1.classList.add("protezaSiper");
-
-      }
-
   }
   source.addEventListener("change", function () {
       display();
   }, false);
 
 }
-
-/*
-if (source[selectedIndex].value === "Proteza") {
-    target.classList.remove("protezaSiper");
-    target.classList.remove("protezaSiper1");
-    target.classList.remove("protezaPosht");
-    target.classList.remove("protezaPosht1");
-
-} else {
-    target.classList.add("toothRegion");
-    target.classList.add("toothRegion");
-    target.classList.add("toothRegion");
-    target.classList.add("toothRegion");
-}*/
-
 if(document.querySelector('.updatedate')){
   jQuery(document).ready(function(){
     jQuery('.datetimepicker').datepicker({
