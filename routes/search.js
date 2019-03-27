@@ -21,6 +21,7 @@ router.route('/home/search')
 				  return response.render("todo/errors/404",errors);
 				} else {
                     let search_query = request.query['search'];
+                    console.log(search_query);
                     Pacientet.find({},null,{sort: '-createdAt'}, function(error, data) {
                         let Alldata = [];
                         // mapping up the object for the view
