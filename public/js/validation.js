@@ -476,58 +476,41 @@ $('#exampleModal').on('show.bs.modal', function (event) {
   modal.find('.modal-body input').val(recipient)
 })
 
-if(document.querySelector("#tooth_pjesa1")){
-  let pjesa_siper = document.querySelector("#tooth_pjesa1").innerHTML;
-  let pjesa_siper_dhembet = pjesa_siper.split('-');
-  for(let i = 11 ; i<= pjesa_siper_dhembet[0];i++){
-    console.log('.tooth-'+i+'-parent')
-    $('.tooth-'+i.toString()+'-parent').css('fill', '#EEECF5');
+function onMouse(i){
 
-    $('.tooth-'+i.toString()+'-parent').mouseover(function(){
-      $('.tooth-'+i.toString()+'-parent').css('fill',color1);
-    });
     $('.tooth-'+i.toString()+'-parent').mouseleave(function(){
       $('.tooth-'+i.toString()+'-parent').css('fill', "#EEECF5");
     });
 
+}
+
+if(document.querySelector(".proteza")){
+  let pjesa_siper = document.querySelector(".mr-auto").getAttribute('id');
+  let pjesa_e_dhembeve = pjesa_siper.split('-');
+
+  for(let i = 11 ; i<= pjesa_e_dhembeve[0];i++){
+    console.log('.tooth-'+i+'-parent')
+    $('.tooth-'+i.toString()+'-parent').css('fill', '#EEECF5');
+    onMouse(i.toString());
   }
-  for(let i = 21 ; i<= pjesa_siper_dhembet[1];i++){
+  for(let i = 21 ; i<= pjesa_e_dhembeve[1];i++){
     console.log('.tooth-'+i+'-parent')
       $('.tooth-'+i.toString()+'-parent').css('fill', '#EEECF5');
-      $('.tooth-'+i.toString()+'-parent').mouseover(function(){
-        $('.tooth-'+i.toString()+'-parent').css('fill',color1);
-      });
-      $('.tooth-'+i.toString()+'-parent').mouseleave(function(){
-        $('.tooth-'+i.toString()+'-parent').css('fill', "#EEECF5");
-      });
+      onMouse(i.toString());
   }
 
-  let pjesa_posht = document.querySelector("#tooth_pjesa2").innerHTML;
-  let pjesa_posht_dhembet = pjesa_posht.split('-');
-
-  for(let i = 31 ; i<= pjesa_posht_dhembet[0];i++){
+  for(let i = 31 ; i<= pjesa_e_dhembeve[2];i++){
     console.log('.tooth-'+i+'-parent')
       $('.tooth-'+i.toString()+'-parent').css('fill', '#EEECF5');
-      $('.tooth-'+i.toString()+'-parent').mouseover(function(){
-        $('.tooth-'+i.toString()+'-parent').css('fill',color1);
-      });
-      $('.tooth-'+i.toString()+'-parent').mouseleave(function(){
-        $('.tooth-'+i.toString()+'-parent').css('fill', "#EEECF5");
-      });
+      onMouse(i.toString());
+
   }
-  for(let i = 41 ; i<= pjesa_posht_dhembet[1];i++){
+  for(let i = 41 ; i<= pjesa_e_dhembeve[3];i++){
     console.log('.tooth-'+i+'-parent')
       $('.tooth-'+i.toString()+'-parent').css('fill', '#EEECF5');
-      $('.tooth-'+i.toString()+'-parent').mouseover(function(){
-        $('.tooth-'+i.toString()+'-parent').css('fill',color1);
-      });
-      $('.tooth-'+i.toString()+'-parent').mouseleave(function(){
-        $('.tooth-'+i.toString()+'-parent').css('fill', "#EEECF5");
-      });
-        $('.tooth-'+i.toString()+'-parent').css('fill', '#EEECF5');
+      onMouse(i.toString());
   }
 
-  console.log(document.querySelector("#tooth_pjesa1").innerHTML + " "+ document.querySelector("#tooth_pjesa2").innerHTML)
 }
 
 if(document.querySelector(".toast")){
@@ -546,6 +529,10 @@ if(document.querySelector(".toast")){
     else if(type === "Tjeter"){
       color = "#CBDBFF"
     }
+    else if(type="Implant"){
+      color = "#59C3C3";
+    }
+
 
     $('.'+i.getAttribute('id').toString()+'-parent').css("fill",color);
 
@@ -561,6 +548,7 @@ if(document.querySelector(".toast")){
 
   })
 }
+
 
 
 if(document.querySelector('#select1')){
