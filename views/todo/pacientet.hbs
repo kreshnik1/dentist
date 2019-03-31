@@ -979,10 +979,10 @@
                   <strong class="mr-auto proteza" id="{{tooth}}-{{protezaMbarimi}}" color="{{type}}">{{type}}</strong>
                   <small class="text-muted">{{formatDate}}</small>
 
-                <button type="button" class="ml-2 mb-2 close"  data-dismiss="toast"  data-toggle="modal" data-target="#exampleModalUpdate{{_id}}" arial-label="Close">
+                <button type="button" class="ml-2 mb-2 close"  data-dismiss="toast"  data-toggle="modal" data-target="#exampleModalUpdateProteza{{_id}}" arial-label="Close">
                   <span  data-feather="edit-2" data-placement="top" title="Update"  data-toggle="tooltip" ></span>
                 </button>
-                <button type="button" class="ml-2 mb-2 close" data-dismiss="toast" data-toggle="modal"  data-target="#exampleModaldelete{{_id}}" aria-label="Close">
+                <button type="button" class="ml-2 mb-2 close" data-dismiss="toast" data-toggle="modal"  data-target="#exampleModaldeleteProteza{{_id}}" aria-label="Close">
                   <span  data-feather="trash" data-placement="top" title="Delete"  data-toggle="tooltip"></span>
                 </button>
               </div>
@@ -1064,6 +1064,170 @@
           </div>
 
           {{#each todos}}
+
+          {{#eq type compare="Proteza"}}
+
+          <div class="modal fade" id="exampleModalUpdateProteza{{_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Edito pjesen e Protezave </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <form action="/pacientet/tooth/update/proteza/{{_id}}"  id="update_tooth_{{_id}}" method="post">
+                    <input type="hidden" name="_csrf" value="{{../csrftoken }}" />
+                    <input type="hidden" name="protezaS" value="{{tooth}}"/ />
+                    <input type="hidden" name="protezaP" value="{{protezaMbarimi}}"/ />
+
+                    <div class="modal-body">
+                      <div class="form-group">
+                         <label for="recipient-name" class="col-form-label">Pacienti </label>
+                         <input readonly type="text" name="pacienti" class="form-control" value="{{../name}} {{../surname}}">
+                      </div>
+                      <div class="form-group protezaSiper">
+                        <label for="exampleFormControlSelect1">Proteza e dhembeve siper </label>
+
+                        <div class="row">
+                           <div class="col">
+                             <label for="exampleFormControlSelect1">Prej  </label>
+
+                          <select class="form-control" name="protezaSiper11" id="protezaSiper11">
+                            <option>18</option>
+                            <option>17</option>
+                            <option>16</option>
+                            <option>15</option>
+                            <option>14</option>
+                            <option>13</option>
+                            <option>12</option>
+                            <option>11</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>14</option>
+                            <option>25</option>
+                            <option>26</option>
+                            <option>27</option>
+                            <option>28</option>
+                          </select>
+                        </div>
+                        <div class="col">
+                          <label for="exampleFormControlSelect1">Deri   </label>
+
+                          <select class="form-control" name="protezaSiper12" id="protezaSiper12">
+                            <option>28</option>
+                            <option>27</option>
+                            <option>26</option>
+                            <option>25</option>
+                            <option>24</option>
+                            <option>23</option>
+                            <option>22</option>
+                            <option>21</option>
+                            <option>18</option>
+                            <option>17</option>
+                            <option>16</option>
+                            <option>15</option>
+                            <option>14</option>
+                            <option>13</option>
+                            <option>12</option>
+                            <option>11</option>
+                          </select>
+                        </div>
+                      </div>
+                      </div>
+                      <div class="form-group protezaPosht">
+                        <label for="exampleFormControlSelect1">Proteza e dhembeve posht </label>
+
+                        <div class="row">
+                           <div class="col">
+                             <label for="exampleFormControlSelect1">Prej  </label>
+
+                          <select class="form-control" name="protezaPosht11" id="protezaPosht11">
+                            <option>38</option>
+                            <option>37</option>
+                            <option>36</option>
+                            <option>35</option>
+                            <option>34</option>
+                            <option>33</option>
+                            <option>32</option>
+                            <option>31</option>
+                            <option>41</option>
+                            <option>42</option>
+                            <option>43</option>
+                            <option>44</option>
+                            <option>45</option>
+                            <option>46</option>
+                            <option>47</option>
+                            <option>48</option>
+                          </select>
+                        </div>
+                        <div class="col">
+                          <label for="exampleFormControlSelect1">Deri   </label>
+
+                          <select class="form-control" name="protezaPosht12" id="protezaPosht12">
+                            <option>48</option>
+                            <option>47</option>
+                            <option>46</option>
+                            <option>45</option>
+                            <option>44</option>
+                            <option>43</option>
+                            <option>42</option>
+                            <option>41</option>
+                            <option>38</option>
+                            <option>37</option>
+                            <option>36</option>
+                            <option>35</option>
+                            <option>34</option>
+                            <option>33</option>
+                            <option>32</option>
+                            <option>31</option>
+                          </select>
+                        </div>
+                      </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Information : </label>
+                        <textarea class="form-control" name="information" id="exampleFormControlTextarea1" rows="3" required >{{information}}</textarea>
+                      </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                      <button type="submit" value="submit" form="update_tooth_{{_id}}" class="btn submit btn-success delete_button"> Update </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="exampleModaldeleteProteza{{_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalCenterTitle">Fshije protezat</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <form action="/pacientet/tooth/delete/{{_id}}"  id="delete_tooth_{{_id}}" method="post">
+                      <input type="hidden" name="_csrf" value="{{../csrftoken }}" />
+                      <div class="modal-body">
+                          <div class="form-group">
+                            <label>   Dhembet prej {{ tooth}}  deri {{ protezaMbarimi }}  </label>
+                          </div>
+                        <label>Information : {{information}} </label>
+                      </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" value="submit" form="delete_tooth_{{_id}}" class="btn btn-danger delete_button"> Delete </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+          {{/eq}}
             <div class="modal fade" id="exampleModaldelete{{_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
@@ -1179,8 +1343,7 @@
                     </div>
                   </div>
                 </div>
-
-
+              </div>
           {{/each}}
 
           <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter" aria-hidden="true">
