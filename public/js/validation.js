@@ -318,6 +318,8 @@ function onMouse(i){
 }
 
 if(document.querySelector(".proteza")){
+
+  document.querySelector(".protezaButton").disabled=true;
   let pjesa_siper = document.querySelector(".mr-auto").getAttribute('id');
   let pjesa_e_dhembeve = pjesa_siper.split('-');
 
