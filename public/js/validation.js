@@ -217,186 +217,82 @@ if(document.querySelector(".navbar-toggler")){
 
 let color1 = '#ffa4a2';
 
-for(let i=11 ; i <= 18 ; i++){
-  $('.tooth-'+i).mouseleave(function(){
-    $('.tooth-'+i+'-parent').css('fill', 'none');
-  });
+
+if(document.querySelector(".proteza")){
+  let pjesa_siper1 = document.querySelector(".mr-auto").getAttribute('id');
+  let pjesa_e_dhembeve1 = pjesa_siper1.split('-');
+  console.log(pjesa_e_dhembeve1[1]);
+  for(let i=11 ; i <= 18 ; i++){
+    if(i>pjesa_e_dhembeve1[0]){
+      console.log(i);
+      $('.tooth-'+i).mouseover(function(){
+        $('.tooth-'+i+'-parent').css('fill', color1);
+      });
+      $('.tooth-'+i).mouseleave(function(){
+        $('.tooth-'+i+'-parent').css('fill', 'none');
+      });
+    }
+  }
+  for(let i=21 ; i <= 28 ; i++){
+    if(i>pjesa_e_dhembeve1[1]){
+      $('.tooth-'+i).mouseover(function(){
+        $('.tooth-'+i+'-parent').css('fill', color1);
+      });
+      $('.tooth-'+i).mouseleave(function(){
+        $('.tooth-'+i+'-parent').css('fill', 'none');
+      });
+    }
+  }
+  for(let i=31 ; i <= 38 ; i++){
+    if(i>pjesa_e_dhembeve1[2]){
+      $('.tooth-'+i).mouseover(function(){
+        $('.tooth-'+i+'-parent').css('fill', color1);
+      });
+      $('.tooth-'+i).mouseleave(function(){
+        $('.tooth-'+i+'-parent').css('fill', 'none');
+      });
+    }
+  }
+  for(let i=41 ; i <= 48 ; i++){
+    if(i>pjesa_e_dhembeve1[3]){
+      $('.tooth-'+i).mouseover(function(){
+        $('.tooth-'+i+'-parent').css('fill', color1);
+      });
+      $('.tooth-'+i).mouseleave(function(){
+        $('.tooth-'+i+'-parent').css('fill', 'none');
+      });
+    }
+  }
+
 }
+
+
+/*
 for(let i=21 ; i <= 28 ; i++){
+  $('.tooth-'+i).mouseover(function(){
+    $('.tooth-'+i+'-parent').css('fill', color1);
+  });
   $('.tooth-'+i).mouseleave(function(){
     $('.tooth-'+i+'-parent').css('fill', 'none');
   });
 }
 for(let i=31 ; i <= 38 ; i++){
+  $('.tooth-'+i).mouseover(function(){
+    $('.tooth-'+i+'-parent').css('fill', color1);
+  });
   $('.tooth-'+i).mouseleave(function(){
     $('.tooth-'+i+'-parent').css('fill', 'none');
   });
 }
 for(let i=41 ; i <= 48 ; i++){
+  $('.tooth-'+i).mouseover(function(){
+    $('.tooth-'+i+'-parent').css('fill', color1);
+  });
   $('.tooth-'+i).mouseleave(function(){
     $('.tooth-'+i+'-parent').css('fill', 'none');
   });
 }
-
-
-$('.tooth-11').mouseover(function(){
-  $('.tooth-11-parent').css('fill', color1);
-});
-
-$('.tooth-12').mouseover(function(){
-  $('.tooth-12-parent').css('fill', color1);
-});
-$('.tooth-13').mouseover(function(){
-  $('.tooth-13-parent').css('fill', color1);
-});
-$('.tooth-14').mouseover(function(){
-  $('.tooth-14-parent').css('fill', color1);
-});
-
-$('.tooth-15').mouseover(function(){
-  $('.tooth-15-parent').css('fill', color1);
-});
-
-$('.tooth-16').mouseover(function(){
-  $('.tooth-16-parent').css('fill', color1);
-});
-
-$('.tooth-18').mouseover(function(){
-  $('.tooth-18-parent').css('fill', color1);
-});
-
-/*Segundo Quadrante*/
-
-$('.tooth-21').mouseover(function(){
-  $('.tooth-21-parent').css('fill', color1);
-});
-
-
-$('.tooth-22').mouseover(function(){
-  $('.tooth-22-parent').css('fill', color1);
-});
-
-
-$('.tooth-23').mouseover(function(){
-  $('.tooth-23-parent').css('fill', color1);
-});
-
-$('.tooth-24').mouseover(function(){
-  $('.tooth-24-parent').css('fill', color1);
-});
-
-
-
-$('.tooth-25').mouseover(function(){
-  $('.tooth-25-parent').css('fill', color1);
-});
-
-
-
-$('.tooth-26').mouseover(function(){
-  $('.tooth-26-parent').css('fill', color1);
-});
-
-
-
-$('.tooth-27').mouseover(function(){
-  $('.tooth-27-parent').css('fill', color1);
-});
-
-
-
-$('.tooth-28').mouseover(function(){
-  $('.tooth-28-parent').css('fill', color1);
-});
-
-
-
-/*Terceiro Quadrante*/
-
-$('.tooth-31').mouseover(function(){
-  $('.tooth-31-parent').css('fill', color1);
-});
-
-
-$('.tooth-32').mouseover(function(){
-  $('.tooth-32-parent').css('fill', color1);
-});
-
-
-
-$('.tooth-33').mouseover(function(){
-  $('.tooth-33-parent').css('fill', color1);
-});
-
-
-$('.tooth-34').mouseover(function(){
-  $('.tooth-34-parent').css('fill', color1);
-});
-
-
-
-$('.tooth-35').mouseover(function(){
-  $('.tooth-35-parent').css('fill', color1);
-});
-
-
-$('.tooth-36').mouseover(function(){
-  $('.tooth-36-parent').css('fill', color1);
-});
-
-
-$('.tooth-37').mouseover(function(){
-  $('.tooth-37-parent').css('fill', color1);
-});
-
-
-
-$('.tooth-38').mouseover(function(){
-  $('.tooth-38-parent').css('fill', color1);
-});
-
-
-/*Quarto Quadrante*/
-
-$('.tooth-41').mouseover(function(){
-  $('.tooth-41-parent').css('fill',color1);
-});
-
-
-
-$('.tooth-42').mouseover(function(){
-  $('.tooth-42-parent').css('fill', color1);
-});
-
-$('.tooth-43').mouseover(function(){
-  $('.tooth-43-parent').css('fill', color1);
-});
-
-
-
-$('.tooth-44').mouseover(function(){
-  $('.tooth-44-parent').css('fill', color1);
-});
-
-$('.tooth-45').mouseover(function(){
-  $('.tooth-45-parent').css('fill', color1);
-});
-
-
-$('.tooth-46').mouseover(function(){
-  $('.tooth-46-parent').css('fill', color1);
-});
-
-
-$('.tooth-47').mouseover(function(){
-  $('.tooth-47-parent').css('fill', color1);
-});
-$('.tooth-48').mouseover(function(){
-  $('.tooth-48-parent').css('fill', color1);
-});
-
-
-
+*/
 
 $('#exampleModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
@@ -413,6 +309,10 @@ function onMouse(i){
     $('.tooth-'+i.toString()+'-parent').mouseleave(function(){
       console.log("tooth-"+i);
       $('.tooth-'+i.toString()+'-parent').css('fill', "#EEECF5");
+    });
+    $('.tooth-'+i.toString()+'-parent').mouseover(function(){
+      console.log("tooth-"+i);
+      $('.tooth-'+i.toString()+'-parent').css('fill', color1);
     });
 
 }
@@ -467,10 +367,6 @@ if(document.querySelector(".toast")){
 
     $('.'+i.getAttribute('id').toString()+'-parent').css("fill",color);
 
-
-    $('.'+i.getAttribute('id').toString()).mouseover(function(){
-      $('.'+i.getAttribute('id').toString()+'-parent').css('fill',color1);
-    });
 
     $('.'+i.getAttribute('id').toString()).mouseleave(function(){
 
