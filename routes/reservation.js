@@ -31,6 +31,7 @@ router.route("/create/reservation")
 		//getting the data that the user wrote
 		let name = request.body.name;
 		let surname = request.body.surname;
+		let nrAmzes = request.body.amza;
 		let date = request.body.date;
     let startTime = request.body.startTime;
 		let endTime = request.body.endTime;
@@ -46,6 +47,7 @@ router.route("/create/reservation")
     let PacientetData = new Pacientet({
       name:name,
       surname:surname,
+			nrAmzes : nrAmzes,
       date:stringFormat,
 			startTime:startTime,
 			endTime:endTime,

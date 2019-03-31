@@ -240,7 +240,6 @@ router.route("/pacientet/:id")
         type:type,
         information:information
       });
-      console.log(toothData);
       Tooth.create(toothData, function (error, user) {
         if (error) {
           let string = error.message;
@@ -329,5 +328,36 @@ router.route("/pacientet/tooth/delete/:id")
               return response.redirect("/pacientet/"+data.id);//riderect to home
             });
         });
+
+        router.route("/pacientet/tooth/update/proteza/:id")
+        .post(function(request, response,next) {
+          let information = request.body.information;
+          let tooth = request.body.protezaSiper11+"-"+request.body.protezaSiper12;
+          let protezaMbarimi = request.body.protezaPosht11+"-"+request.body.protezaPosht12;
+          console.log(information)
+          console.log(protezaMbarimi);
+          console.log(tooth)
+          Tooth.findOneAndUpdate({_id: request.params.id},{
+            information:information,
+            tooth:tooth,
+            protezaMbarimi:protezaMbarimi
+          },{returnNewDocument:true}, function(error,data) {
+                  if(error) {
+                    let errors = {
+                      status:"404",
+                      message:"Wrong url! Go back! "
+                    }
+                   return response.render("todo/errors/404",errors);
+                  }
+                  request.session.flash = {
+                    type: "success",
+                    message: "The tooth information was updated successfully!"
+                  };
+
+                  return response.redirect("/pacientet/"+data.id);//riderect to home
+                });
+
+
+            });
 
         module.exports = router;

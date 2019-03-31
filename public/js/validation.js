@@ -40,7 +40,20 @@ if(document.querySelector(".registerButton")){
      })
 }
 
+if(document.querySelector(".createPatient")){
+    let createPatient = document.querySelector(".createPatient");
+    createPatient.addEventListener("click",function(event){
+      if(document.querySelector("input[name='amza']").value.length ===0){
+        console.log("Hey");
+      }
+      else if(document.querySelector("input[name='amza']").value.length < 9 ){
+        document.querySelector("input[name='amza']").setAttribute("class","form-control  is-invalid")
+        document.querySelector(".invalid-feedback").innerHTML="Numri i amzes duhet te ket vetem 13 numra , provoje perseri "
+        event.preventDefault();
+      }
+    })
 
+}
 if(document.querySelector(".navbar-toggler")){
  if($('.navbar-toggler').is(':visible'))
         {
@@ -479,6 +492,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 function onMouse(i){
 
     $('.tooth-'+i.toString()+'-parent').mouseleave(function(){
+      console.log("tooth-"+i);
       $('.tooth-'+i.toString()+'-parent').css('fill', "#EEECF5");
     });
 
@@ -489,24 +503,22 @@ if(document.querySelector(".proteza")){
   let pjesa_e_dhembeve = pjesa_siper.split('-');
 
   for(let i = 11 ; i<= pjesa_e_dhembeve[0];i++){
-    console.log('.tooth-'+i+'-parent')
+
     $('.tooth-'+i.toString()+'-parent').css('fill', '#EEECF5');
     onMouse(i.toString());
   }
   for(let i = 21 ; i<= pjesa_e_dhembeve[1];i++){
-    console.log('.tooth-'+i+'-parent')
       $('.tooth-'+i.toString()+'-parent').css('fill', '#EEECF5');
       onMouse(i.toString());
   }
 
   for(let i = 31 ; i<= pjesa_e_dhembeve[2];i++){
-    console.log('.tooth-'+i+'-parent')
-      $('.tooth-'+i.toString()+'-parent').css('fill', '#EEECF5');
+    $('.tooth-'+i.toString()+'-parent').css('fill', '#EEECF5');
       onMouse(i.toString());
 
   }
   for(let i = 41 ; i<= pjesa_e_dhembeve[3];i++){
-    console.log('.tooth-'+i+'-parent')
+
       $('.tooth-'+i.toString()+'-parent').css('fill', '#EEECF5');
       onMouse(i.toString());
   }
@@ -617,3 +629,21 @@ if(document.querySelector('.type')){
   })
 }
 */
+
+$('#modal-view-event').on('hidden.bs.modal', function () {
+  document.querySelector("input[name='name']").value="";
+  document.querySelector("input[name='surname']").value="";
+  document.querySelector("input[name='password']").value="";
+});
+
+
+if(document.querySelector("#protezaSiper11")){
+  var pjesa_siper = document.querySelector("input[name='protezaS']").value.split("-");
+  var pjesa_posht = document.querySelector("input[name='protezaP']").value.split("-");
+
+  document.getElementById("protezaSiper11").value = pjesa_siper[0];
+  document.getElementById("protezaSiper12").value = pjesa_siper[1];
+
+  document.getElementById("protezaPosht11").value = pjesa_posht[0];
+  document.getElementById("protezaPosht12").value = pjesa_posht[1];
+}
