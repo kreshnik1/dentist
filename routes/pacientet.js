@@ -43,6 +43,7 @@ router.route("/pacientet/:id")
                                     let formatedDate =  moment(data.date).format("DD/MM/YYYY");
                                     let startTime = data.startTime;
                                     let endTime = data.endTime;
+                                    let numri_amzes = data.nrAmzes;
                                     let age = data.age;
                                     let description = data.description;
                                     let phoneNumber = data.phoneNumber;
@@ -62,6 +63,7 @@ router.route("/pacientet/:id")
                                        formatedDate:formatedDate,
                                        startTime:startTime,
                                        endTime:endTime,
+                                       nrAmzes:numri_amzes,
                                        age:age,
                                        phoneNumber:phoneNumber,
                                        address:address,
@@ -100,6 +102,7 @@ router.route("/pacientet/:id")
 	       let name = request.body.name;
          let surname = request.body.surname;
          let date = request.body.date;
+         let nrAmzes = request.body.nrAmzes;
          let startTime = request.body.startTime;
          let endTime = request.body.endTime;
          let phoneNumber = request.body.phoneNumber;
@@ -112,6 +115,7 @@ router.route("/pacientet/:id")
                  surname:surname,
                  date:stringFormat,
                  startTime:startTime,
+                 nrAmzes:nrAmzes,
                  endTime:endTime,
                  phoneNumber:phoneNumber,
                  address:address,
