@@ -34,7 +34,7 @@ router.route("/pacientet/:id")
                             }
                             else{
 
-                                  Tooth.find({id:request.params.id},null,{sort: '-createdAt'},function(error , toothData){
+                                  Tooth.find({nrAmzes:data.nrAmzes},null,{sort: '-createdAt'},function(error , toothData){
 
                                     let formatDate;
                       							//sending the data of that snippet in the todo/update
@@ -193,6 +193,7 @@ router.route("/pacientet/:id")
      let tooth = request.body.tooth;
      let information = request.body.information;
      let type = request.body.type;
+     let nrAmzes = request.body.nrAmzes;
      let region ;
      if(type==="Mbushje"){
        region = request.body.region;
@@ -202,6 +203,7 @@ router.route("/pacientet/:id")
      let toothData = new Tooth({
        id:id,
        tooth : tooth,
+       nrAmzes:nrAmzes,
        type:type,
        region:region,
        information:information
@@ -214,8 +216,6 @@ router.route("/pacientet/:id")
            type: "error",
            message: string
           };
-
-
          return response.redirect('/pacientet/'+id);
        }
         else {
@@ -231,6 +231,7 @@ router.route("/pacientet/:id")
    router.route("/tooth/data/proteza/:id")
    .post(function (request, response,next) {
       let id = request.params.id;
+      let nrAmzes = request.body.nrAmzes;
       let tooth = request.body.protezaSiper+"-"+request.body.protezaSiper1;
       let protezaMbarimi = request.body.protezaPosht+"-"+request.body.protezaPosht1;
       let information = request.body.information;
@@ -239,6 +240,7 @@ router.route("/pacientet/:id")
       //creats the user by saving the data in database
       let toothData = new Tooth({
         id:id,
+        nrAmzes:nrAmzes,
         tooth : tooth,
         protezaMbarimi:protezaMbarimi,
         type:type,
@@ -312,56 +314,77 @@ router.route("/pacientet/tooth/delete/:id")
         });
     });
 
-    router.route("/pacientet/tooth/update/:id")
-    .post(function(request, response,next) {
-      let information = request.body.information;
 
-      Tooth.findOneAndUpdate({_id: request.params.id},{information:information},{returnNewDocument:true}, function(error,data) {
-              if(error) {
-              	let errors = {
-    				      status:"404",
-    				      message:"Wrong url! Go back! "
-    		      	}
-    			     return response.render("todo/errors/404",errors);
-              }
-    		    	request.session.flash = {
-    			    	type: "success",
-    				    message: "The tooth information was updated successfully!"
-    		    	};
+  router.route("/pacientet/tooth/update/:id")
+  .post(function(request, response,next) {
+    let information = request.body.information;
 
-              return response.redirect("/pacientet/"+data.id);//riderect to home
-            });
-        });
+    Tooth.findOneAndUpdate({_id: request.params.id},{information:information},{returnNewDocument:true}, function(error,data) {
+            if(error) {
+            	let errors = {
+  				      status:"404",
+  				      message:"Wrong url! Go back! "
+  		      	}
+  			     return response.render("todo/errors/404",errors);
+            }
+  		    	request.session.flash = {
+  			    	type: "success",
+  				    message: "The tooth information was updated successfully!"
+  		    	};
 
-        router.route("/pacientet/tooth/update/proteza/:id")
-        .post(function(request, response,next) {
-          let information = request.body.information;
-          let tooth = request.body.protezaSiper11+"-"+request.body.protezaSiper12;
-          let protezaMbarimi = request.body.protezaPosht11+"-"+request.body.protezaPosht12;
-          console.log(information)
-          console.log(protezaMbarimi);
-          console.log(tooth)
-          Tooth.findOneAndUpdate({_id: request.params.id},{
-            information:information,
-            tooth:tooth,
-            protezaMbarimi:protezaMbarimi
-          },{returnNewDocument:true}, function(error,data) {
-                  if(error) {
-                    let errors = {
-                      status:"404",
-                      message:"Wrong url! Go back! "
-                    }
-                   return response.render("todo/errors/404",errors);
+            return response.redirect("/pacientet/"+data.id);
+          });
+      });
+
+      router.route("/pacientet/tooth/update/proteza/:id")
+      .post(function(request, response,next) {
+        let information = request.body.information;
+        let tooth = request.body.protezaSiper11+"-"+request.body.protezaSiper12;
+        let protezaMbarimi = request.body.protezaPosht11+"-"+request.body.protezaPosht12;
+        console.log(information)
+        console.log(protezaMbarimi);
+        console.log(tooth)
+        Tooth.findOneAndUpdate({_id: request.params.id},{
+          information:information,
+          tooth:tooth,
+          protezaMbarimi:protezaMbarimi
+        },{returnNewDocument:true}, function(error,data) {
+                if(error) {
+                  let errors = {
+                    status:"404",
+                    message:"Wrong url! Go back! "
                   }
-                  request.session.flash = {
-                    type: "success",
-                    message: "The tooth information was updated successfully!"
-                  };
+                 return response.render("todo/errors/404",errors);
+                }
+                request.session.flash = {
+                  type: "success",
+                  message: "The tooth information was updated successfully!"
+                };
 
-                  return response.redirect("/pacientet/"+data.id);//riderect to home
-                });
+                return response.redirect("/pacientet/"+data.id);//riderect to home
+              });
 
 
-            });
+          });
+
+          router.route("/pacient/nrAmzes/:id")
+          .post(function(request,response,next){
+            let nrAmzes = request.body.nrAmzes;
+            Pacientet.findOneAndUpdate({_id:request.params.id},{nrAmzes:nrAmzes},{returnNewDocument:true},function(error,data){
+              if(error) {
+                let errors = {
+                  status:"404",
+                  message:"Wrong url! Go back! "
+                }
+               return response.render("todo/errors/404",errors);
+              }
+              request.session.flash = {
+                type: "success",
+                message: "The tooth information was updated successfully!"
+              };
+
+              return response.redirect("/pacientet/"+data.id);
+            })
+          })
 
         module.exports = router;
