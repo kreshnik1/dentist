@@ -369,7 +369,7 @@ router.route("/pacientet/tooth/delete/:id")
 
           router.route("/pacient/nrAmzes/:id")
           .post(function(request,response,next){
-            let nrAmzes = request.body.nrAmzes;
+            let nrAmzes = request.body.nrAmza;
             Pacientet.findOneAndUpdate({_id:request.params.id},{nrAmzes:nrAmzes},{returnNewDocument:true},function(error,data){
               if(error) {
                 let errors = {

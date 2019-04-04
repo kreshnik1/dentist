@@ -21,7 +21,6 @@ router.route('/home/search')
 				  return response.render("todo/errors/404",errors);
 				} else {
                     let search_query = request.query['search'];
-                    console.log(search_query);
                     Pacientet.find({},null,{sort: '-createdAt'}, function(error, data) {
                         let Alldata = [];
                         // mapping up the object for the view
@@ -40,8 +39,10 @@ router.route('/home/search')
                                 };
                             })
                         };
+                        let newString = search_query.replace(/\s+/g,' ').trim();
+                        console.log(newString);
                         context.todos.forEach(function(element){
-                            if(element.name.toLowerCase().includes(search_query.toLowerCase()) || element.surname.toLowerCase().includes(search_query.toLowerCase())){
+                            if(element.name.toLowerCase().includes(search_query.toLowerCase()) || element.surname.toLowerCase().includes(search_query.toLowerCase()) || element.name.toLowerCase()+" " +element.surname.toLowerCase() === newString.toLowerCase()){
                                 Alldata.push(element);
                             }
                         })

@@ -1771,7 +1771,7 @@
                     Krijimi i Protezave
                   </button>
                   {{else}}
-                  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                  <div class="toastt" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="toast-header">
                     <strong class="mr-auto ">Information </strong>
                 </div>
@@ -2226,10 +2226,10 @@
                   </button>
                 </div>
                   <div class="modal-body">
-                    <form action="/pacient/nrAmzes/{{id}}"  id="nrAmzes" method="post">
+                    <form action="/pacient/nrAmzes/{{id}}"  id="nrAmzes" method="post"  class="needs-validation">
                       <input type="hidden" name="_csrf" value="{{ csrftoken }}" />
                       <div class="form-group row">
-                        <label for="staticEmail" class="col-sm-2 col-form-label">Pacienti</label>
+                        <label for="staticEmail" class="col-sm-2 col-Fform-label">Pacienti</label>
                         <div class="col-sm-10">
                           <input class="form-control" type="text" placeholder="{{name}} {{surname}}" readonly>
                         </div>
@@ -2237,14 +2237,19 @@
                       <div class="form-group row">
                         <label for="inputPassword" class="col-sm-2 col-form-label">Nr.amzes</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="nrAmzes" id="inputPassword" placeholder="Numri i amzes">
+                          <input type="text" class="form-control" name="nrAmza" id="inputPassword" placeholder="Numri i amzes">
+                          <div class="invalid-feedback">
+                             Numri i amzes eshte gabim , duhet te ket vetem 13 numra , provoje perseri
+                          </div>
                         </div>
+                        <label for="inputPassword" class="col-sm-2 col-form-label"></label>
+
                       </div>
                     </form>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit"  form="nrAmzes" class="btn btn-primary loading_click">Save changes</button>
+                    <button type="submit"  form="nrAmzes" class="btn btn-primary  nrAmzesButt">Save changes</button>
                   </div>
               </div>
             </div>
