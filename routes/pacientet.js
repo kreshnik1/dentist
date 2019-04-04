@@ -108,34 +108,35 @@ router.route("/pacientet/:id")
          let phoneNumber = request.body.phoneNumber;
          let address = request.body.address;
          let description = request.body.description
-         	let stringFormat = moment(date).format("YYYY-MM-DD");
-            //finding the snippet with that id and update it
-            Pacientet.findOneAndUpdate({_id: request.params.id},
-               { name: name,
-                 surname:surname,
-                 date:stringFormat,
-                 startTime:startTime,
-                 nrAmzes:nrAmzes,
-                 endTime:endTime,
-                 phoneNumber:phoneNumber,
-                 address:address,
-                 description:description
-                }, {returnNewDocument: true}, function (error,user) {
-                if (error) {
+         let stringFormat = moment(date).format("YYYY-MM-DD");
+         console.log(stringFormat);
+          //finding the snippet with that id and update it
+          Pacientet.findOneAndUpdate({_id: request.params.id},
+             { name: name,
+               surname:surname,
+               date:stringFormat,
+               startTime:startTime,
+               nrAmzes:nrAmzes,
+               endTime:endTime,
+               phoneNumber:phoneNumber,
+               address:address,
+               description:description
+              }, {returnNewDocument: true}, function (error,user) {
+              if (error) {
+                request.session.flash = {
+                  type: 'error',
+                  message: error.message
+                }
+               response.redirect('/home/update/'+request.params.id)
+              }
+              else{
                   request.session.flash = {
-                    type: 'error',
-                    message: error.message
+                    type: 'success',
+                    message: 'The reservation was updated!'
                   }
-                 response.redirect('/home/update/'+request.params.id)
-                }
-                else{
-                    request.session.flash = {
-                      type: 'success',
-                      message: 'The reservation was updated!'
-                    }
-                    response.redirect('/pacientet/'+request.params.id)
-                }
-              });
+                  response.redirect('/pacientet/'+request.params.id)
+              }
+            });
 
 	});
   router.route("/delete/pacientet/:id")
@@ -341,9 +342,6 @@ router.route("/pacientet/tooth/delete/:id")
         let information = request.body.information;
         let tooth = request.body.protezaSiper11+"-"+request.body.protezaSiper12;
         let protezaMbarimi = request.body.protezaPosht11+"-"+request.body.protezaPosht12;
-        console.log(information)
-        console.log(protezaMbarimi);
-        console.log(tooth)
         Tooth.findOneAndUpdate({_id: request.params.id},{
           information:information,
           tooth:tooth,

@@ -15,7 +15,6 @@ $.get( '/reservation/data', function(data) {
   }).then(function(){
     // Time Picker Initialization
 
-    console.log(allReservationDate);
     document.querySelector("#loading").id="hidden_loading";
     document.querySelector(".calendar_card").removeAttribute("id");
     document.querySelector(".todaysInfo").removeAttribute("id");
@@ -33,9 +32,6 @@ $.get( '/reservation/data', function(data) {
           $.each($('#add-event').serializeArray(), function(i, field) {
               values[field.name] = field.value;
           });
-          console.log(
-            values
-          );
       });
       });
       $(function() {
@@ -65,27 +61,26 @@ $.get( '/reservation/data', function(data) {
           allReservationDate
           ,
     			dayClick: function(date,event,view) {
-             console.log(Date.now())
             if(moment(date.format()).isAfter(moment(Date.now()))){
-              $('#modal-view-event-add').modal();
-              let getDate = date.format();
-              console.log(getDate);
-              let onlyDate = moment(getDate).format("MM/DD/YYYY")
-              let onlyHour ;
-              if(getDate.includes('T')){
-                  onlyHour = moment(getDate).format('HH:mm')
-              }
-              let convertedDate = moment(onlyDate).format("MM/DD/YYYY");
-              $('.datetimepicker').datepicker().data('datepicker').selectDate(new Date(convertedDate));
-              document.querySelector("#startTime").value=onlyHour;
+              if (!IsDateHasEvent(date)){
+                  $('#modal-view-event-add').modal();
+                  let getDate = date.format();
+                  let onlyDate = moment(getDate).format("MM/DD/YYYY")
+                  let onlyHour ;
+                  if(getDate.includes('T')){
+                      onlyHour = moment(getDate).format('HH:mm')
+                  }
+                  let convertedDate = moment(onlyDate).format("MM/DD/YYYY");
+                  $('.datetimepicker').datepicker().data('datepicker').selectDate(new Date(convertedDate));
+                  document.querySelector("#startTime").value=onlyHour;
+                }
             }
+
+
 
     			},
     			eventClick: function(event, jsEvent, view) {
-              console.log(event);
               let a =new Date( moment(event.start._i).format("DD/MM/YYYY"))
-              console.log(moment(event.start._i).from(moment(Date.now())));
-
     					$('.event-title').html(event.title + " " + event.surname);
               $('.event-date').html(moment(event.start._i).format("DD/MM/YYYY"));
               $('.event-time').html(moment(event.start._i).format("HH:mm")+"-"+moment(event.end._i).format("HH:mm"));
@@ -97,6 +92,16 @@ $.get( '/reservation/data', function(data) {
         document.querySelector(".fc-listWeek-button").innerHTML="week list"
 
     	});
+      // check if this day has an event before
+    function IsDateHasEvent(date) {
+        var allEvents = [];
+        allEvents = $('#calendar').fullCalendar('clientEvents');
+        console.log(allEvents);
+        var event = $.grep(allEvents, function (v) {
+            return +v.start === +date;
+        });
+        return event.length > 0;
+    }
 
   })
 
