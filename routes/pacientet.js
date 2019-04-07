@@ -33,66 +33,61 @@ router.route("/pacientet/:id")
                                 return response.render("todo/errors/404",errors);
                             }
                             else{
+                              Tooth.find({nrAmzes:data.nrAmzes},null,{sort: '-createdAt'},function(error , toothData){
 
-                                  Tooth.find({nrAmzes:data.nrAmzes},null,{sort: '-createdAt'},function(error , toothData){
-
-                                    let formatDate;
-                      							//sending the data of that snippet in the todo/update
-                      							let name = data.name;
-                                    let surname = data.surname;
-                                    let formatedDate =  moment(data.date).format("DD/MM/YYYY");
-                                    let startTime = data.startTime;
-                                    let endTime = data.endTime;
-                                    let numri_amzes = data.nrAmzes;
-                                    let age = data.age;
-                                    let description = data.description;
-                                    let phoneNumber = data.phoneNumber;
-                                    let address = data.address;
-                      							let companyName = user.companyName;
-                                    let date =  moment(data.date).format("YYYY/DD/MM");
-                                    let dateFormat = date.split('/');
-                                    let year = dateFormat[0];
-                                    let month = dateFormat[1];
-                                    let day = dateFormat[2];
-                                    allData = {
-                                      id: request.params.id,
-                                       userid:user._id,
-                                       name:name,
-                                       surname:surname,
-                                       description:description,
-                                       formatedDate:formatedDate,
-                                       startTime:startTime,
-                                       endTime:endTime,
-                                       nrAmzes:numri_amzes,
-                                       age:age,
-                                       phoneNumber:phoneNumber,
-                                       address:address,
-                                       companyName:companyName,
-                                       year:year,
-                                       month:month,
-                                       day:day,
-                                       todos:toothData.map(function(todo){
-                                         formatDate = moment(todo.createdAt).format("DD/MM/YYYY");
-                                         return {
-                                           _id:todo._id,
-                                           tooth:todo.tooth,
-                                           protezaMbarimi:todo.protezaMbarimi,
-                                           type:todo.type,
-                                           region:todo.region,
-                                           information:todo.information,
-                                           createdAt:todo.createdAt,
-                                           formatDate:formatDate
-                                         }
-                                       })
-                                    }
-                      							return response.render('todo/pacientet',allData)
-                                    })
-                    						}
-
-
-                            })
-
-
+                                let formatDate;
+                  							//sending the data of that snippet in the todo/update
+                  							let name = data.name;
+                                let surname = data.surname;
+                                let formatedDate =  moment(data.date).format("DD/MM/YYYY");
+                                let startTime = data.startTime;
+                                let endTime = data.endTime;
+                                let numri_amzes = data.nrAmzes;
+                                let age = data.age;
+                                let description = data.description;
+                                let phoneNumber = data.phoneNumber;
+                                let address = data.address;
+                  							let companyName = user.companyName;
+                                let date =  moment(data.date).format("YYYY/DD/MM");
+                                let dateFormat = date.split('/');
+                                let year = dateFormat[0];
+                                let month = dateFormat[1];
+                                let day = dateFormat[2];
+                                allData = {
+                                  id: request.params.id,
+                                   userid:user._id,
+                                   name:name,
+                                   surname:surname,
+                                   description:description,
+                                   formatedDate:formatedDate,
+                                   startTime:startTime,
+                                   endTime:endTime,
+                                   nrAmzes:numri_amzes,
+                                   age:age,
+                                   phoneNumber:phoneNumber,
+                                   address:address,
+                                   companyName:companyName,
+                                   year:year,
+                                   month:month,
+                                   day:day,
+                                   todos:toothData.map(function(todo){
+                                     formatDate = moment(todo.createdAt).format("DD/MM/YYYY");
+                                     return {
+                                       _id:todo._id,
+                                       tooth:todo.tooth,
+                                       protezaMbarimi:todo.protezaMbarimi,
+                                       type:todo.type,
+                                       region:todo.region,
+                                       information:todo.information,
+                                       createdAt:todo.createdAt,
+                                       formatDate:formatDate
+                                     }
+                                   })
+                                }
+                  							return response.render('todo/pacientet',allData)
+                                })
+                						}
+                          })
                     }
                   }
             })
@@ -119,7 +114,7 @@ router.route("/pacientet/:id")
              else if(Date.parse(stringFormat+" "+startTime) >  Date.parse(stringFormat+" "+i.startTime) &&  Date.parse(stringFormat+" "+startTime) < Date.parse(stringFormat+" "+i.endTime)){
                eventExist = true;
              }
-             else if(Date.parse(stringFormat+" "+endTime) >  Date.parse(stringFormat+" "+i.startTime) &&  Date.parse(stringFormat+" "+endTime)< Date.parse(stringFormat+" "+i.endTime)){
+             else if(Date.parse(stringFormat+" "+endTime) >  Date.parse(stringFormat+" "+i.startTime) &&  Date.parse(stringFormat+" "+endTime) <= Date.parse(stringFormat+" "+i.endTime)){
                eventExist = true;
              }
            })
