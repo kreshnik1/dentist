@@ -109,34 +109,58 @@ router.route("/pacientet/:id")
          let address = request.body.address;
          let description = request.body.description
          let stringFormat = moment(date).format("YYYY-MM-DD");
+         let events = false;
          console.log(stringFormat);
+         Pacientet.find({date:stringFormat,_id:{$ne:request.params.id}},function(error, data){
+           data.forEach(function(i){
+             let startT = i.startTime.split(":");
+             let endT = i.endTime.split(":");
+             let startT1 = startTime.split(":");
+             let endT1 = endTime.split(":")
+             if(parseInt(startT[0]) == parseInt(startT1[0]) && parseInt(endT1[0]) == parseInt(endT[0])){
+               events = true;
+             }
+           })
+           if(!events){
+             Pacientet.findOneAndUpdate({_id: request.params.id},
+                { name: name,
+                  surname:surname,
+                  date:stringFormat,
+                  startTime:startTime,
+                  nrAmzes:nrAmzes,
+                  endTime:endTime,
+                  phoneNumber:phoneNumber,
+                  address:address,
+                  description:description
+                 }, {returnNewDocument: true}, function (error,user) {
+                 if (error) {
+                   request.session.flash = {
+                     type: 'error',
+                     message: error.message
+                   }
+                  response.redirect('/home/update/'+request.params.id)
+                 }
+                 else{
+                     request.session.flash = {
+                       type: 'success',
+                       message: 'The reservation was updated!'
+                     }
+                     response.redirect('/pacientet/'+request.params.id)
+                 }
+               });
+           }
+           else{
+             request.session.flash = {
+               type: 'error',
+               message: 'Ndryshimi ishte i pa suksesshem  , ju lutemi provojeni nje orar tjeter sepse eshte i zene!'
+             }
+             response.redirect('/pacientet/'+request.params.id)
+           }
+         })
+
+
           //finding the snippet with that id and update it
-          Pacientet.findOneAndUpdate({_id: request.params.id},
-             { name: name,
-               surname:surname,
-               date:stringFormat,
-               startTime:startTime,
-               nrAmzes:nrAmzes,
-               endTime:endTime,
-               phoneNumber:phoneNumber,
-               address:address,
-               description:description
-              }, {returnNewDocument: true}, function (error,user) {
-              if (error) {
-                request.session.flash = {
-                  type: 'error',
-                  message: error.message
-                }
-               response.redirect('/home/update/'+request.params.id)
-              }
-              else{
-                  request.session.flash = {
-                    type: 'success',
-                    message: 'The reservation was updated!'
-                  }
-                  response.redirect('/pacientet/'+request.params.id)
-              }
-            });
+
 
 	});
   router.route("/delete/pacientet/:id")

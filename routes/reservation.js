@@ -55,24 +55,44 @@ router.route("/create/reservation")
       address:address,
 			description:description
     });
+		let eventExist = false;
+		Pacientet.find({date:stringFormat},function(error, data){
+			data.forEach(function(i){
+				let startT = i.startTime.split(":");
+				let endT = i.endTime.split(":");
+				let startT1 = startTime.split(":");
+				let endT1 = endTime.split(":")
+				if(parseInt(startT[0]) == parseInt(startT1[0]) && parseInt(endT1[0]) == parseInt(endT[0])){
+					eventExist = true;
+				}
+			})
+			if(!eventExist){
+				Pacientet.create(PacientetData, function (error, user) {
+					if (error) {
+						let string = error.message;
+						request.session.flash = {
+							type: "error",
+							message: string
+						};
+						return response.redirect('/create/reservation');
+					} else {
+						 request.session.flash = {
+								type: "success",
+								message: "Your reservation was successfully created."
+							};
+							return response.redirect('/home');
+						}
+					});
+			}
+			else{
+				request.session.flash = {
+					type: 'error',
+					message: 'Rezervimi ishte i pa suksesshem  , ju lutemi provojeni nje orar tjeter sepse eshte i zene!'
+				}
+				response.redirect('/pacientet/'+request.params.id)
+			}
+		}
 
-    //creating the snippet with datas that we need in database
-    Pacientet.create(PacientetData, function (error, user) {
-      if (error) {
-        let string = error.message;
-        request.session.flash = {
-          type: "error",
-          message: string
-        };
-        return response.redirect('/create/reservation');
-      } else {
-         request.session.flash = {
-            type: "success",
-            message: "Your reservation was successfully created."
-          };
-          return response.redirect('/home');
-        }
-      });
 	   });
 
   module.exports = router;
