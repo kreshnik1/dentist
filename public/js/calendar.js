@@ -96,7 +96,7 @@ $.get( '/reservation/data', function(data) {
     function IsDateHasEvent(date) {
         var allEvents = [];
         allEvents = $('#calendar').fullCalendar('clientEvents');
-        console.log(allEvents);
+
         var event = $.grep(allEvents, function (v) {
             return +v.start === +date;
         });
