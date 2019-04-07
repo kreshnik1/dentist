@@ -63,6 +63,9 @@ if(document.querySelector(".nrAmzesButt")){
   let nrAmzesB = document.querySelector(".nrAmzesButt");
   console.log(nrAmzesB);
   nrAmzesB.addEventListener("click",function(event){
+    if(document.querySelector("input[name='nrAmza']").value.length ===0){
+      console.log("Hey");
+    }
     if(document.querySelector("input[name='nrAmza']").value.length !== 13 || !isANumber(document.querySelector("input[name='nrAmza']").value)){
       document.querySelector("input[name='nrAmza']").setAttribute("class","form-control  is-invalid")
       document.querySelector("input[name='nrAmza']").focus();

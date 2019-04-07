@@ -58,11 +58,13 @@ router.route("/create/reservation")
 		let eventExist = false;
 		Pacientet.find({date:stringFormat},function(error, data){
 			data.forEach(function(i){
-				let startT = i.startTime.split(":");
-				let endT = i.endTime.split(":");
-				let startT1 = startTime.split(":");
-				let endT1 = endTime.split(":")
-				if(parseInt(startT[0]) == parseInt(startT1[0]) && parseInt(endT1[0]) == parseInt(endT[0])){
+				if(Date.parse(stringFormat+" "+i.startTime) == Date.parse(stringFormat+" "+startTime) && Date.parse(stringFormat+" "+i.endTime) == Date.parse(stringFormat+" "+endTime) ){
+					eventExist = true;
+				}
+				else if(Date.parse(stringFormat+" "+startTime) >  Date.parse(stringFormat+" "+i.startTime) &&  Date.parse(stringFormat+" "+startTime) < Date.parse(stringFormat+" "+i.endTime)){
+					eventExist = true;
+				}
+				else if(Date.parse(stringFormat+" "+endTime) >  Date.parse(stringFormat+" "+i.startTime) &&  Date.parse(stringFormat+" "+endTime)< Date.parse(stringFormat+" "+i.endTime)){
 					eventExist = true;
 				}
 			})
@@ -89,9 +91,9 @@ router.route("/create/reservation")
 					type: 'error',
 					message: 'Rezervimi ishte i pa suksesshem  , ju lutemi provojeni nje orar tjeter sepse eshte i zene!'
 				}
-				response.redirect('/pacientet/'+request.params.id)
+				response.redirect('/home');
 			}
-		}
+		})
 
 	   });
 

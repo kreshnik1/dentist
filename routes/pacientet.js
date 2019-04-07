@@ -109,19 +109,21 @@ router.route("/pacientet/:id")
          let address = request.body.address;
          let description = request.body.description
          let stringFormat = moment(date).format("YYYY-MM-DD");
-         let events = false;
+         let eventExist = false;
          console.log(stringFormat);
          Pacientet.find({date:stringFormat,_id:{$ne:request.params.id}},function(error, data){
            data.forEach(function(i){
-             let startT = i.startTime.split(":");
-             let endT = i.endTime.split(":");
-             let startT1 = startTime.split(":");
-             let endT1 = endTime.split(":")
-             if(parseInt(startT[0]) == parseInt(startT1[0]) && parseInt(endT1[0]) == parseInt(endT[0])){
-               events = true;
+             if(Date.parse(stringFormat+" "+i.startTime) == Date.parse(stringFormat+" "+startTime) && Date.parse(stringFormat+" "+i.endTime) == Date.parse(stringFormat+" "+endTime) ){
+               eventExist = true;
+             }
+             else if(Date.parse(stringFormat+" "+startTime) >  Date.parse(stringFormat+" "+i.startTime) &&  Date.parse(stringFormat+" "+startTime) < Date.parse(stringFormat+" "+i.endTime)){
+               eventExist = true;
+             }
+             else if(Date.parse(stringFormat+" "+endTime) >  Date.parse(stringFormat+" "+i.startTime) &&  Date.parse(stringFormat+" "+endTime)< Date.parse(stringFormat+" "+i.endTime)){
+               eventExist = true;
              }
            })
-           if(!events){
+           if(!eventExist){
              Pacientet.findOneAndUpdate({_id: request.params.id},
                 { name: name,
                   surname:surname,
