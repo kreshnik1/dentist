@@ -117,6 +117,9 @@ router.route("/pacientet/:id")
              else if(Date.parse(stringFormat+" "+endTime) >  Date.parse(stringFormat+" "+i.startTime) &&  Date.parse(stringFormat+" "+endTime) <= Date.parse(stringFormat+" "+i.endTime)){
                eventExist = true;
              }
+             else if(Date.parse(stringFormat+" "+startTime) == Date.parse(stringFormat+" "+i.startTime) && Date.parse(stringFormat+" "+endTime) > Date.parse(stringFormat+" "+i.endTime)){
+               eventExist = true;
+             }
            })
            if(!eventExist){
              Pacientet.findOneAndUpdate({_id: request.params.id},
