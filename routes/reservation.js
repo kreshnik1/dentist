@@ -67,6 +67,9 @@ router.route("/create/reservation")
 				else if(Date.parse(stringFormat+" "+endTime) >  Date.parse(stringFormat+" "+i.startTime) &&  Date.parse(stringFormat+" "+endTime) <= Date.parse(stringFormat+" "+i.endTime)){
 					eventExist = true;
 				}
+				else if(Date.parse(stringFormat+" "+startTime) == Date.parse(stringFormat+" "+i.startTime) && Date.parse(stringFormat+" "+endTime) > Date.parse(stringFormat+" "+i.endTime)){
+					eventExist = true;
+				}
 			})
 			if(!eventExist){
 				Pacientet.create(PacientetData, function (error, user) {
