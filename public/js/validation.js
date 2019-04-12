@@ -48,7 +48,6 @@ if(document.querySelector(".createPatient")){
     let createPatient = document.querySelector(".createPatient");
     createPatient.addEventListener("click",function(event){
       if(document.querySelector("input[name='amza']").value.length ===0){
-        console.log("Hey");
       }
       else if(document.querySelector("input[name='amza']").value.length !== 13 || !isANumber(document.querySelector("input[name='amza']").value)){
         document.querySelector("input[name='amza']").setAttribute("class","form-control  is-invalid")
@@ -61,10 +60,8 @@ if(document.querySelector(".createPatient")){
 
 if(document.querySelector(".nrAmzesButt")){
   let nrAmzesB = document.querySelector(".nrAmzesButt");
-  console.log(nrAmzesB);
   nrAmzesB.addEventListener("click",function(event){
     if(document.querySelector("input[name='nrAmza']").value.length ===0){
-      console.log("Hey");
     }
     if(document.querySelector("input[name='nrAmza']").value.length !== 13 || !isANumber(document.querySelector("input[name='nrAmza']").value)){
       document.querySelector("input[name='nrAmza']").setAttribute("class","form-control  is-invalid")
@@ -80,7 +77,6 @@ if(document.querySelector(".updatePacient")){
   let updatePacient = document.querySelector(".updatePacient");
   updatePacient.addEventListener("click",function(event){
     if(document.querySelector("input[name='nrAmzes']").value.length ===0){
-      console.log("Hey");
     }
     else if(document.querySelector("input[name='nrAmzes']").value.length !== 13 ||  !isANumber(document.querySelector("input[name='nrAmzes']").value)){
       document.querySelector("input[name='nrAmzes']").setAttribute("class","form-control  is-invalid");
@@ -157,7 +153,6 @@ if(document.querySelector(".passwordButton")){
         else{
             oldpassword.setAttribute("class","form-control is-valid")
             if(oldpassword.value.length>5 && newpassword.value.length>5 && repassword.value.length>5){
-                console.log(oldpassword.value.length+" "+newpassword.value.length+" "+repassword.value.length)
                 passwordButton.disabled = false;
             }
         }
@@ -170,7 +165,6 @@ if(document.querySelector(".passwordButton")){
         else{
             newpassword.setAttribute("class","form-control is-valid")
             if(oldpassword.value.length>5 && newpassword.value.length>5 && repassword.value.length>5){
-                console.log(oldpassword.value.length+" "+newpassword.value.length+" "+repassword.value.length)
                 passwordButton.disabled = false;
             }
         }
@@ -183,7 +177,6 @@ if(document.querySelector(".passwordButton")){
         else {
             repassword.setAttribute("class","form-control is-valid")
             if(oldpassword.value.length>5 && newpassword.value.length>5 && repassword.value.length>5){
-                console.log(oldpassword.value.length+" "+ newpassword.value.length+" "+repassword.value.length)
                 passwordButton.disabled = false;
             }
         }
@@ -259,10 +252,8 @@ let color1 = '#ffa4a2';
 if(document.querySelector(".proteza")){
   let pjesa_siper1 = document.querySelector(".mr-auto").getAttribute('id');
   let pjesa_e_dhembeve1 = pjesa_siper1.split('-');
-  console.log(pjesa_e_dhembeve1[1]);
   for(let i=11 ; i <= 18 ; i++){
     if(i>pjesa_e_dhembeve1[0]){
-      console.log(i);
       $('.tooth-'+i).mouseover(function(){
         $('.tooth-'+i+'-parent').css('fill', color1);
       });
@@ -345,11 +336,9 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 function onMouse(i){
 
     $('.tooth-'+i.toString()+'-parent').mouseleave(function(){
-      console.log("tooth-"+i);
       $('.tooth-'+i.toString()+'-parent').css('fill', "#EEECF5");
     });
     $('.tooth-'+i.toString()+'-parent').mouseover(function(){
-      console.log("tooth-"+i);
       $('.tooth-'+i.toString()+'-parent').css('fill', color1);
     });
 
@@ -688,7 +677,6 @@ if(document.querySelector('#select1')){
   var target1 = document.querySelector(".protezaSiper");
   function display() {
       var selectedIndex = source.selectedIndex;
-      console.log(source[selectedIndex].value);
       if (source[selectedIndex].value === "Mbushje") {
           target.classList.remove("toothRegion");
 
