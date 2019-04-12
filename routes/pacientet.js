@@ -143,7 +143,7 @@ router.route("/pacientet/:id")
                  else{
                      request.session.flash = {
                        type: 'success',
-                       message: 'The reservation was updated!'
+                       message: 'Rezervimi u ndryshua me sukses!'
                      }
                      response.redirect('/pacientet/'+request.params.id)
                  }
@@ -152,7 +152,7 @@ router.route("/pacientet/:id")
            else{
              request.session.flash = {
                type: 'error',
-               message: 'Ndryshimi ishte i pa suksesshem  , ju lutemi provojeni nje orar tjeter sepse eshte i zene!'
+               message: 'Ndryshimi ishte i pa suksesshëm  , ju lutemi provojeni një orar tjetër sepse është i zënë!'
              }
              response.redirect('/pacientet/'+request.params.id)
            }
@@ -201,7 +201,7 @@ router.route("/pacientet/:id")
             }
   		    	request.session.flash = {
   			    	type: "success",
-  				    message: "The reservation  was deleted!"
+  				    message: "Rezervimi u fshi!"
   		    	};
 
             return response.redirect("/home");//riderect to home
@@ -246,7 +246,7 @@ router.route("/pacientet/:id")
         else {
          request.session.flash = {
          type: "success",
-         message: "Your data was saved successfully"
+         message: "Të dhënat u ruajtën me sukses"
          };
          return response.redirect('/pacientet/'+id);
        }
@@ -285,12 +285,49 @@ router.route("/pacientet/:id")
          else {
           request.session.flash = {
           type: "success",
-          message: "Your data was saved successfully"
+          message: "Të dhënat u ruajtën me sukses"
           };
           return response.redirect('/pacientet/'+id);
         }
       });
     })
+
+    router.route("/tooth/data/pastrimi/:id")
+    .post(function (request, response,next) {
+       let id = request.params.id;
+       let nrAmzes = request.body.nrAmzes;
+       let information = request.body.information;
+       let tooth="pastrim"
+       let type = "Pastrimi i dhembeve";
+
+       //creats the user by saving the data in database
+       let toothData = new Tooth({
+         id:id,
+         nrAmzes:nrAmzes,
+         tooth:tooth,
+         type:type,
+         information:information
+       });
+       Tooth.create(toothData, function (error, user) {
+         if (error) {
+           let string = error.message;
+           request.session.flash = {
+             type: "error",
+             message: string
+            };
+
+
+           return response.redirect('/pacientet/'+id);
+         }
+          else {
+           request.session.flash = {
+           type: "success",
+           message: "Të dhënat u ruajtën me sukses"
+           };
+           return response.redirect('/pacientet/'+id);
+         }
+       });
+     })
 
 
    //deletes a tooth information
@@ -332,7 +369,7 @@ router.route("/pacientet/tooth/delete/:id")
           }
 		    	request.session.flash = {
 			    	type: "success",
-				    message: "The tooth information was deleted!"
+				    message: "Të dhënat e dhëmbit u fshinë !"
 		    	};
 
           return response.redirect("/pacientet/"+data.id);//riderect to home
@@ -354,7 +391,7 @@ router.route("/pacientet/tooth/delete/:id")
             }
   		    	request.session.flash = {
   			    	type: "success",
-  				    message: "The tooth information was updated successfully!"
+  				    message: "Të dhënat e dhëmbit u ndryshuan me sukses!"
   		    	};
 
             return response.redirect("/pacientet/"+data.id);
@@ -380,7 +417,7 @@ router.route("/pacientet/tooth/delete/:id")
                 }
                 request.session.flash = {
                   type: "success",
-                  message: "The tooth information was updated successfully!"
+                  message: "Protezat u ndryshuan me sukses !"
                 };
 
                 return response.redirect("/pacientet/"+data.id);//riderect to home
@@ -402,7 +439,7 @@ router.route("/pacientet/tooth/delete/:id")
               }
               request.session.flash = {
                 type: "success",
-                message: "The tooth information was updated successfully!"
+                message: "Numri i amzes u ruajt me sukses !"
               };
 
               return response.redirect("/pacientet/"+data.id);

@@ -3,61 +3,64 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span data-feather="menu"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav menus ">
-          <li class="nav-item">
+        <ul class="navbar-nav  ">
+          <li class="nav-item menus">
                         <a class="nav-link" href="/home">
                             <span data-feather="home"></span>
-                            Home <span class="sr-only">(current)</span>
+                            Rezervimet <span class="sr-only">(current)</span>
                         </a>
                     </li>
 
-                    <li class="nav-item">
+                    <li class="nav-item menus">
                          <button type="button" id="li" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i data-feather="user"></i>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="/home/profile/{{userid}}" class="dropdownlinks"><button class="dropdown-item" type="button">My profile</button></a>
+                                    <a href="/home/profile/{{userid}}" class="dropdownlinks"><button class="dropdown-item" type="button">Profili im</button></a>
                                     <div class="dropdown-divider"></div>
-                                    <a href="/logout" class="dropdownlinks"><button class="dropdown-item" type="button">Sign out</button></a>
+                                    <a href="/logout" class="dropdownlinks"><button class="dropdown-item" type="button">Log out</button></a>
                                 </div>
                     </li>
+
                     {{#if nrAmzes}}
                       <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                    <span>Tooth color meaning</span>
+                    <span class="menus">Tooth color meaning</span>
                   </h6>
-                        <li class="nav-item">
+                        <li class="nav-item menus">
                           <a class="nav-link">
                             <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect class="color" width="100%" height="100%" fill="#2196f3" /></svg>Mbushje
 
                           </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item menus">
                           <a class="nav-link">
                             <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect class="color" width="100%" height="100%" fill="#d50000" /></svg>Nxjerre
                           </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item menus">
                           <a class="nav-link" >
                             <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect class="color" width="100%" height="100%" fill="#aee571" /></svg>Sherim
                           </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item menus">
                           <a class="nav-link">
                             <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect class="color" width="100%" height="100%" fill="#59C3C3" /></svg>Implant
                           </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item menus">
                           <a class="nav-link">
                             <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect class="color" width="100%" height="100%" fill="#EEECF5" /></svg>Proteza
                           </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item menus">
                           <a class="nav-link">
                             <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect class="color" width="100%" height="100%" fill="#CBDBFF" /></svg>Tjeter
                           </a>
                         </li>
                       {{/if}}
+
 
           </ul>
     </div>
@@ -67,9 +70,9 @@
                 <i data-feather="user"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-                <a href="/home/profile/{{userid}}" class="dropdownlinks"><button class="dropdown-item" type="button">My profile</button></a>
+                <a href="/home/profile/{{userid}}" class="dropdownlinks"><button class="dropdown-item" type="button">Profili im</button></a>
                 <div class="dropdown-divider"></div>
-                <a href="/logout" class="dropdownlinks"><button class="dropdown-item" type="button">Sign out</button></a>
+                <a href="/logout" class="dropdownlinks"><button class="dropdown-item" type="button">Log out</button></a>
             </div>
         </div>
     </div>
@@ -90,7 +93,7 @@
             </ul>
             {{#if nrAmzes}}
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Tooth color meaning</span>
+          <span>Kuptimi i ngjyrave tek dhëmbët  </span>
 
         </h6>
             <ul class="nav flex-column mb-2">
@@ -173,12 +176,12 @@
           <table class="table  table-bordered table-responsive-md">
             <thead class="table-light">
               <tr>
-                <th scope="col">Date</th>
-                <th scope="col">Time</th>
+                <th scope="col">Data</th>
+                <th scope="col">Koha</th>
                 <th scope="col">Numri amzes</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Address</th>
-                <th scope="col">Description</th>
+                <th scope="col">Tel</th>
+                <th scope="col">Adresa</th>
+                <th scope="col">Përshkrimi</th>
               </tr>
             </thead>
             <tbody>
@@ -194,8 +197,8 @@
             </tbody>
           </table>
 
-                          <button type="submit"  class="btn btn-outline-primary " data-toggle="modal" data-target="#exampleModalCenter">  <i data-feather="edit-2"></i> Edit</button>
-                          <button type="submit"  class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalDelete">  <i data-feather="trash"></i> Delete</button>
+                          <button type="submit"  class="btn btn-outline-primary " data-toggle="modal" data-target="#exampleModalCenter">  <i data-feather="edit-2"></i> Ndrysho</button>
+                          <button type="submit"  class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalDelete">  <i data-feather="trash"></i> Fshij</button>
 
 			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  ">
 
@@ -1806,6 +1809,9 @@
                   <button type="button" class="btn btn-primary protezaButton" data-toggle="modal" data-target="#exampleModalProteza">
                     Krijimi i Protezave
                   </button>
+                  <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#exampleModalPastrim">
+                  Pastrimi i dhembeve
+                  </button>
                   {{else}}
                   <div class="toastt" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="toast-header">
@@ -1828,10 +1834,10 @@
                   <small class="text-muted">{{formatDate}}</small>
 
                 <button type="button" class="ml-2 mb-2 close"  data-dismiss="toast"  data-toggle="modal" data-target="#exampleModalUpdateProteza{{_id}}" arial-label="Close">
-                  <span  data-feather="edit-2" data-placement="top" title="Update"  data-toggle="tooltip" ></span>
+                  <span  data-feather="edit-2" data-placement="top" title="Ndrysho"  data-toggle="tooltip" ></span>
                 </button>
                 <button type="button" class="ml-2 mb-2 close" data-dismiss="toast" data-toggle="modal"  data-target="#exampleModaldeleteProteza{{_id}}" aria-label="Close">
-                  <span  data-feather="trash" data-placement="top" title="Delete"  data-toggle="tooltip"></span>
+                  <span  data-feather="trash" data-placement="top" title="Fshij"  data-toggle="tooltip"></span>
                 </button>
               </div>
               <div class="toast-body">
@@ -1854,6 +1860,9 @@
                         <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect class="color" width="100%" height="100%" fill="#2196f3" /></svg>
                         <strong class="mr-auto" id="{{tooth}}" color="{{type}}">{{tooth}}</strong>
                         <small class="text-muted">{{formatDate}}</small>
+                        <button type="button" class="ml-2 mb-2 close"  data-dismiss="toast"  data-toggle="modal" data-target="#exampleModalUpdate{{_id}}" arial-label="Close">
+                          <span  data-feather="edit-2" data-placement="top" title="Ndrysho"  data-toggle="tooltip" ></span>
+                        </button>
                       {{/eq}}
                       {{#eq type compare="Implant" }}
                         <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect class="color" width="100%" height="100%" fill="#59C3C3" /></svg>
@@ -1864,9 +1873,20 @@
                         <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect class="color"  width="100%" height="100%" fill="#d50000" /></svg>
                         <strong class="mr-auto" id="{{tooth}}" color="{{type}}">{{tooth}}</strong>
                         <small class="text-muted">{{formatDate}}</small>
+                        <button type="button" class="ml-2 mb-2 close"  data-dismiss="toast"  data-toggle="modal" data-target="#exampleModalUpdate{{_id}}" arial-label="Close">
+                          <span  data-feather="edit-2" data-placement="top" title="Ndrysho"  data-toggle="tooltip" ></span>
+                        </button>
                       {{/eq}}
                       {{#eq type compare="Sherim" }}
                         <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect class="color" width="100%" height="100%" fill="#aee571" /></svg>
+                        <strong class="mr-auto" id="{{tooth}}" color="{{type}}">{{tooth}}</strong>
+                        <small class="text-muted">{{formatDate}}</small>
+                        <button type="button" class="ml-2 mb-2 close"  data-dismiss="toast"  data-toggle="modal" data-target="#exampleModalUpdate{{_id}}" arial-label="Close">
+                          <span  data-feather="edit-2" data-placement="top" title="Ndrysho"  data-toggle="tooltip" ></span>
+                        </button>
+                      {{/eq}}
+
+                      {{#eq type compare="Pastrimi i dhembeve" }}
                         <strong class="mr-auto" id="{{tooth}}" color="{{type}}">{{tooth}}</strong>
                         <small class="text-muted">{{formatDate}}</small>
                       {{/eq}}
@@ -1875,13 +1895,14 @@
                         <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect class="color" width="100%" height="100%" fill="#CBDBFF" /></svg>
                         <strong class="mr-auto" id="{{tooth}}" color="{{type}}">{{tooth}}</strong>
                         <small class="text-muted">{{formatDate}}</small>
+                        <button type="button" class="ml-2 mb-2 close"  data-dismiss="toast"  data-toggle="modal" data-target="#exampleModalUpdate{{_id}}" arial-label="Close">
+                          <span  data-feather="edit-2" data-placement="top" title="Ndrysho"  data-toggle="tooltip" ></span>
+                        </button>
                       {{/eq}}
 
-                      <button type="button" class="ml-2 mb-2 close"  data-dismiss="toast"  data-toggle="modal" data-target="#exampleModalUpdate{{_id}}" arial-label="Close">
-                        <span  data-feather="edit-2" data-placement="top" title="Update"  data-toggle="tooltip" ></span>
-                      </button>
+
                       <button type="button" class="ml-2 mb-2 close" data-dismiss="toast" data-toggle="modal"  data-target="#exampleModaldelete{{_id}}" aria-label="Close">
-                        <span  data-feather="trash" data-placement="top" title="Delete"  data-toggle="tooltip"></span>
+                        <span  data-feather="trash" data-placement="top" title="Fshije"  data-toggle="tooltip"></span>
                       </button>
                     </div>
 
@@ -2004,15 +2025,15 @@
                       </div>
                       </div>
                       <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Information : </label>
+                        <label for="exampleFormControlTextarea1">Info : </label>
                         <textarea class="form-control" name="information" id="exampleFormControlTextarea1" rows="3" required >{{information}}</textarea>
                       </div>
                         </form>
                     </div>
 
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                      <button type="submit" value="submit" form="update_tooth_{{_id}}" class="btn submit btn-success delete_button"> Update </button>
+                      <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Mbyll</button>
+                      <button type="submit" value="submit" form="update_tooth_{{_id}}" class="btn submit btn-success delete_button"> Ndrysho </button>
                     </div>
                   </form>
                 </div>
@@ -2037,8 +2058,8 @@
                         <label>Information : {{information}} </label>
                       </div>
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" value="submit" form="delete_tooth_{{_id}}" class="btn btn-danger delete_button"> Delete </button>
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Mbyll</button>
+                        <button type="submit" value="submit" form="delete_tooth_{{_id}}" class="btn btn-danger delete_button"> Fshij </button>
                       </div>
                     </form>
                   </div>
@@ -2049,7 +2070,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalCenterTitle">Delete the information for {{tooth}}</h5>
+                      <h5 class="modal-title" id="exampleModalCenterTitle">Fshije te dhenat per  {{tooth}}</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -2060,8 +2081,8 @@
                           <label for="staticEmail" class="col-form-label">Information : {{information}} </label>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" value="submit" form="delete_tooth_{{_id}}" class="btn btn-danger delete_button"> Delete </button>
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Mbylll</button>
+                        <button type="submit" value="submit" form="delete_tooth_{{_id}}" class="btn btn-danger delete_button"> Fshij </button>
                       </div>
                     </form>
                   </div>
@@ -2071,7 +2092,7 @@
                   <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">Update the information for {{tooth}}</h5>
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Ndrysho te dhenat per  {{tooth}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -2080,11 +2101,11 @@
                         <input type="hidden" name="_csrf" value="{{../csrftoken }}" />
                         <div class="modal-body">
                           <div class="form-group">
-                             <label for="recipient-name" class="col-form-label">Tooth :</label>
+                             <label for="recipient-name" class="col-form-label">Dhembi :</label>
                              <input readonly type="text" name="tooth" class="form-control" value="{{tooth}}">
                           </div>
                           <div class="form-group">
-                            <label for="exampleFormControlSelect1">Type</label>
+                            <label for="exampleFormControlSelect1">Lloji</label>
                               <select class="form-control type" name="type" id="select3{{_id}}" disabled>
                                 {{#eq type compare="Nxjerrje" }}
                                   <option selected>Nxjerrje</option>
@@ -2112,11 +2133,11 @@
 
                             <div class="form-group toothRegion2 " id="toothRegion{{_id}}">
 
-                            <label for="exampleFormControlSelect1">Region</label>
+                            <label for="exampleFormControlSelect1">Regjioni</label>
                             {{else}}
                             <div class="form-group toothRegion1" id="toothRegion{{_id}}">
 
-                            <label for="exampleFormControlSelect1">Region</label>
+                            <label for="exampleFormControlSelect1">Regjioni</label>
                           {{/eq}}
                               <select class="form-control" name="region1">
                                 {{#eq region compare="1"}}
@@ -2153,8 +2174,8 @@
                           </div>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                          <button type="submit" value="submit" form="update_tooth_{{_id}}" class="btn submit btn-success delete_button"> Update </button>
+                          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Mbyll</button>
+                          <button type="submit" value="submit" form="update_tooth_{{_id}}" class="btn submit btn-success delete_button"> Ndrysho </button>
                         </div>
                       </form>
                     </div>
@@ -2167,7 +2188,7 @@
               <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                       <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalCenterTitle">Change your reservation</h5>
+                          <h5 class="modal-title" id="exampleModalCenterTitle">Ndrysho rezervimin</h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                           </button>
@@ -2176,19 +2197,19 @@
                           <div class="modal-body">
                               <input type="hidden" name="_csrf" value="{{ csrftoken }}" />
                               <div class="form-group row">
-                                  <label for="staticEmail" class="col-sm-2 col-form-label">Name</label>
+                                  <label for="staticEmail" class="col-sm-2 col-form-label">Emri</label>
                                   <div class="col-sm-10">
                                       <input type="text" class="form-control" id="staticEmail" name="name" value="{{name}}" required>
                                   </div>
                               </div>
                               <div class="form-group row">
-                                  <label for="inputPassword" class="col-sm-2 col-form-label">Surname</label>
+                                  <label for="inputPassword" class="col-sm-2 col-form-label">Mbiemri</label>
                                   <div class="col-sm-10">
                                       <input type="text" class="form-control" id="inputFirstName" name="surname" value="{{surname}}" required>
                                   </div>
                               </div>
                               <div class="form-group row">
-                                  <label for="inputPassword" class="col-sm-2 col-form-label">Date</label>
+                                  <label for="inputPassword" class="col-sm-2 col-form-label">Data</label>
                                   <div class="col-sm-10">
                                   <input type='text' class="datetimepicker form-control updatedate" name="date" required value="{{day}}/{{month}}/{{year}}">
 
@@ -2196,7 +2217,7 @@
                               </div>
                               <div class="form-group row">
 
-                                    <label for="inputPassword" class="col-sm-2 col-form-label">Time</label>
+                                    <label for="inputPassword" class="col-sm-2 col-form-label">Koha</label>
                                       <div class="col-sm-10">
                                         <div class="row">
                                            <div class="col">
@@ -2222,13 +2243,13 @@
 
                                </div>
                               <div class="form-group row">
-                                  <label for="inputPassword" class="col-sm-2 col-form-label">Phone </label>
+                                  <label for="inputPassword" class="col-sm-2 col-form-label">Tel </label>
                                   <div class="col-sm-10">
                                       <input type="tel" class="form-control" id="inputCompanyName" name="phoneNumber" value="{{this.phoneNumber}}" >
                                   </div>
                               </div>
                               <div class="form-group row">
-                                  <label for="inputPassword" class="col-sm-2 col-form-label">address</label>
+                                  <label for="inputPassword" class="col-sm-2 col-form-label">Adresa</label>
                                   <div class="col-sm-10">
                                       <input type="text" class="form-control" id="inputPhoneNumber" name="address" value="{{address}}" >
                                   </div>
@@ -2243,8 +2264,8 @@
 
                           </div>
                           <div class="modal-footer">
-                              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                              <button type="submit" value="submit" form="update" class="btn btn-primary updatePacient ">Save changes</button>
+                              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Mbyll</button>
+                              <button type="submit" value="submit" form="update" class="btn btn-primary updatePacient ">Ruaj të dhënat</button>
                           </div>
                       </form>
                   </div>
@@ -2273,7 +2294,7 @@
                       <div class="form-group row">
                         <label for="inputPassword" class="col-sm-2 col-form-label">Nr.amzes</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="nrAmza" id="inputPassword" placeholder="Numri i amzes">
+                          <input type="text" class="form-control" name="nrAmza" autocomplete="off" id="inputPassword" placeholder="Numri i amzes">
                           <div class="invalid-feedback">
                              Numri i amzes eshte gabim , duhet te ket vetem 13 numra , provoje perseri
                           </div>
@@ -2284,8 +2305,8 @@
                     </form>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit"  form="nrAmzes" class="btn btn-primary  nrAmzesButt">Save changes</button>
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Mbyll</button>
+                    <button type="submit"  form="nrAmzes" class="btn btn-primary  nrAmzesButt">Ruaj të dhënat</button>
                   </div>
               </div>
             </div>
@@ -2305,11 +2326,11 @@
                     <input type="hidden" name="nrAmzes" value="{{nrAmzes}}"/ />
                     <div class="modal-body">
                       <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Tooth :</label>
+                        <label for="recipient-name" class="col-form-label">Dhembi :</label>
                          <input readonly type="text" name="tooth" class="form-control" id="recipient-name">
                       </div>
                       <div class="form-group">
-                        <label for="exampleFormControlSelect1">Type</label>
+                        <label for="exampleFormControlSelect1">Lloji</label>
                           <select class="form-control" name="type" id="select1">
                             <option>Nxjerrje</option>
                             <option>Mbushje</option>
@@ -2319,7 +2340,7 @@
                           </select>
                       </div>
                       <div class="form-group toothRegion">
-                        <label for="exampleFormControlSelect1">Region</label>
+                        <label for="exampleFormControlSelect1">Regjioni</label>
                           <select class="form-control" name="region" id="region">
                             <option>1</option>
                             <option>2</option>
@@ -2334,8 +2355,8 @@
                       </div>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                      <button type="submit"  form="tooth" class="btn btn-primary loading_click">Save changes</button>
+                      <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Mbyll</button>
+                      <button type="submit"  form="tooth" class="btn btn-primary loading_click">Ruaj të dhënat</button>
                     </div>
                   </form>
               </div>
@@ -2347,7 +2368,7 @@
               <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                       <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalCenterTitle">Delete the reservation</h5>
+                          <h5 class="modal-title" id="exampleModalCenterTitle">Fshije rezervimin</h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                           </button>
@@ -2356,13 +2377,13 @@
                           <div class="modal-body">
                               <input type="hidden" name="_csrf" value="{{ csrftoken }}" />
                               <div class="form-group row">
-                                  <label for="staticEmail" class="col col-form-label">Are you sure to delete this reservation ?</label>
+                                  <label for="staticEmail" class="col col-form-label">Jeni i sigurt për ta fshirë këtë rezervim ?</label>
                               </div>
 
                           </div>
                           <div class="modal-footer">
-                              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                              <button type="submit" value="submit" form="delete" class="btn btn-danger ">Delete</button>
+                              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Mbyll</button>
+                              <button type="submit" value="submit" form="delete" class="btn btn-danger ">Fshij</button>
                           </div>
                       </form>
                   </div>
@@ -2464,12 +2485,46 @@
               </div>
 
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit  " value="submit" form="proteza"  class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Mbyll</button>
+                <button type="submit  " value="submit" form="proteza"  class="btn btn-primary">Ruaj të dhënat</button>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Modal i Protezave -->
+      <div class="modal fade" id="exampleModalPastrim" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered " role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Pastrimi i dhembeve</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <form action="/tooth/data/pastrimi/{{id}}"  id="pastrim" method="post">
+                <input type="hidden" name="_csrf" value="{{ csrftoken }}" />
+                <input type="hidden" name="nrAmzes" value="{{nrAmzes}}"  />
+              <div class="form-group">
+                 <label for="recipient-name" class="col-form-label">Pacienti </label>
+                 <input readonly type="text" name="pacienti" class="form-control" value="{{name}} {{surname}}">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Information : </label>
+                <textarea class="form-control" name="information" id="exampleFormControlTextarea1" rows="3"  >{{information}}</textarea>
+              </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Mbyll</button>
+              <button type="submit  " value="submit" form="pastrim"  class="btn btn-primary">Ruaj të dhënat</button>
+            </div>
+          </div>
+        </div>
+      </div>
         </main>
       </div>
     </div>
