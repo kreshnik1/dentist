@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/home"> <p class="company"><img src="../../images/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">{{companyName}}</p> </a>
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/home"> <p class="company"><img src="../../images/icon.png" width="30" height="30" class="d-inline-block align-top" alt=""> {{companyName}}</p> </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span data-feather="menu"></span>
       </button>
@@ -9,7 +9,7 @@
           <li class="nav-item">
                         <a class="nav-link" href="/home">
                             <span data-feather="home"></span>
-                            Home <span class="sr-only">(current)</span>
+                            Rezervimet <span class="sr-only">(current)</span>
                         </a>
                     </li>
 
@@ -18,7 +18,7 @@
                                     <i data-feather="user"></i>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="#" class="dropdownlinks"><button class="dropdown-item" type="button">My profile</button></a>
+                                    <a href="#" class="dropdownlinks"><button class="dropdown-item" type="button">Profili im</button></a>
                                     <div class="dropdown-divider"></div>
                                     <a href="/logout" class="dropdownlinks"><button class="dropdown-item" type="button">Sign out</button></a>
                                 </div>
@@ -32,7 +32,7 @@
                 <i data-feather="user"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-                <a href="#" class="dropdownlinks"><button class="dropdown-item" type="button">My profile</button></a>
+                <a href="#" class="dropdownlinks"><button class="dropdown-item" type="button">Profili im</button></a>
                 <div class="dropdown-divider"></div>
                 <a href="/logout" class="dropdownlinks"><button class="dropdown-item" type="button">Sign out</button></a>
             </div>
@@ -47,7 +47,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/home">
                             <span data-feather="home"></span>
-                            Home <span class="sr-only">(current)</span>
+                            Rezervimet <span class="sr-only">(current)</span>
                         </a>
                     </li>
                 </ul>
@@ -74,7 +74,7 @@
             {{>flash}}
 
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Profile</h1>
+                <h1 class="h2">Profili im</h1>
             </div>
             <div class="card">
                 <div class="row">
@@ -84,7 +84,7 @@
                                 <h2 class="card-title username">{{username}}<h2>
                             </div>
                             <button type="button" class="btn btn-secondary card-link" data-toggle="modal" data-target="#exampleModalCenter">
-                                <i data-feather="edit-2"></i>Edit your profile
+                                <i data-feather="edit-2"></i>Ndrysho profilin tënd
                             </button>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                         <div class="card-body">
                             <h2>{{firstname}}  {{surname}}</h2>
                             <p class="card-text">{{email}}</p>
-                            <a href="#"data-toggle="modal" data-target="#ChangePasswordModal" class="card-link">Change your password</a>
+                            <a href="#"data-toggle="modal" data-target="#ChangePasswordModal" class="card-link">Ndysho fjalëkalimin</a>
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalCenterTitle">Change your profile</h5>
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Ndrysho profilin tënd</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -118,37 +118,37 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputPassword" class="col-sm-2 col-form-label">Firstname</label>
+                                    <label for="inputPassword" class="col-sm-2 col-form-label">Emri</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="inputFirstName" name="name" value="{{firstname}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputPassword" class="col-sm-2 col-form-label">Lastname</label>
+                                    <label for="inputPassword" class="col-sm-2 col-form-label">Mbiemri</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="inputLastName" name="surname" value="{{surname}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputPassword" class="col-sm-2 col-form-label" >Email</label>
+                                    <label for="inputPassword" class="col-sm-2 col-form-label" >Emaili</label>
                                     <div class="col-sm-10">
                                         <input type="email" class="form-control" id="inputEmail" name="email" value="{{email}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputPassword" class="col-sm-2 col-form-label">Company</label>
+                                    <label for="inputPassword" class="col-sm-2 col-form-label">Firma</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="inputCompanyName" name="companyName" value="{{companyName}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputPassword" class="col-sm-2 col-form-label">Phone</label>
+                                    <label for="inputPassword" class="col-sm-2 col-form-label">Tel</label>
                                     <div class="col-sm-10">
                                         <input type="tel" class="form-control" id="inputPhoneNumber" name="phoneNumber" value="{{this.phoneNumber}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputPassword" class="col-sm-2 col-form-label">City</label>
+                                    <label for="inputPassword" class="col-sm-2 col-form-label">Qyteti</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="inputCity" name="city" value="{{city}}" required>
                                     </div>
@@ -156,8 +156,8 @@
 
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" value="submit" form="update" class="btn btn-primary ">Save changes</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Mbyll</button>
+                                <button type="submit" value="submit" form="update" class="btn btn-primary">Ruaj ndryshimet</button>
                             </div>
                         </form>
                     </div>
@@ -168,7 +168,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalCenterTitle">Change your password</h5>
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Ndrysho fjalëkalimin</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -177,10 +177,10 @@
                             <div class="modal-body">
                                 <input type="hidden" name="_csrf" value="{{ csrftoken }}" />
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Old password</label>
-                                    <input type="password" class="form-control" name="oldpassword"  aria-describedby="emailHelp" placeholder="Enter old password" required>
+                                    <label for="exampleInputEmail1">Fjalëkalimi i vjetër</label>
+                                    <input type="password" class="form-control" name="oldpassword"  aria-describedby="emailHelp" placeholder="Fjalëkalimi i vjetër" required>
                                     <div class="invalid-feedback">
-                                        Old password must be at least 6 characters.
+                                      Fjalëkalimi i vjetër duhet të jetë së paku 6 karaktere.
                                     </div>
                                     <div class="valid-feedback">
                                         Looks good!
@@ -188,19 +188,19 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">New password</label>
-                                    <input type="password" class="form-control" name="newpassword" placeholder="New password" required>
+                                    <input type="password" class="form-control" name="newpassword" placeholder="Fjalëkalimi i ri" required>
                                      <div class="invalid-feedback">
-                                        New password must be at least 6 characters.
+                                        Fjalëkalimi i ri duhet të jetë së paku 6 karaktere.
                                     </div>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Rewrite new password</label>
-                                    <input type="password" class="form-control" name="repassword"  placeholder="re-password" required>
+                                    <label for="exampleInputPassword1">Rishkruaj fjalëkalimin e ri</label>
+                                    <input type="password" class="form-control" name="repassword"  placeholder="Rishkruaj fjalëkalimin e ri" required>
                                      <div class="invalid-feedback repassword_feedback">
-                                         Re-password must be at least 6 characters.
+                                           Fjalëkalimi i ri duhet të jetë së paku 6 karaktere.
                                     </div>
                                     <div class="valid-feedback ">
                                         Looks good!
@@ -208,8 +208,8 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" value="submit" form="change" class="btn btn-primary passwordButton" disabled>Change</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Mbyll</button>
+                                <button type="submit" value="submit" form="change" class="btn btn-primary passwordButton" disabled>Ndrysho</button>
                             </div>
                         </form>
                     </div>

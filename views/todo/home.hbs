@@ -11,7 +11,7 @@
           <li class="nav-item menus">
                         <a class="nav-link active" href="#">
                             <span data-feather="home"></span>
-                            Home <span class="sr-only">(current)</span>
+                            Rezervimet <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -26,7 +26,7 @@
                                     <i data-feather="user"></i>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="/home/profile/{{user_id}}" class="dropdownlinks"><button class="dropdown-item" type="button">My profile</button></a>
+                                    <a href="/home/profile/{{user_id}}" class="dropdownlinks"><button class="dropdown-item" type="button">Profili im</button></a>
                                     <div class="dropdown-divider"></div>
                                     <a href="/logout" class="dropdownlinks"><button class="dropdown-item" type="button">Sign out</button></a>
                                 </div>
@@ -41,7 +41,7 @@
                 <i data-feather="user"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-                <a href="/home/profile/{{user_id}}" class="dropdownlinks"><button class="dropdown-item" type="button">My profile</button></a>
+                <a href="/home/profile/{{user_id}}" class="dropdownlinks"><button class="dropdown-item" type="button">Profili im</button></a>
                 <div class="dropdown-divider"></div>
                 <a href="/logout" class="dropdownlinks"><button class="dropdown-item" type="button">Sign out</button></a>
             </div>
@@ -56,7 +56,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#">
                             <i data-feather="home"></i>
-                            Home <span class="sr-only">(current)</span>
+                            Rezervimet <span class="sr-only">(current)</span>
                         </a>
                     </li>
 
@@ -82,44 +82,9 @@
         </nav>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             {{>flash}}
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">Contact us</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-
-                         <form action="/contact"  id="contact" method="post">
-                            <div class="modal-body">
-                                <input type="hidden" name="_csrf" value="{{ csrftoken }}" />
-                                <div class="form-group ">
-                                    <label for="recipient-name" class="col-form-label">Username:</label>
-                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" name="username" value="{{user_username}}" >
-                                    <label for="message-text" class="col-form-label">Message:</label>
-                                    <textarea class="form-control" id="message-text" required></textarea>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" value="submit" form="contact" class="btn btn-primary ">Send</button>
-                            </div>
-                        </form>
-                    </div>
-                  </div>
-            </div>
-
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
-                <h3>Home</h3>
-              {{!--  <a href="#">
-                    <button class="btn  btn-primary submit">
-                        <i data-feather="edit-2"></i>
-                        Make a reservation
-                    </button>
-                </a>
-                --}}
+                <h3>Rezervimet</h3>
+
                 <form class="form-inline mt-2 mt-md-0" action="/home/search/date"  method="get">
                     <input type="hidden"  name="_csrf" value="{{ csrftoken }}" />
                     <input  type="search" size="25" name="search" class="form-control mr-sm-2 datetimepicker1" placeholder="Kërko sipas datës(dit/muaj/vit)" aria-label="Search" autocomplete="off" data-date-format="dd/mm/yyyy">
@@ -190,11 +155,11 @@
                           </div>
                           <div class="modal-body">
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Date : </label>
+                                <label class="col-sm-2 col-form-label">Data : </label>
                                 <label class="event-date col col-form-label"></label>
                             </div>
                             <div class="form-group row">
-                                <label for="inputPassword" class="col-sm-2 col-form-label">Time : </label>
+                                <label for="inputPassword" class="col-sm-2 col-form-label">Koha : </label>
                                 <label class="event-time col col-form-label"></label>
                             </div>
                             <div class="form-group row">
@@ -204,8 +169,8 @@
                           </hr/>
                           </div>
                           <div class="modal-footer">
-                            <a class="more_information"><button type="button" class="btn btn-outline-primary loading_click" >More information</button></a>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <a class="more_information"><button type="button" class="btn btn-outline-primary loading_click" >Me teper informacione</button></a>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Mbyll</button>
                           </div>
                         </div>
                       </div>
@@ -216,7 +181,7 @@
                       <div class="modal-content">
 
                           <div class="modal-header">
-                            <h5 class="modal-title">Make a reservation</h5>
+                            <h5 class="modal-title">Bëj nje rezervim</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
@@ -226,11 +191,11 @@
                             <form action="/create/reservation" method="post" id="create" class="needs-validation" >
                               <input type="hidden" name="_csrf" value="{{ csrftoken }}" />
                             <div class="form-group">
-                              <label>First Name</label>
+                              <label>Emri <span class="required">*</span></label>
                               <input type="text" class="form-control" name="name" required>
                             </div>
                             <div class="form-group">
-                              <label>Surname</label>
+                              <label>Mbiemri <span class="required">*</span></label>
                               <input type="text" class="form-control" name="surname" required>
                             </div>
                             <div class="form-group">
@@ -241,39 +206,39 @@
                               </div>
                             </div>
                             <div class="form-group">
-                              <label>Date</label>
+                              <label>Data  <span class="required">*</span></label>
                               <input type='text' class="datetimepicker form-control" name="date" required >
                             </div>
                             <div class="form-group">
 
                               <div class="row">
                                  <div class="col">
-                                     <label>From   </label>
+                                     <label>Prej <span class="required">*</span></label>
                                      <input type="time" class="form-control" name="startTime"  id="startTime"  required />
                                    </div>
                                    <div class="col">
-                                     <label>To  </label>
+                                     <label>Deri <span class="required">*</span></label>
                                      <input type="time" class="form-control" name="endTime"  id="endTime"  required />
                                    </div>
                                </div>
                             </div>
                             <div class="form-group">
-                              <label>Phone number</label>
+                              <label>Numri i telefonit</label>
                               <input type="tel" class="form-control" name="phoneNumber">
                             </div>
                             <div class="form-group">
-                              <label>Address</label>
+                              <label>Adresa</label>
                               <input type="text" class="form-control" name="address">
                             </div>
                             <div class="form-group">
-                              <label>Reservation Description</label>
+                              <label>Përshkrimi i rezervimit</label>
                               <textarea class="form-control" name="description"></textarea>
                             </div>
                               </form>
                         </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit"  form="create" class="btn btn-primary createPatient" >Save</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Mbyll</button>
+                            <button type="submit"  form="create" class="btn btn-primary createPatient" >Ruaj</button>
                         </div>
                       </div>
                     </div>
