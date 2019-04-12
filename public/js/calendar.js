@@ -89,8 +89,11 @@ $.get( '/reservation/data', function(data) {
     					$('#modal-view-event').modal();
     			}
     		})
-        document.querySelector(".fc-listWeek-button").innerHTML="week list"
-
+            document.querySelector(".fc-month-button").innerHTML="muaji";
+          document.querySelector(".fc-agendaWeek-button").innerHTML="java";
+          document.querySelector(".fc-agendaDay-button").innerHTML="dita"
+          document.querySelector(".fc-today-button").innerHTML="Sot"
+          document.querySelector(".fc-listWeek-button").innerHTML="lista e javes"
     	});
       // check if this day has an event before
     function IsDateHasEvent(date) {
