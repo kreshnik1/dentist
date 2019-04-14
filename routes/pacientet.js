@@ -300,7 +300,6 @@ router.route("/pacientet/:id")
        let tooth="pastrim"
        let type = "Pastrimi i dhembeve";
 
-       //creats the user by saving the data in database
        let toothData = new Tooth({
          id:id,
          nrAmzes:nrAmzes,
