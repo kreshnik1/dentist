@@ -58,9 +58,7 @@
                             Rezervimet <span class="sr-only">(current)</span>
                         </a>
                     </li>
-
                 </ul>
-
                 <div id="hidden_loading">
                   <div class="sk-fading-circle">
                       <div class="sk-circle1 sk-circle"></div>
@@ -83,7 +81,6 @@
             {{>flash}}
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
                 <h3>Rezervimet</h3>
-
                 <form class="form-inline mt-2 mt-md-0" action="/home/search/date"  method="get">
                     <input type="hidden"  name="_csrf" value="{{ csrftoken }}" />
                     <input  type="search" size="25" name="search" class="form-control mr-sm-2 datetimepicker1" placeholder="Kërko sipas datës(dit/muaj/vit)" aria-label="Search" autocomplete="off" data-date-format="dd/mm/yyyy">
