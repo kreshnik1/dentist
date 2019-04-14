@@ -11,7 +11,7 @@ let ToothSchema = mongoose.Schema({
 	type:{type:String},
 	region:{type:String},
 	createdAt: { type: Date, required: true, default: Date.now },
-	information: { type:String , required:true}
+	information: { type:String }
 });
 
 let Tooth = mongoose.model("Tooth", ToothSchema);

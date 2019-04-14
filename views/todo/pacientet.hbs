@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/home"> <p class="company"><img src="/images/icon.png" width="30" height="30" class="d-inline-block align-top" alt="companyName">{{companyName}}</p> </a>
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/home"> <p class="company"><img src="/images/icon.png" width="30" height="30" class="d-inline-block align-top" alt="companyName"> {{companyName}}</p> </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span data-feather="menu"></span>
       </button>
@@ -86,7 +86,7 @@
               <li class="nav-item">
                 <a class="nav-link " href="/home">
                   <i data-feather="home"></i>
-                  Home <span class="sr-only">(current)</span>
+                  Rezervimet <span class="sr-only">(current)</span>
                 </a>
               </li>
 
@@ -1845,7 +1845,9 @@
                   <label class="my-1 mr-2" for="inlineFormCustomSelectPref">
                    Dhembet prej {{ tooth}}  deri {{ protezaMbarimi }}  </label>
                 </div>
-                Info : {{information}}
+
+                  Info : {{information}}
+
               </div>
             </div>
               {{/eq}}
@@ -1905,9 +1907,6 @@
                         <span  data-feather="trash" data-placement="top" title="Fshije"  data-toggle="tooltip"></span>
                       </button>
                     </div>
-
-
-
                   <div class="toast-body">
                     <div class="form-inline">
                       <label class="my-1 mr-2" for="inlineFormCustomSelectPref">  {{type}}</label>
@@ -1915,7 +1914,9 @@
                       <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Regjioni : {{region}}</label>
                       {{/if}}
                     </div>
-                    Info : {{information}}
+                    {{#if information}}
+                      Info : {{information}}
+                    {{/if}}
                   </div>
                   </div>
                   {{/eq}}
@@ -2504,7 +2505,7 @@
             </div>
 
             <div class="modal-body">
-              <form action="/tooth/data/pastrimi/{{id}}"  id="pastrim" method="post">
+              <form action="/tooth/data/pastrimi/{{id}}"  id="pastrim{{id}}" method="post">
                 <input type="hidden" name="_csrf" value="{{ csrftoken }}" />
                 <input type="hidden" name="nrAmzes" value="{{nrAmzes}}"  />
               <div class="form-group">
@@ -2520,7 +2521,7 @@
 
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Mbyll</button>
-              <button type="submit  " value="submit" form="pastrim"  class="btn btn-primary">Ruaj të dhënat</button>
+              <button type="submit  " value="submit" form="pastrim{{id}}"  class="btn btn-primary">Ruaj të dhënat</button>
             </div>
           </div>
         </div>
