@@ -91,6 +91,11 @@ if(document.querySelector(".updatePacient")){
 if(document.querySelector(".navbar-toggler")){
  if($('.navbar-toggler').is(':visible'))
         {
+          document.querySelector(".calendar_card").classList.remove("animated");
+          document.querySelector(".calendar_card").classList.remove("fadeInLeft");
+          document.querySelector(".todaysInfo").classList.remove("animated");
+          document.querySelector(".todaysInfo").classList.remove("fadeInRight");
+
             var menus = document.querySelectorAll(".menus");
             menus.forEach(function(i){
                  i.style.display="flex";
@@ -103,6 +108,7 @@ if(document.querySelector(".navbar-toggler")){
             document.querySelector(".navbar-brand").style.background="#343a40";
         }
     else{
+      
         var menus = document.querySelectorAll(".menus");
             menus.forEach(function(i){
                  i.style.display="none";
