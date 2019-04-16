@@ -61,10 +61,10 @@ router.route("/create/reservation")
 				if(Date.parse(stringFormat+" "+i.startTime) == Date.parse(stringFormat+" "+startTime) && Date.parse(stringFormat+" "+i.endTime) == Date.parse(stringFormat+" "+endTime) ){
 					eventExist = true;
 				}
-				else if(Date.parse(stringFormat+" "+startTime) >  Date.parse(stringFormat+" "+i.startTime) &&  Date.parse(stringFormat+" "+startTime) <= Date.parse(stringFormat+" "+i.endTime)){
+				else if(Date.parse(stringFormat+" "+startTime) >  Date.parse(stringFormat+" "+i.startTime) &&  Date.parse(stringFormat+" "+startTime) < Date.parse(stringFormat+" "+i.endTime)){
 					eventExist = true;
 				}
-				else if(Date.parse(stringFormat+" "+endTime) >  Date.parse(stringFormat+" "+i.startTime) &&  Date.parse(stringFormat+" "+endTime) <= Date.parse(stringFormat+" "+i.endTime)){
+				else if(Date.parse(stringFormat+" "+endTime) >  Date.parse(stringFormat+" "+i.startTime) &&  Date.parse(stringFormat+" "+endTime) < Date.parse(stringFormat+" "+i.endTime)){
 					eventExist = true;
 				}
 				else if(Date.parse(stringFormat+" "+startTime) == Date.parse(stringFormat+" "+i.startTime) && Date.parse(stringFormat+" "+endTime) > Date.parse(stringFormat+" "+i.endTime)){

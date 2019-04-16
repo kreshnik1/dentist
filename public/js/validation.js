@@ -46,7 +46,18 @@ if(document.querySelector(".registerButton")){
 
 if(document.querySelector(".createPatient")){
     let createPatient = document.querySelector(".createPatient");
+
+   document.querySelector("input[name='endTime']").addEventListener('keyup', function (event) {
+     if(Date.parse("01/01/2011 "+document.querySelector("input[name='startTime']").value) > Date.parse("01/01/2011 "+document.querySelector("input[name='endTime']").value)) {
+       console.log("Jo"+document.querySelector("input[name='startTime']").value)
+        document.querySelector(".createPatient").disabled=true;
+     } else {
+        console.log("Po"+document.querySelector("input[name='endTime']").value)
+        document.querySelector(".createPatient").disabled=false;
+     }
+  });
     createPatient.addEventListener("click",function(event){
+      console.log("Heyy")
       if(document.querySelector("input[name='amza']").value.length ===0){
       }
       else if(document.querySelector("input[name='amza']").value.length !== 13 || !isANumber(document.querySelector("input[name='amza']").value)){
@@ -108,7 +119,7 @@ if(document.querySelector(".navbar-toggler")){
             document.querySelector(".navbar-brand").style.background="#343a40";
         }
     else{
-      
+
         var menus = document.querySelectorAll(".menus");
             menus.forEach(function(i){
                  i.style.display="none";
