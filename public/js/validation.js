@@ -102,10 +102,12 @@ if(document.querySelector(".updatePacient")){
 if(document.querySelector(".navbar-toggler")){
  if($('.navbar-toggler').is(':visible'))
         {
-          document.querySelector(".calendar_card").classList.remove("animated");
-          document.querySelector(".calendar_card").classList.remove("fadeInLeft");
-          document.querySelector(".todaysInfo").classList.remove("animated");
-          document.querySelector(".todaysInfo").classList.remove("fadeInRight");
+          if(document.querySelector(".calendar_card")){
+            document.querySelector(".calendar_card").classList.remove("animated");
+            document.querySelector(".calendar_card").classList.remove("fadeInLeft");
+            document.querySelector(".todaysInfo").classList.remove("animated");
+            document.querySelector(".todaysInfo").classList.remove("fadeInRight");
+          }
 
             var menus = document.querySelectorAll(".menus");
             menus.forEach(function(i){
