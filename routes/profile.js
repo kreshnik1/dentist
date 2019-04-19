@@ -57,6 +57,7 @@ router.route('/home/profile/:id')
 
 .post(function (request, response,next) {
 		//get the data that user wrote to update his/her snippet
+
 		let name = request.body.name;
 		let surname = request.body.surname;
 		let username = request.body.username;
@@ -67,6 +68,7 @@ router.route('/home/profile/:id')
 
 		//finding the user with that id and update it
 		Users.findOneAndUpdate({_id: request.params.id}, {
+			username:username,
 			name: name,
 			surname: surname,
 			username:username,
@@ -82,7 +84,7 @@ router.route('/home/profile/:id')
 
 				request.session.flash = {
 				  type: 'success',
-				  message: 'Your profile was updated successfully'
+				  message: 'Profili juaj eshte ndryshuar me sukses'
 				}
 
 				response.redirect('/home/profile/'+request.params.id)
@@ -118,7 +120,7 @@ router.route('/home/profile/password/:id')
 			}
 			request.session.flash = {
 			  type: 'success',
-			  message: 'Your password was changed successfully'
+			  message: 'Fjalëkalimi u ndryshua me sukses'
 			}
 
              bcrypt.compare(oldpassword, user.password, function (err, result) {
@@ -130,14 +132,14 @@ router.route('/home/profile/password/:id')
                             }
                             request.session.flash = {
                                 type: 'success',
-                                message: 'your password was changed successfully'
+                                message: 'Fjalëkalimi u ndryshua me sukses'
                             }
                             response.redirect('/home/profile/'+request.params.id)
                         });
                     } else {
                         request.session.flash = {
                             type: 'error',
-                            message:"Your new password and re-password doesn't match"
+                            message:"Fjalëkalimi dhe ri-fjalëkalimi i ri nuk përputhen"
                         }
                         response.redirect('/home/profile/'+request.params.id)
                     }
@@ -145,7 +147,7 @@ router.route('/home/profile/password/:id')
                  } else {
                      request.session.flash = {
                       type: 'error',
-                      message: 'Your old password was incorrect , please try again'
+                      message: 'Fjalëkalimi i vjetër ishte gabim , ju lutem provojeni përsëri'
                      }
                     return 	response.redirect('/home/profile/'+request.params.id)
                  }
