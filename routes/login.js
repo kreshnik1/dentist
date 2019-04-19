@@ -52,7 +52,7 @@ router.route("/")
 			  } else {
 				   request.session.flash = {
 					type: "success",
-					message: "Welcome "+username
+					message: "Mirëseerdhët "+username
 			 	  	};
 				request.session.userId = user._id;
 				return response.redirect('/home');

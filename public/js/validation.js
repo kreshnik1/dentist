@@ -48,7 +48,7 @@ if(document.querySelector(".createPatient")){
     let createPatient = document.querySelector(".createPatient");
 
    document.querySelector("input[name='endTime']").addEventListener('keyup', function (event) {
-     if(Date.parse("01/01/2011 "+document.querySelector("input[name='startTime']").value) > Date.parse("01/01/2011 "+document.querySelector("input[name='endTime']").value)) {
+     if(Date.parse("01/01/2011 "+document.querySelector("input[name='startTime']").value) > Date.parse("01/01/2011 "+document.querySelector("input[name='endTime']").value) || Date.parse("01/01/2011 "+document.querySelector("input[name='startTime']").value) === Date.parse("01/01/2011 "+document.querySelector("input[name='endTime']").value) ) {
        console.log("Jo"+document.querySelector("input[name='startTime']").value)
         document.querySelector(".createPatient").disabled=true;
      } else {
@@ -204,7 +204,7 @@ if(document.querySelector(".passwordButton")){
         if(newpassword.value!==repassword.value){
             event.preventDefault();
             repassword.setAttribute("class","form-control is-invalid")
-            document.querySelector(".repassword_feedback").innerHTML="new password and re-password do not match";
+            document.querySelector(".repassword_feedback").innerHTML="Fjalëkalimi dhe ri-fjalëkalimi i ri nuk përputhen";
         }
         else{
             document.querySelector("#hidden_loading").id="loading";
