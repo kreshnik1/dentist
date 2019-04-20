@@ -2,7 +2,6 @@ $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
 
-
 function isANumber(str){
   return !/\D/.test(str);
 }
