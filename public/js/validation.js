@@ -314,7 +314,6 @@ if(document.querySelector(".proteza")){
 
 }
 
-
 /*
 for(let i=21 ; i <= 28 ; i++){
   $('.tooth-'+i).mouseover(function(){
@@ -721,40 +720,6 @@ if(document.querySelector('.updatedate')){
   $('.datetimepicker').datepicker().data('datepicker').selectDate(new Date(date));
 })
 }
-/*
-if(document.querySelector('.type')){
-  var list = new Array();
-  var list1 = new Array();
-  document.querySelectorAll(".type").forEach(function(i){
-    list.push((i.getAttribute('id')));
-  })
-  document.querySelectorAll(".toothRegion1").forEach(function(i){
-    list1.push(i.getAttribute('id'));
-  })
-  document.querySelectorAll(".toothRegion2").forEach(function(i){
-    list1.push(i.getAttribute('id'));
-  })
-
-  list.forEach(function(i,index){
-    var source1 = document.getElementById(""+i.toString());
-    var target1 = document.getElementById(""+list1[index].toString());
-    console.log(target1);
-    function display() {
-        var selectedIndex = source1.selectedIndex;
-        console.log(source1[selectedIndex].value);
-        if (source1[selectedIndex].value === "Mbushje") {
-            target1.classList.remove("toothRegion1");
-
-        } else {
-            target1.classList.add("toothRegion1");
-        }
-    }
-    source1.addEventListener("change", function () {
-        display();
-    }, false);
-  })
-}
-*/
 
 
 if(document.querySelector("#protezaSiper11")){
