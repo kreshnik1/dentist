@@ -11,14 +11,14 @@
           <li class="nav-item menus">
                         <a class="nav-link " href="/home">
                             <span data-feather="home"></span>
-                            Home <span class="sr-only">(current)</span>
+                            Rezervimet <span class="sr-only">(current)</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <form class="form-inline mt-2 mt-md-0" action="/home/search"  method="get">
                             <input type="hidden"  name="_csrf" value="{{ csrftoken }}" />
-                            <input type="text" size="30" name="search" class="form-control mr-sm-2" type="search" placeholder="Search by name or surname" aria-label="Search">
+                            <input type="text" size="30" name="search" class="form-control mr-sm-2" type="search" placeholder="Kërko sipas emrit ose mbiemrit" aria-label="Search">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         </form>
                     </li>
@@ -27,9 +27,9 @@
                                     <i data-feather="user"></i>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="/home/profile/{{this.user_id}}" class="dropdownlinks"><button class="dropdown-item" type="button">My profile</button></a>
+                                    <a href="/home/profile/{{this.user_id}}" class="dropdownlinks"><button class="dropdown-item" type="button">Profili im</button></a>
                                     <div class="dropdown-divider"></div>
-                                    <a href="/logout" class="dropdownlinks"><button class="dropdown-item" type="button">Sign out</button></a>
+                                    <a href="/logout" class="dropdownlinks"><button class="dropdown-item" type="button">Log out</button></a>
                                 </div>
                     </li>
           </ul>
@@ -42,9 +42,9 @@
                 <i data-feather="user"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-                <a href="/home/profile/{{user_id}}" class="dropdownlinks"><button class="dropdown-item" type="button">My profile</button></a>
+                <a href="/home/profile/{{user_id}}" class="dropdownlinks"><button class="dropdown-item" type="button">Profili im</button></a>
                 <div class="dropdown-divider"></div>
-                <a href="/logout" class="dropdownlinks"><button class="dropdown-item" type="button">Sign out</button></a>
+                <a href="/logout" class="dropdownlinks"><button class="dropdown-item" type="button">Log out</button></a>
             </div>
         </div>
     </div>
@@ -58,7 +58,7 @@
                     <li class="nav-item">
                         <a class="nav-link " href="/home">
                             <i data-feather="home"></i>
-                            Home <span class="sr-only">(current)</span>
+                            Rezervimet <span class="sr-only">(current)</span>
                         </a>
                     </li>
 
@@ -85,10 +85,10 @@
             {{>flash}}
 
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
-                <h3>Search Results</h3>
+                <h3>Rezultatet e kërkimit</h3>
             </div>
-            <p class="search_query">results found containing <strong>{{this.search_query}}</strong></p>
-            <p class="result_length"><strong>{{todos.length}}</strong> results</p>
+            <p class="search_query">rezultatet e gjetura që përmbajnë <strong>{{this.search_query}}</strong></p>
+            <p class="result_length"><strong>{{todos.length}}</strong> rezultate</p>
             <div class="nav nav-tabs" id="myTab" role="tablist">
 			</div>
             <div class="tab-content" id="myTabContent">
@@ -103,10 +103,10 @@
                           </div>
 
                           <p class="mb-1">
-                            <span class="badge badge-light">Date : {{this.createdAt}}</span>
-                            <span class="badge badge-light">Time : {{this.startTime}} - {{this.endTime}}</span>
-                            <span class="badge badge-light">  Phone : {{this.phoneNumber}}</span>
-                            <span class="badge badge-light">address : {{this.address}}</span>
+                            <span class="badge badge-light">Data : {{this.createdAt}}</span>
+                            <span class="badge badge-light">Koha : {{this.startTime}} - {{this.endTime}}</span>
+                            <span class="badge badge-light">Tel : {{this.phoneNumber}}</span>
+                            <span class="badge badge-light">adresa : {{this.address}}</span>
                           </p>
                         </a>
                       </div>
