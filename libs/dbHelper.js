@@ -5,6 +5,7 @@ module.exports = {
     initilize : function() {
       // reed db Configuration
       let dbConfig = require("../config/database.js");
+      // Connect to the database.
       let db = mongoose.connection;
 
       // mayby should remove out from this file - EventEmitters?
@@ -20,8 +21,8 @@ module.exports = {
                console.log("Mongoose connection disconnected through app termination.");
               process.exit(0);
           });
-      });	
-      // Connect to the database.
-      mongoose.connect(dbConfig.connectionString,{useMongoClient:true});
+      });
+      mongoose.connect(dbConfig.connectionString,{useMongoClient: true});
+
     }
 };
