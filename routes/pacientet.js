@@ -379,8 +379,12 @@ router.route("/pacientet/tooth/delete/:id")
   router.route("/pacientet/tooth/update/:id")
   .post(function(request, response,next) {
     let information = request.body.information;
-
-    Tooth.findOneAndUpdate({_id: request.params.id},{information:information},{returnNewDocument:true}, function(error,data) {
+    let region = "";
+    if(request.body.type === "Mbushje"){
+      region = request.body.region1;
+    }
+    console.log(request.body.region1);
+    Tooth.findOneAndUpdate({_id: request.params.id},{information:information,region:region},{returnNewDocument:true}, function(error,data) {
             if(error) {
             	let errors = {
   				      status:"404",
