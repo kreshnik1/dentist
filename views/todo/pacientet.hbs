@@ -2135,11 +2135,7 @@
                             <div class="form-group toothRegion2 " id="toothRegion{{_id}}">
 
                             <label for="exampleFormControlSelect1">Regjioni</label>
-                            {{else}}
-                            <div class="form-group toothRegion1" id="toothRegion{{_id}}">
 
-                            <label for="exampleFormControlSelect1">Regjioni</label>
-                          {{/eq}}
                               <select class="form-control" name="region1">
                                 {{#eq region compare="1"}}
                                   <option selected>1</option>
@@ -2169,6 +2165,9 @@
 
                               </select>
                           </div>
+                          {{else}}
+
+                        {{/eq}}
                           <div class="form-group">
                             <label for="exampleFormControlTextarea1">Information : </label>
                             <textarea class="form-control" name="information" id="exampleFormControlTextarea1" rows="3"  >{{information}}</textarea>

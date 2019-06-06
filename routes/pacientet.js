@@ -380,10 +380,10 @@ router.route("/pacientet/tooth/delete/:id")
   .post(function(request, response,next) {
     let information = request.body.information;
     let region = "";
-    if(request.body.type === "Mbushje"){
+    if(request.body.region1){
+      console.log("Hey")
       region = request.body.region1;
     }
-    console.log(request.body.region1);
     Tooth.findOneAndUpdate({_id: request.params.id},{information:information,region:region},{returnNewDocument:true}, function(error,data) {
             if(error) {
             	let errors = {
