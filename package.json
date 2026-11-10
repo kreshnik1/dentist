@@ -1,22 +1,14 @@
 {
-  "name": "package",
+  "name": "dentist-clinic-app",
   "version": "1.0.0",
-  "description": "package",
-  "main": "index.js",
+  "description": "Web application for managing a dental clinic: patients, appointments and dental charts.",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/1dv523/ka222sd-examination-2.git"
+    "start": "node server.js",
+    "generate-ssl": "bash dev-script/generate-ssl.sh"
   },
   "author": "Kreshnik",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/1dv523/ka222sd-examination-2/issues"
-  },
-  "homepage": "https://github.com/1dv523/ka222sd-examination-2#readme",
   "dependencies": {
     "air-datepicker": "^2.2.3",
     "bcryptjs": "^2.4.3",

@@ -1,5 +1,7 @@
 "use strict";
 
+require("dotenv").config();
+
 let express      = require("express");
 let bodyParser   = require("body-parser");
 let exphbs       = require("express-handlebars");
@@ -17,7 +19,6 @@ var xssFilter = require('x-xss-protection')
 var csrf = require('csurf')
 var csp = require('helmet-csp')
 var helpers = require('handlebars-helpers')();
-require('dotenv').config()
 
 // Configuration ----------------------------------------------------
 
@@ -39,7 +40,7 @@ app.use(bodyParser.urlencoded({ limit: '10mb',extended: true }));
 
 app.use(session({
     key: "sessionid",  // Don't use default session cookie name.
-    secret: "#$@!%%^#/2314asd3#@2sz#dsadbhkd", // should be kept secret
+    secret: process.env.SESSION_SECRET, // loaded from .env, never committed
     saveUninitialized: false, // save/or not save a created but not modified session
     resave: false, // resave even if a request is not changing the session
     cookie: {
